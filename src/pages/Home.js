@@ -13,6 +13,12 @@ export default class Home extends Component {
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <li>
+              <Link to="/permainan">Permainan</Link>
+            </li>
+            <li>
+              <Link to="/gameplay">GamePlay</Link>
+            </li>
           </ul>
         </nav>
         <div className="container-fluid ">
