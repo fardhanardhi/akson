@@ -10,6 +10,9 @@ export default class Home extends Component {
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <li>
+              <Link to="/permainan">Permainan</Link>
+            </li>
           </ul>
         </nav>
         <h2>Home</h2>
