@@ -13,6 +13,9 @@ export default class Home extends Component {
             <li>
               <Link to="/permainan">Permainan</Link>
             </li>
+            <li>
+              <Link to="/gameplay">GamePlay</Link>
+            </li>
           </ul>
         </nav>
         <h2>Home</h2>
