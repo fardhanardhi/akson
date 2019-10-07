@@ -5,54 +5,54 @@ export default class MenuGame extends Component {
     return (
       <div>
         <div style={style.kotakDepan}>
-          <div class="container">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-3">
+          <div className="container">
+            <div className="col-md-12">
+              <div className="row">
+                <div className="col-md-3">
                   <div style={style.bening}></div>
                 </div>
-                <div class="col-md-6" style={style.fontJudul}>
+                <div className="col-md-6" style={style.fontJudul}>
                   <h2>Hai, User</h2>
                 </div>
-                <div class="col-md-3"></div>
+                <div className="col-md-3"></div>
               </div>
             </div>
           </div>
           <div style={style.kotakMain}>
-            <div class="container">
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-3"></div>
-                  <div class="col-md-6 ml-3" style={style.fontLain}>
+            <div className="container">
+              <div className="col-md-12">
+                <div className="row">
+                  <div className="col-md-3"></div>
+                  <div className="col-md-6 ml-3" style={style.fontLain}>
                     MAIN
                   </div>
-                  <div class="col-md-3"></div>
+                  <div className="col-md-3"></div>
                 </div>
               </div>
             </div>
           </div>
           <div style={style.kotakLain}>
-            <div class="container">
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-3"></div>
-                  <div class="col-md-6" style={style.fontLain}>
+            <div className="container">
+              <div className="col-md-12">
+                <div className="row">
+                  <div className="col-md-3"></div>
+                  <div className="col-md-6" style={style.fontLain}>
                     STATISTIK
                   </div>
-                  <div class="col-md-3"></div>
+                  <div className="col-md-3"></div>
                 </div>
               </div>
             </div>
           </div>
           <div style={style.kotakLain}>
-            <div class="container">
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-3"></div>
-                  <div class="col-md-6 ml-2" style={style.fontLain}>
+            <div className="container">
+              <div className="col-md-12">
+                <div className="row">
+                  <div className="col-md-3"></div>
+                  <div className="col-md-6 ml-2" style={style.fontLain}>
                     KELUAR
                   </div>
-                  <div class="col-md-3"></div>
+                  <div className="col-md-3"></div>
                 </div>
               </div>
             </div>
