@@ -42,8 +42,6 @@ export default class Login extends Component {
                           <img src={Gloss} alt="RH" style={style.glossStyle}/>
                         </div>
                         
-                        
-
                         <h2 className="p-3" style={{color: "#FFFFFF"}}>LOGIN</h2>
                         <div className="row">
                           <div className="col"></div>

@@ -19,6 +19,9 @@ export default class Home extends Component {
             <li>
               <Link to="/gameplay">GamePlay</Link>
             </li>
+            <li>
+              <Link to="/Menu">Menu</Link>
+            </li>
           </ul>
         </nav>
         <div className="container-fluid ">
