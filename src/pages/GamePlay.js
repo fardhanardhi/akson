@@ -10,6 +10,7 @@ import Prism from "../components/Prism";
 import Cuboid from "../components/Cuboid";
 import Cube from "../components/Cube";
 import HexagonalPrism from "../components/HexagonalPrism";
+import GameHeader from "../components/GameHeader";
 import Love from "../components/Love";
 import Rectangular from "../components/Rectangular";
 import Circle from "../components/Circle";
@@ -47,7 +48,8 @@ export default class GamePlay extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container-fluid p-0">
+        <GameHeader />
         <nav>
           <ul>
             <li>
@@ -72,13 +74,13 @@ export default class GamePlay extends Component {
         <Cube color={this.getRandomColors()} />
         <Cuboid color={this.getRandomColors()} />
         <HexagonalPrism color={this.getRandomColors()} />
-        <Love color={this.getRandomColors()}/>
-        <Rectangular color={this.getRandomColors()}/>
-        <Circle color={this.getRandomColors()}/>
-        <Hexagon color={this.getRandomColors()}/>
-        <Parallelogram color={this.getRandomColors()}/>
-        <Stars color={this.getRandomColors()}/>
-        <Polygon color={this.getRandomColors()}/>
+        <Love color={this.getRandomColors()} />
+        <Rectangular color={this.getRandomColors()} />
+        <Circle color={this.getRandomColors()} />
+        <Hexagon color={this.getRandomColors()} />
+        <Parallelogram color={this.getRandomColors()} />
+        <Stars color={this.getRandomColors()} />
+        <Polygon color={this.getRandomColors()} />
       </div>
     );
   }
