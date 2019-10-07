@@ -9,26 +9,20 @@ export default class ExitGameConfirm extends Component {
         <div className="mt-4 ml-4" style={styles.tulisanSatu}>
           <p>Mencocokkan objek</p>
         </div>
-        <div className="container">
-            <div className="col-md-12">
-                <div className="row">
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4">
-                        <p style={styles.tulisanDua}>Temukan objek yang berpasangan</p>
-                    </div>
-                    <div className="col-md-4"></div>
-                </div>
-            </div>
+        <div className="ml-5" style={styles.tulisanDua}>
+            <p>Temukan objek yang berpasangan</p>
         </div>
-        
         <div className="container">
             <div className="col-md-12">
                 <div className="row">
-                    <div className="col-md-4"></div>
                     <div className="col-md-4">
-                        <image src={icon}></image>
                     </div>
-                    <div className="col-md-4"></div>
+                    <div className="col-md-4">
+                        <image src={icon}>
+                        </image>
+                    </div>
+                    <div className="col-md-4">
+                    </div>
                 </div>
             </div>
         </div>

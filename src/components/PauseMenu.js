@@ -12,7 +12,7 @@ export default class PauseMenu extends Component {
             Mencocokkan objek
           </div>
           <div className="ml-5" style={style.tulisanDua}>
-            Temukan objek yang berpasangan
+            Temukan objek yang berpasangan ye
           </div>
           <div className="mt-4 mr-5">
             <div className="container">
