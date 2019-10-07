@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Permainan from "../pages/Permainan";
 import GamePlay from "../pages/GamePlay";
+import Statistics from "../pages/Statistics";
 
 export default function Routes() {
   return (
@@ -18,6 +19,9 @@ export default function Routes() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/statistics">
+            <Statistics />
           </Route>
           <Route path="/">
             <Home />
