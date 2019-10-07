@@ -1,5 +1,7 @@
 import React from "react";
 import pauseIcon from "../assets/icons/pause.svg";
+import medalIcon from "../assets/icons/medal.svg";
+import stopwatchIcon from "../assets/icons/stopwatch.svg";
 
 export default function GameHeader() {
   return (
@@ -9,15 +11,21 @@ export default function GameHeader() {
     >
       <div className="col-auto">
         <div className="row">
-          <img src={pauseIcon} alt="pause icon" />
-          <h2 style={styles.gameTitle}>Mencocokan Objek</h2>
+          <img src={pauseIcon} alt="pause" className="mr-5" />
+          <h2 style={styles.gameTitle}>Mencocokkan Objek</h2>
         </div>
       </div>
       <div className="col"></div>
       <div className="col-auto">
         <div className="row">
-          <img src={pauseIcon} alt="pauseIcon" />
-          <h2 style={styles.gameTitle}>Mencocokan Objek</h2>
+          <h2 style={styles.gameTitle} className="mr-2">
+            10
+          </h2>
+          <img src={medalIcon} alt="medal" className="mr-4" />
+          <h2 style={styles.gameTitle} className="mr-2">
+            40
+          </h2>
+          <img src={stopwatchIcon} alt="stopwatch" className="mb-1" />
         </div>
       </div>
     </div>
