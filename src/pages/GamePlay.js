@@ -28,7 +28,7 @@ export default class GamePlay extends Component {
         />
         <div
           className="d-flex justify-content-center align-items-center"
-          style={{ height: "70%" }}
+          style={{ height: "85%" }}
         >
           <FindThePairs />
         </div>
