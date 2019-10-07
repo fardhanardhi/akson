@@ -19,16 +19,27 @@ export default class GamePlay extends Component {
 
   render() {
     return (
-      <div className="container-fluid p-0">
+      <div className="container-fluid p-0" style={styles.wrapper}>
         <GameHeader
           score={this.state.score}
           onTimeOut={() => alert("Time Out")}
           paused={this.state.paused}
           onPause={this.onPause}
         />
-
-        <FindThePairs />
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "70%" }}
+        >
+          <FindThePairs />
+        </div>
       </div>
     );
   }
 }
+
+const styles = {
+  wrapper: {
+    backgroundColor: "#FFEBD2",
+    height: "100vh"
+  }
+};

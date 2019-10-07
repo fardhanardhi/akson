@@ -66,8 +66,8 @@ export default class FindThePairs extends Component {
 
   render() {
     return (
-      <div className="container text-center">
-        <div className="row mt-5">
+      <div className="container text-center m-0 p-0">
+        <div className="row">
           {this.state.choices.map((item, index) => {
             if (index < 4) {
               return (
