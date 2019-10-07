@@ -12,20 +12,26 @@ export default class PauseMenu extends Component {
             Mencocokkan objek
           </div>
           <div className="ml-5" style={style.tulisanDua}>
-            Temukan objek yang berpasangan
+            <div className="container">
+              <div className="col-md-12">
+                <div className="row" styles={style.tulisanDua}>
+                  Temukan objek yang berpasangan
+                </div>
+              </div>
+            </div>
           </div>
           <div className="mt-4 mr-5">
             <div className="container">
               <div className="col-md-12">
                 <div className="row">
                   <div className="col-md-4">
-                    <image src={Play}></image>
+                    <img src={Play} alt="Play"></img>
                   </div>
                   <div className="col-md-4">
-                    <image src={Restart}></image>
+                    <img src={Restart} alt="Restart"></img>
                   </div>
                   <div className="col-md-4">
-                    <image src={X}></image>
+                    <img src={X} alt="X"></img>
                   </div>
                 </div>
               </div>
@@ -59,12 +65,5 @@ const style = {
   tulisanDua: {
     fontFamily: "Roboto",
     fontSize: "18px"
-  },
-
-  position: {
-      // marginLeft:"auto",
-      // marginRight:"auto",
-      // padding:"auto"
   }
-
 };
