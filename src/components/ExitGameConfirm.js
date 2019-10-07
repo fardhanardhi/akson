@@ -80,6 +80,7 @@ const styles = {
   },
 
   gambar: {
+    marginTop: "10px",
     marginLeft: "10px"
   }
 
