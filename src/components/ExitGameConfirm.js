@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import icon from "../assets/icon.svg"
-
+import icon from "../assets/icon.svg";
 
 export default class ExitGameConfirm extends Component {
   render() {
@@ -10,27 +9,24 @@ export default class ExitGameConfirm extends Component {
           <p>Mencocokkan objek</p>
         </div>
         <div className="ml-5">
-            <div className="container">
-                <div className="col-md-12">
-                    <div className="row" styles={styles.tulisanDua}>
-                       Temukan objek yang berpasangan
-                    </div>
-                </div>
+          <div className="container">
+            <div className="col-md-12">
+              <div className="row" styles={styles.tulisanDua}>
+                Temukan objek yang berpasangan
+              </div>
             </div>
+          </div>
         </div>
         <div className="container">
-            <div className="col-md-12">
-                <div className="row">
-                    <div className="col-md-4">
-                    </div>
-                    <div className="col-md-4">
-                        <image src={icon}>
-                        </image>
-                    </div>
-                    <div className="col-md-4">
-                    </div>
-                </div>
+          <div className="col-md-12">
+            <div className="row">
+              <div className="col-md-4"></div>
+              <div className="col-md-4">
+                <img src={icon} alt="icon"></img>
+              </div>
+              <div className="col-md-4"></div>
             </div>
+          </div>
         </div>
       </div>
     );
