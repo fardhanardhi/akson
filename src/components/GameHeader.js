@@ -9,14 +9,14 @@ export default function GameHeader() {
     >
       <div className="col-auto">
         <div className="row">
-          <img src={pauseIcon} />
+          <img src={pauseIcon} alt="pause icon" />
           <h2 style={styles.gameTitle}>Mencocokan Objek</h2>
         </div>
       </div>
       <div className="col"></div>
       <div className="col-auto">
         <div className="row">
-          <img src={pauseIcon} />
+          <img src={pauseIcon} alt="pauseIcon" />
           <h2 style={styles.gameTitle}>Mencocokan Objek</h2>
         </div>
       </div>
