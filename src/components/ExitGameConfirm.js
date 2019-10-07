@@ -9,8 +9,14 @@ export default class ExitGameConfirm extends Component {
         <div className="mt-4 ml-4" style={styles.tulisanSatu}>
           <p>Mencocokkan objek</p>
         </div>
-        <div className="ml-5" style={styles.tulisanDua}>
-            <p>Temukan objek yang berpasangan</p>
+        <div className="ml-5">
+            <div className="container">
+                <div className="col-md-12">
+                    <div className="row" styles={styles.tulisanDua}>
+                       Temukan objek yang berpasangan
+                    </div>
+                </div>
+            </div>
         </div>
         <div className="container">
             <div className="col-md-12">

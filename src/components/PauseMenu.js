@@ -12,7 +12,13 @@ export default class PauseMenu extends Component {
             Mencocokkan objek
           </div>
           <div className="ml-5" style={style.tulisanDua}>
-            Temukan objek yang berpasangan ye
+            <div className="container">
+                <div className="col-md-12">
+                    <div className="row" styles={style.tulisanDua}>
+                       Temukan objek yang berpasangan
+                    </div>
+                </div>
+            </div>
           </div>
           <div className="mt-4 mr-5">
             <div className="container">

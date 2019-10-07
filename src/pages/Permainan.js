@@ -5,13 +5,12 @@ import ExitGameConfirm from "../components/ExitGameConfirm";
 export default class Permainan extends Component {
   render() {
     return (
-        //  <div className="d-flex justify-content-center" style={styles}>
-        //      <PauseMenu/>
-        //  </div>
+         <div className="d-flex justify-content-center" style={styles}>
+             <PauseMenu/>
+             <ExitGameConfirm/>
+         </div>
 
-      <div className="d-flex justify-content-center" style={styles}>
-        <ExitGameConfirm />
-      </div>
+      
     );
   }
 }
