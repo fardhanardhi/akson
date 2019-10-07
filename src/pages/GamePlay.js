@@ -10,6 +10,7 @@ import Prism from "../components/Prism";
 import Cuboid from "../components/Cuboid";
 import Cube from "../components/Cube";
 import HexagonalPrism from "../components/HexagonalPrism";
+import GameHeader from "../components/GameHeader";
 
 export default class GamePlay extends Component {
   state = {
@@ -40,7 +41,8 @@ export default class GamePlay extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container-fluid p-0">
+        <GameHeader />
         <nav>
           <ul>
             <li>
