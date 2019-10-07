@@ -32,7 +32,6 @@ export default class Permainan extends Component {
 }
 
 const styles = {
-  // minHeight: '100%',
   minHeight: "100vh",
   display: "flex",
   alignItems: "center"
