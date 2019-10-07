@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import icon from "../assets/icon.svg";
+import X from "../assets/x.svg";
+import Check from "../assets/check.svg";
+
 
 export default class ExitGameConfirm extends Component {
   render() {
@@ -8,16 +11,10 @@ export default class ExitGameConfirm extends Component {
         <div className="mt-4 ml-4" style={styles.tulisanSatu}>
           <p>Mencocokkan objek</p>
         </div>
-        <div className="ml-5">
-          <div className="container">
-            <div className="col-md-12">
-              <div className="row" styles={styles.tulisanDua}>
-                Temukan objek yang berpasangan
-              </div>
-            </div>
-          </div>
+        <div style={styles.tulisanDua}>
+            Temukan objek yang berpasangan
         </div>
-        <div className="container">
+        <div className="container mt-4">
           <div className="col-md-12">
             <div className="row">
               <div className="col-md-4"></div>
@@ -27,6 +24,22 @@ export default class ExitGameConfirm extends Component {
               <div className="col-md-4"></div>
             </div>
           </div>
+        </div>
+        <div style={styles.tulisanDua, styles.tulisanTiga}>
+            Apakah kamu yakin mengakhiri game ini ?
+        </div>
+        <div className="container" style={styles.gambar}>
+            <div className="col-md-12">
+                <div className="row">
+                    <div className="col-md-5">
+                        <img src={Check}></img>
+                    </div>
+                    <div className="col-md-2"></div>
+                    <div className="col-md-5">
+                        <img src={X}></img>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     );
@@ -54,6 +67,21 @@ const styles = {
 
   tulisanDua: {
     fontFamily: "Roboto",
-    fontSize: "18px"
+    fontSize: "18px",
+    marginTop:"5px",
+    marginLeft: "60px"
+  },
+
+  tulisanTiga: {
+    fontFamily: "Roboto",
+    fontSize: "18px",
+    marginTop: "10px",  
+    marginLeft: "40px"
+  },
+
+  gambar: {
+    marginTop: "10px",
+    marginLeft: "10px"
   }
+
 };
