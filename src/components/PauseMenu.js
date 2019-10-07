@@ -59,12 +59,5 @@ const style = {
   tulisanDua: {
     fontFamily: "Roboto",
     fontSize: "18px"
-  },
-
-  position: {
-      // marginLeft:"auto",
-      // marginRight:"auto",
-      // padding:"auto"
   }
-
 };
