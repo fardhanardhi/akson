@@ -11,6 +11,13 @@ import Cuboid from "../components/Cuboid";
 import Cube from "../components/Cube";
 import HexagonalPrism from "../components/HexagonalPrism";
 import GameHeader from "../components/GameHeader";
+import Love from "../components/Love";
+import Rectangular from "../components/Rectangular";
+import Circle from "../components/Circle";
+import Hexagon from "../components/Hexagon";
+import Parallelogram from "../components/Parallelogram";
+import Stars from "../components/Stars";
+import Polygon from "../components/Polygon";
 
 export default class GamePlay extends Component {
   state = {
@@ -67,6 +74,13 @@ export default class GamePlay extends Component {
         <Cube color={this.getRandomColors()} />
         <Cuboid color={this.getRandomColors()} />
         <HexagonalPrism color={this.getRandomColors()} />
+        <Love color={this.getRandomColors()} />
+        <Rectangular color={this.getRandomColors()} />
+        <Circle color={this.getRandomColors()} />
+        <Hexagon color={this.getRandomColors()} />
+        <Parallelogram color={this.getRandomColors()} />
+        <Stars color={this.getRandomColors()} />
+        <Polygon color={this.getRandomColors()} />
       </div>
     );
   }

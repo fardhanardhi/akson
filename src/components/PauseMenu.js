@@ -6,7 +6,7 @@ import X from "../assets/x.svg";
 export default class PauseMenu extends Component {
   render() {
     return (
-      <div>
+      <div style={style.position}>
         <div style={style.shape}>
           <div className="mt-4 ml-4" style={style.tulisanSatu}>
             Mencocokkan objek
@@ -59,5 +59,12 @@ const style = {
   tulisanDua: {
     fontFamily: "Roboto",
     fontSize: "18px"
+  },
+
+  position: {
+      // marginLeft:"auto",
+      // marginRight:"auto",
+      // padding:"auto"
   }
+
 };
