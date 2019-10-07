@@ -5,12 +5,16 @@ import Home from "../pages/Home";
 import Permainan from "../pages/Permainan";
 import GamePlay from "../pages/GamePlay";
 import Statistics from "../pages/Statistics";
+import Menu from "../pages/Menu";
 
 export default function Routes() {
   return (
     <Router>
       <div>
         <Switch>
+          <Route path="/Menu">
+            <Menu />
+          </Route>
           <Route path="/gameplay">
             <GamePlay />
           </Route>

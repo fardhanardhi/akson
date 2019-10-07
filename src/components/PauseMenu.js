@@ -1,37 +1,59 @@
-import React, { Component } from "react";
+import React from "react";
 import Play from "../assets/play.svg";
 import Restart from "../assets/restart.svg";
 import X from "../assets/x.svg";
 
-export default class PauseMenu extends Component {
-  render() {
-    return (
-      <div style={style.position}>
-        <div style={style.shape}>
-          <div className="mt-4 ml-4" style={style.tulisanSatu}>
-            Mencocokkan objek
-          </div>
-          <div className="ml-5" style={style.tulisanDua}>
-            <div className="container">
-              <div className="col-md-12">
-                <div className="row" styles={style.tulisanDua}>
-                  Temukan objek yang berpasangan
+export default function PauseMenu(props) {
+  return (
+    <div
+      onClick={props.hide}
+      className="container-fluid justify-content-center"
+      style={{
+        opacity: props.show ? "1" : "0",
+        transition: "all .8s",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        position: "absolute",
+        height: "100vh",
+        pointerEvents: props.show ? "auto" : "none",
+        display: "flex",
+        alignItems: "center",
+        zIndex: 1
+      }}
+    >
+      <div>
+        <div
+          style={{
+            transform: props.show ? "translateY(0vh)" : "translateY(-100vh)",
+            opacity: props.show ? "1" : "0",
+            transition: "all .8s"
+          }}
+        >
+          <div style={style.shape}>
+            <div className="mt-4 ml-4" style={style.tulisanSatu}>
+              Mencocokkan objek
+            </div>
+            <div className="ml-5" style={style.tulisanDua}>
+              <div className="container">
+                <div className="col-md-12">
+                  <div className="row" styles={style.tulisanDua}>
+                    Temukan objek yang berpasangan
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="mt-4 mr-5">
-            <div className="container">
-              <div className="col-md-12">
-                <div className="row">
-                  <div className="col-md-4">
-                    <img src={Play} alt="Play"></img>
-                  </div>
-                  <div className="col-md-4">
-                    <img src={Restart} alt="Restart"></img>
-                  </div>
-                  <div className="col-md-4">
-                    <img src={X} alt="X"></img>
+            <div className="mt-4 mr-5">
+              <div className="container">
+                <div className="col-md-12">
+                  <div className="row">
+                    <div className="col-md-4">
+                      <img src={Play} alt="Play"></img>
+                    </div>
+                    <div className="col-md-4">
+                      <img src={Restart} alt="Restart"></img>
+                    </div>
+                    <div className="col-md-4">
+                      <img src={X} alt="X"></img>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -39,11 +61,14 @@ export default class PauseMenu extends Component {
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const style = {
+  wrapper: {
+    position: "absolute"
+  },
   shape: {
     width: "511px",
     height: "283px",

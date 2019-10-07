@@ -20,7 +20,10 @@ export default class Home extends Component {
               <Link to="/gameplay">GamePlay</Link>
             </li>
             <li>
-              <Link to="/statistics">Statistic</Link>
+              <Link to="/Menu">Menu</Link>
+            </li>
+            <li>
+            <Link to="/statistics">Statistic</Link>
             </li>
           </ul>
         </nav>
