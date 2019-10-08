@@ -1,87 +1,59 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-import Sphere from "../components/Sphere";
-import Cone from "../components/Cone";
-import UglyPyramid from "../components/UglyPyramid";
-import Pyramid from "../components/Pyramid";
-import Cylinder from "../components/Cylinder";
-import Prism from "../components/Prism";
-import Cuboid from "../components/Cuboid";
-import Cube from "../components/Cube";
-import HexagonalPrism from "../components/HexagonalPrism";
 import GameHeader from "../components/GameHeader";
-import Love from "../components/Love";
-import Rectangular from "../components/Rectangular";
-import Circle from "../components/Circle";
-import Hexagon from "../components/Hexagon";
-import Parallelogram from "../components/Parallelogram";
-import Stars from "../components/Stars";
-import Polygon from "../components/Polygon";
+import FindThePairs from "../components/FindThePairs";
+import PauseMenu from "../components/PauseMenu";
 
 export default class GamePlay extends Component {
   state = {
-    color: null
+    score: 15,
+    paused: false,
+    pauseModalShow: true
   };
 
-  componentDidMount() {
-    this.getRandomColor();
-  }
-
-  getRandomColor = () => {
-    var letters = "0123456789ABCDEF";
-    var color = "#";
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    this.setState({ color });
+  showPauseModal = () => {
+    this.setState({ pauseModalShow: true });
   };
 
-  getRandomColors = () => {
-    var letters = "0123456789ABCDEF";
-    var color = "#";
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+  hidePauseModal = () => {
+    this.setState({ pauseModalShow: false });
+  };
+
+  onPause = () => {
+    this.setState({ paused: !this.state.paused });
   };
 
   render() {
     return (
-      <div className="container-fluid p-0">
-        <GameHeader />
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">GamePlay</Link>
-            </li>
-          </ul>
-        </nav>
-        <h2>Login</h2>
-        <button
-          type="button"
-          class="btn btn-primary btn-lg"
-          onClick={this.getRandomColor}
+      <div className="container-fluid p-0" style={styles.wrapper}>
+        <GameHeader
+          score={this.state.score}
+          onTimeOut={() => alert("Time Out")}
+          paused={this.state.paused}
+          onPause={() => {
+            this.onPause();
+            this.showPauseModal();
+          }}
+        />
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "85%" }}
         >
-          Change Color
-        </button>
-        <Sphere color={this.getRandomColors()} />
-        <Cone color={this.getRandomColors()} />
-        <UglyPyramid color={this.getRandomColors()} />
-        <Pyramid color={this.getRandomColors()} />
-        <Cylinder color={this.getRandomColors()} />
-        <Prism color={this.getRandomColors()} />
-        <Cube color={this.getRandomColors()} />
-        <Cuboid color={this.getRandomColors()} />
-        <HexagonalPrism color={this.getRandomColors()} />
-        <Love color={this.getRandomColors()} />
-        <Rectangular color={this.getRandomColors()} />
-        <Circle color={this.getRandomColors()} />
-        <Hexagon color={this.getRandomColors()} />
-        <Parallelogram color={this.getRandomColors()} />
-        <Stars color={this.getRandomColors()} />
-        <Polygon color={this.getRandomColors()} />
+          <FindThePairs />
+          <PauseMenu
+            show={this.state.pauseModalShow}
+            hide={this.hidePauseModal}
+          />
+        </div>
       </div>
     );
   }
 }
+
+const styles = {
+  wrapper: {
+    backgroundColor: "#FFEBD2",
+    height: "100vh"
+  }
+};
