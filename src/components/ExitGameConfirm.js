@@ -25,7 +25,7 @@ export default class ExitGameConfirm extends Component {
             </div>
           </div>
         </div>
-        <div style={[styles.tulisanDua, styles.tulisanTiga]}>
+        <div style={styles.tulisanTiga}>
             Apakah kamu yakin mengakhiri game ini ?
         </div>
         <div className="container" style={styles.gambar}>
