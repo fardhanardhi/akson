@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Background from "../assets/Background.svg";
+import LeftArrow from "../assets/leftArrow.svg";
 import Logo from "../assets/logoAkson.svg";
+// import * as React from "react";
+import { render } from "react-dom";
+import { Chart } from "react-google-charts";
 
 export default class Statistics extends Component {
   render() {
@@ -19,32 +23,61 @@ export default class Statistics extends Component {
           <div className="row">
             <div className="col-md-12">
               <div className="row">
-                <img src={Logo} alt="logoAkson" style={style.logoStyle}></img>
-                
-                <div className="row">
-                  <div
-                    className="col-md-12 text-center bg-warning"
-                    style={style.whiteContainerStyle}
-                  >
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Facilis dignissimos reiciendis voluptates quas ad velit,
-                    nemo blanditiis similique ea sit id ab, a mollitia excepturi
-                    temporibus sequi adipisci vel hic. Lorem, ipsum dolor sit
-                    amet consectetur adipisicing elit. Quasi nisi est, aperiam
-                    expedita facilis explicabo eveniet ad. Aliquid eum ad
-                    numquam, ducimus fugiat vel modi quae, explicabo cum dolorem
-                    ex? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Laborum enim aut odio, quis excepturi ipsa consectetur autem
-                    assumenda. Earum omnis consequatur laboriosam voluptas
-                    tenetur. Ut temporibus esse similique maiores blanditiis!
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Eum excepturi aspernatur tempora mollitia fuga, ratione
-                    dolores adipisci! Asperiores aliquid laboriosam laborum
-                    assumenda sed. Est, officiis! Accusamus odit rem nemo dolor.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Blanditiis dolores magnam maiores suscipit eum ab
-                    consequuntur ipsa, sed laborum incidunt voluptates quos
-                    ratione eius voluptatem impedit hic sapiente quam quasi!
+                <div className="col-md-12">
+                  <img src={Logo} alt="logoAkson" style={style.logoStyle}></img>
+
+                  <div className="row">
+                    <div className="col"></div>
+
+                    <div
+                      className="col-md-auto text-center "
+                      style={style.whiteContainerStyle}
+                    >
+                      <img alt="leftArrow" src={LeftArrow} style={style.lArrowStyle}>
+                      </img>
+                      <h4 style={style.titleStyle}>Statistikmu</h4>
+                      <div className={"my-pretty-chart-container "}>
+                        <Chart
+                          width={"750px"}
+                          height={"400px"}
+                          chartType="ColumnChart"
+                          loader={<div>Loading Chart</div>}
+                          data={[
+                            ["Kriteria", "Poin", { role: "style" }, { role: "annotation" }],
+                            ["Terbaik", 100, "#3498DB", 100],
+                            ["Rata-rata", 50, "#5EDA6A", 50],
+                            ["Baru Saja", 25, "#F3B431", 25]
+                          ]}
+                          options={{
+                            // Material design options                            
+                            bar: { groupWidth: "50%" },
+                            hAxis: {
+                              textStyle: {
+                                color: "#1D1D1D",
+                                fontName: "Carter One"
+                              }
+                            },
+                            vAxis: {
+                              textStyle: {
+                                color: "#1D1D1D",
+                                fontName: "Carter One"
+                              }
+                            },
+                            annotation: {
+                              textStyle: {
+                                color: "#FFFFFF",
+                                fontName: "Carter One"
+                              }
+                            },
+                            legend: { position: "none" }
+                          }}
+                          // For tests
+                          
+                        />
+                      </div>
+                    </div>
+
+                    <div className="col"></div>
                   </div>
                 </div>
               </div>
@@ -66,13 +99,29 @@ const style = {
 
   logoStyle: {
     right: "0",
-    position: "absolute"
+    position: "absolute",
+    zIndex: "0"
   },
 
   whiteContainerStyle: {
     boxShadow: "10px 10px 5px grey",
-    maxWidth: "75%",
     // align: "center",
-    margin:"auto",
+    margin: "auto",
+    backgroundColor:"#FFFFFF",
+    borderRadius:"35px",
+    height:"500px"
+    
+  },
+  lArrowStyle: {
+    position: "absolute",
+    left: "15px",
+    top: "15px",
+    zIndex: "3"
+  },
+  titleStyle:{
+    fontFamily:"Carter One",
+    marginTop: "25px",
+    zIndex: "3"
   }
+
 };
