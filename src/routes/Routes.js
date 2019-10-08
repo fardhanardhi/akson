@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Permainan from "../pages/Permainan";
 import GamePlay from "../pages/GamePlay";
 import Statistics from "../pages/Statistics";
+import CountObject from "../components/CountTheObject";
 import Menu from "../pages/Menu";
 
 export default function Routes() {
@@ -26,6 +27,9 @@ export default function Routes() {
           </Route>
           <Route path="/statistics">
             <Statistics />
+          </Route>
+          <Route path="/Count-the-Object" >
+            <CountObject/>
           </Route>
           <Route path="/">
             <Home />

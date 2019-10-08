@@ -4,8 +4,8 @@ const colors = [
     code: "#f44336"
   },
   {
-    name: "#9c27b0",
-    code: "aaaaa"
+    name: "purple",
+    code: "#9c27b0"
   },
   {
     name: "blue",
