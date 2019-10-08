@@ -4,7 +4,7 @@ import Background from "../assets/Background.svg";
 import LeftArrow from "../assets/leftArrow.svg";
 import Logo from "../assets/logoAkson.svg";
 // import * as React from "react";
-import { render } from "react-dom";
+// import { render } from "react-dom";
 import { Chart } from "react-google-charts";
 
 export default class Statistics extends Component {
