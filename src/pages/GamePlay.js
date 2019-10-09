@@ -9,16 +9,7 @@ import PauseMenu from "../components/PauseMenu";
 export default class GamePlay extends Component {
   state = {
     score: 15,
-    paused: false,
-    pauseModalShow: true
-  };
-
-  showPauseModal = () => {
-    this.setState({ pauseModalShow: true });
-  };
-
-  hidePauseModal = () => {
-    this.setState({ pauseModalShow: false });
+    paused: false
   };
 
   onPause = () => {
@@ -32,11 +23,7 @@ export default class GamePlay extends Component {
   render() {
     return (
       <div>
-        <PauseMenu
-          show={this.state.pauseModalShow}
-          onHide={this.hidePauseModal}
-          onPlay={this.onPlay}
-        />
+        <PauseMenu show={this.state.paused} onPlay={this.onPlay} />
         <div className="container-fluid p-0" style={styles.wrapper}>
           <GameHeader
             score={this.state.score}
@@ -44,7 +31,6 @@ export default class GamePlay extends Component {
             paused={this.state.paused}
             onPause={() => {
               this.onPause();
-              this.showPauseModal();
             }}
           />
           <div

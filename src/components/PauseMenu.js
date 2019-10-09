@@ -49,7 +49,6 @@ export default function PauseMenu(props) {
                         src={Play}
                         alt="Play"
                         onClick={() => {
-                          props.onHide();
                           props.onPlay();
                         }}
                         style={style.imgButton}
