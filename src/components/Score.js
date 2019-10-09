@@ -5,14 +5,9 @@ import checkScore from "../assets/checkScore.svg";
 import errorScore from "../assets/errorScore.svg";
 import thermo2 from "../assets/thermo2.svg";
 import Home from "../assets/Home.svg";
-import ThermoBlue from "../components/ThermoBlue"
+import ThermoBlue from "../components/ThermoBlue";
 
 export default class Score extends Component {
-
-
-
-
-
   render() {
     return (
       <div style={style.box}>
@@ -60,14 +55,14 @@ export default class Score extends Component {
                 <div className="row">
                   <div className="col-md-3"></div>
                   <div className="col-md-3">
-                    <ThermoBlue progress="60%" color="#3498DB"/>
+                    <ThermoBlue id="thermo1" progress={0} color="#F3B431" />
                   </div>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="row">
                   <div className="col-md-3">
-                    <ThermoBlue progress="100%" color="#F3B431"/>
+                    <ThermoBlue id="thermo2" progress={40} color="#3498DB" />
                   </div>
                   <div className="col-md-3"></div>
                 </div>
