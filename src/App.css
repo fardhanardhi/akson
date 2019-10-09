@@ -20,3 +20,11 @@
 .App-link {
   color: #09d3ac;
 }
+
+.aks-btn {
+  transition: transform 0.1s ease;
+}
+
+.aks-btn:hover {
+  transform: scale(1.15);
+}

@@ -46,6 +46,7 @@ export default function PauseMenu(props) {
                   <div className="row">
                     <div className="col-md-4">
                       <img
+                        className="aks-btn"
                         src={Play}
                         alt="Play"
                         onClick={() => {
@@ -56,13 +57,19 @@ export default function PauseMenu(props) {
                     </div>
                     <div className="col-md-4">
                       <img
+                        className="aks-btn"
                         src={Restart}
                         alt="Restart"
                         style={style.imgButton}
                       ></img>
                     </div>
                     <div className="col-md-4">
-                      <img src={X} alt="X" style={style.imgButton}></img>
+                      <img
+                        className="aks-btn"
+                        src={X}
+                        alt="X"
+                        style={style.imgButton}
+                      ></img>
                     </div>
                   </div>
                 </div>
