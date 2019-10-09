@@ -6,7 +6,6 @@ import X from "../assets/x.svg";
 export default function PauseMenu(props) {
   return (
     <div
-      onClick={props.hide}
       className="container-fluid justify-content-center"
       style={{
         opacity: props.show ? "1" : "0",
@@ -14,10 +13,10 @@ export default function PauseMenu(props) {
         backgroundColor: "rgba(0, 0, 0, 0.5)",
         position: "absolute",
         height: "100vh",
-        pointerEvents: props.show ? "auto" : "none",
         display: "flex",
         alignItems: "center",
-        zIndex: 1
+        zIndex: 1,
+        pointerEvents: props.show ? "auto" : "none"
       }}
     >
       <div>
@@ -46,13 +45,25 @@ export default function PauseMenu(props) {
                 <div className="col-md-12">
                   <div className="row">
                     <div className="col-md-4">
-                      <img src={Play} alt="Play"></img>
+                      <img
+                        src={Play}
+                        alt="Play"
+                        onClick={() => {
+                          props.onHide();
+                          props.onPlay();
+                        }}
+                        style={style.imgButton}
+                      ></img>
                     </div>
                     <div className="col-md-4">
-                      <img src={Restart} alt="Restart"></img>
+                      <img
+                        src={Restart}
+                        alt="Restart"
+                        style={style.imgButton}
+                      ></img>
                     </div>
                     <div className="col-md-4">
-                      <img src={X} alt="X"></img>
+                      <img src={X} alt="X" style={style.imgButton}></img>
                     </div>
                   </div>
                 </div>
@@ -90,5 +101,8 @@ const style = {
   tulisanDua: {
     fontFamily: "Roboto",
     fontSize: "18px"
+  },
+  imgButton: {
+    cursor: "pointer"
   }
 };

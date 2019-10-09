@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import PauseMenu from "../components/PauseMenu";
-import ExitGameConfirm from "../components/ExitGameConfirm";
+// import PauseMenu from "../components/PauseMenu";
+// import ExitGameConfirm from "../components/ExitGameConfirm";
 import Score from "../components/Score";
 
 export default class Permainan extends Component {
@@ -26,7 +26,7 @@ export default class Permainan extends Component {
           hide={this.hidePauseModal}
         />*/}
         {/* <ExitGameConfirm />  */}
-        <Score/>
+        <Score />
       </div>
     );
   }

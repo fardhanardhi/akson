@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
-import ShapeAndPattern from "../components/ShapeAndPattern";
+// import ShapeAndPattern from "../components/ShapeAndPattern";
 import PauseMenu from "../components/PauseMenu";
 
 export default class GamePlay extends Component {
@@ -22,32 +22,39 @@ export default class GamePlay extends Component {
   };
 
   onPause = () => {
-    this.setState({ paused: !this.state.paused });
+    this.setState({ paused: true });
+  };
+
+  onPlay = () => {
+    this.setState({ paused: false });
   };
 
   render() {
     return (
-      <div className="container-fluid p-0" style={styles.wrapper}>
-        <GameHeader
-          score={this.state.score}
-          onTimeOut={() => alert("Time Out")}
-          paused={this.state.paused}
-          onPause={() => {
-            this.onPause();
-            this.showPauseModal();
-          }}
-        />
-        {/* <div
-          className="d-flex justify-content-center align-items-center"
-          style={{ height: "85%" }}
-        >
-          <FindThePairs />
-        </div> */}
-        <ShapeAndPattern />
+      <div>
         <PauseMenu
           show={this.state.pauseModalShow}
-          hide={this.hidePauseModal}
+          onHide={this.hidePauseModal}
+          onPlay={this.onPlay}
         />
+        <div className="container-fluid p-0" style={styles.wrapper}>
+          <GameHeader
+            score={this.state.score}
+            onTimeOut={() => alert("Time Out")}
+            paused={this.state.paused}
+            onPause={() => {
+              this.onPause();
+              this.showPauseModal();
+            }}
+          />
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ height: "85%" }}
+          >
+            <FindThePairs />
+          </div>
+          {/* <ShapeAndPattern /> */}
+        </div>
       </div>
     );
   }
