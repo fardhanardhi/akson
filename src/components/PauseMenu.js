@@ -10,7 +10,7 @@ export default function PauseMenu(props) {
       style={{
         opacity: props.show ? "1" : "0",
         transition: "all .8s",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
         position: "absolute",
         height: "100vh",
         display: "flex",
@@ -27,7 +27,7 @@ export default function PauseMenu(props) {
             transition: "all .8s"
           }}
         >
-          <div style={style.shape}>
+          <div style={style.shape} className="aks-unblur">
             <div className="mt-4 ml-4" style={style.tulisanSatu}>
               Mencocokkan objek
             </div>

@@ -24,7 +24,12 @@ export default class GamePlay extends Component {
     return (
       <div>
         <PauseMenu show={this.state.paused} onPlay={this.onPlay} />
-        <div className="container-fluid p-0" style={styles.wrapper}>
+        <div
+          className={`container-fluid p-0 ${
+            this.state.paused ? "aks-blur" : "aks-nonblur"
+          }`}
+          style={styles.wrapper}
+        >
           <GameHeader
             score={this.state.score}
             onTimeOut={() => alert("Time Out")}
@@ -49,6 +54,7 @@ export default class GamePlay extends Component {
 const styles = {
   wrapper: {
     backgroundColor: "#FFEBD2",
-    height: "100vh"
+    height: "100vh",
+    transition: "filter 0.5s ease"
   }
 };
