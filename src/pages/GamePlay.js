@@ -6,6 +6,7 @@ import objects from "../assets/objects";
 
 import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
+import ShapeAndPattern from "../components/ShapeAndPattern";
 
 export default class GamePlay extends Component {
   state = {
@@ -26,12 +27,13 @@ export default class GamePlay extends Component {
           paused={this.state.paused}
           onPause={this.onPause}
         />
-        <div
+        {/* <div
           className="d-flex justify-content-center align-items-center"
           style={{ height: "85%" }}
         >
           <FindThePairs />
-        </div>
+        </div> */}
+        <ShapeAndPattern />
       </div>
     );
   }
