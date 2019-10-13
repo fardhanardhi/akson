@@ -36,13 +36,19 @@ export default class Login extends Component {
                       <div className="col"></div>
                       <div className="col-md-3" style={style.boxStyle}>
                         <div>
-                          <img src={RightHand} alt="RH" style={style.rHandStyle}/>
+                          <img
+                            src={RightHand}
+                            alt="RH"
+                            style={style.rHandStyle}
+                          />
                         </div>
                         <div>
-                          <img src={Gloss} alt="RH" style={style.glossStyle}/>
+                          <img src={Gloss} alt="RH" style={style.glossStyle} />
                         </div>
-                        
-                        <h2 className="p-3" style={{color: "#FFFFFF"}}>LOGIN</h2>
+
+                        <h2 className="p-3" style={{ color: "#FFFFFF" }}>
+                          LOGIN
+                        </h2>
                         <div className="row">
                           <div className="col"></div>
                           <div className="col-md-9 form-group pt-2">
@@ -57,10 +63,16 @@ export default class Login extends Component {
                           </div>
                           <div className="col"></div>
                         </div>
+                        <a href="/Menu">
                           <img src={MasukBtn} alt="Masuk" className="p-4" />
+                        </a>
 
                         <div>
-                          <img src={LeftHand} alt="RH" style={style.lHandStyle}/>
+                          <img
+                            src={LeftHand}
+                            alt="RH"
+                            style={style.lHandStyle}
+                          />
                         </div>
                       </div>
                       <div className="col"></div>
