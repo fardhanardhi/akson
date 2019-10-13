@@ -103,7 +103,7 @@ export default function ThermoBlue(props) {
             y2="100%"
           >
             <stop
-              offset={`${props.progress}%`}
+              offset={`${100 - props.progress}%`}
               stop-color="white"
               stop-opacity="1"
             >
@@ -114,7 +114,7 @@ export default function ThermoBlue(props) {
                 dur="1000ms"
               />
             </stop>
-            <stop offset={`${props.progress}%`} stop-color={props.color}>
+            <stop offset={`${100 - props.progress}%`} stop-color={props.color}>
               <animate
                 attributeName="offset"
                 from="1"

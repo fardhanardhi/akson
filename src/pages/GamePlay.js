@@ -3,13 +3,15 @@ import React, { Component } from "react";
 
 import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
-// import ShapeAndPattern from "../components/ShapeAndPattern";
+import ShapeAndPattern from "../components/ShapeAndPattern";
 import PauseMenu from "../components/PauseMenu";
 
 export default class GamePlay extends Component {
   state = {
     score: 15,
-    paused: false
+    paused: false,
+
+    game: null
   };
 
   onPause = () => {
@@ -18,6 +20,30 @@ export default class GamePlay extends Component {
 
   onPlay = () => {
     this.setState({ paused: false });
+  };
+
+  getGame = () => {
+    let gameComponent;
+    switch (this.state.game) {
+      case "findThePairs":
+        gameComponent = (
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ height: "85%" }}
+          >
+            <FindThePairs />
+          </div>
+        );
+        break;
+      case "shapeAndPattern":
+        gameComponent = <ShapeAndPattern />;
+        break;
+
+      default:
+        gameComponent = null;
+        break;
+    }
+    return gameComponent;
   };
 
   render() {
@@ -38,13 +64,22 @@ export default class GamePlay extends Component {
               this.onPause();
             }}
           />
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{ height: "85%" }}
-          >
-            <FindThePairs />
+          <div className="text-center">
+            <button
+              className="btn btn-success btn-lg m-1"
+              onClick={() => this.setState({ game: "findThePairs" })}
+            >
+              Find The Pairs
+            </button>
+            <button
+              className="btn btn-success btn-lg m-1"
+              onClick={() => this.setState({ game: "shapeAndPattern" })}
+            >
+              Shape And Pattern
+            </button>
           </div>
-          {/* <ShapeAndPattern /> */}
+
+          {this.getGame()}
         </div>
       </div>
     );

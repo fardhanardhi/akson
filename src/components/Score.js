@@ -55,14 +55,14 @@ export default class Score extends Component {
                 <div className="row">
                   <div className="col-md-3"></div>
                   <div className="col-md-3">
-                    <ThermoBlue id="thermo1" progress={0} color="#F3B431" />
+                    <ThermoBlue id="thermo1" progress={100} color="#F3B431" />
                   </div>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="row">
                   <div className="col-md-3">
-                    <ThermoBlue id="thermo2" progress={40} color="#3498DB" />
+                    <ThermoBlue id="thermo2" progress={70} color="#3498DB" />
                   </div>
                   <div className="col-md-3"></div>
                 </div>
