@@ -1,27 +1,63 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
 import ColorCodes from "../components/ColorCodes";
 import ShapeAndPattern from "../components/ShapeAndPattern";
 import PauseMenu from "../components/PauseMenu";
+import ExitGameCon from "../components/ExitGameConfirm";
+import RestartGameCon from "../components/RestartGameConfirm";
 
 export default class GamePlay extends Component {
   state = {
     score: 15,
     paused: false,
+    exitDialogVisible: false,
+    pauseDialogVisible: false,
+    restartDialogVisible: false,
 
     game: null
   };
 
   onPause = () => {
-    this.setState({ paused: true });
+    this.setState({ paused: true, pauseDialogVisible: true });
+  };
+
+  onExit = () => {
+    this.setState({
+      paused: true,
+      exitDialogVisible: true,
+      pauseDialogVisible: false
+    });
+  };
+
+  onRestart = () => {
+    this.setState({
+      paused: true,
+      restartDialogVisible: true,
+      pauseDialogVisible: false
+    });
   };
 
   onPlay = () => {
-    this.setState({ paused: false });
+    this.setState({ paused: false, pauseDialogVisible: false });
   };
+
+  onBack = () => {
+    this.setState({
+      paused: true,
+      exitDialogVisible: false,
+      pauseDialogVisible: true
+    });
+  };
+
+  onBack2 = () => {
+    this.setState({
+      paused: true,
+      restartDialogVisible: false,
+      pauseDialogVisible: true
+    });
+  }
 
   getGame = () => {
     let gameComponent;
@@ -39,6 +75,16 @@ export default class GamePlay extends Component {
       case "shapeAndPattern":
         gameComponent = <ShapeAndPattern />;
         break;
+      case "colorCodes":
+        gameComponent = (
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ height: "85%" }}
+          >
+            <ColorCodes />
+          </div>
+        );
+        break;
 
       default:
         gameComponent = null;
@@ -50,7 +96,14 @@ export default class GamePlay extends Component {
   render() {
     return (
       <div>
-        <PauseMenu show={this.state.paused} onPlay={this.onPlay} />
+        <PauseMenu
+          show={this.state.pauseDialogVisible}
+          onPlay={this.onPlay}
+          onExit={this.onExit}
+          onRestart={this.onRestart}
+        />
+        <ExitGameCon show={this.state.exitDialogVisible} onBack={this.onBack} referensi="/Menu"/>
+        <RestartGameCon show={this.state.restartDialogVisible} onBack={this.onBack2} />
         <div
           className={`container-fluid p-0 ${
             this.state.paused ? "aks-blur" : "aks-nonblur"
@@ -77,6 +130,12 @@ export default class GamePlay extends Component {
               onClick={() => this.setState({ game: "shapeAndPattern" })}
             >
               Shape And Pattern
+            </button>
+            <button
+              className="btn btn-success btn-lg m-1"
+              onClick={() => this.setState({ game: "colorCodes" })}
+            >
+              Color Codes
             </button>
           </div>
 

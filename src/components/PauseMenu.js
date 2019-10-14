@@ -2,6 +2,7 @@ import React from "react";
 import Play from "../assets/play.svg";
 import Restart from "../assets/restart.svg";
 import X from "../assets/x.svg";
+// import ExitGameCon from "../components/ExitGameConfirm"
 
 export default function PauseMenu(props) {
   return (
@@ -61,6 +62,9 @@ export default function PauseMenu(props) {
                         src={Restart}
                         alt="Restart"
                         style={style.imgButton}
+                        onClick={() => { 
+                          props.onRestart();
+                        }}
                       ></img>
                     </div>
                     <div className="col-md-4">
@@ -69,7 +73,11 @@ export default function PauseMenu(props) {
                         src={X}
                         alt="X"
                         style={style.imgButton}
-                      ></img>
+                        onClick={() => { 
+                          props.onExit();
+                        }}
+                      >
+                      </img>
                     </div>
                   </div>
                 </div>
