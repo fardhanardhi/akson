@@ -32,7 +32,6 @@ export default class ColorCodes extends Component {
       };
     });
     this.setState({ choices }, () => console.log(this.state.choices));
-    console.log(trueChoices);
   }
 
   getRandomId = arr => {
