@@ -42,11 +42,24 @@ export default function ExitGameConfirm(props) {
           <div className="col-md-12">
             <div className="row">
               <div className="col-md-5">
-                <img className="aks-btn" src={Check} alt="CheckButton" style={styles.imgButton}></img>
+                <img
+                  className="aks-btn"
+                  src={Check}
+                  alt="CheckButton"
+                  style={styles.imgButton}
+                ></img>
               </div>
               <div className="col-md-2"></div>
               <div className="col-md-5">
-                <img className="aks-btn" src={X} alt="XButton" style={styles.imgButton}></img>
+                <img
+                  className="aks-btn"
+                  src={X}
+                  alt="XButton"
+                  style={styles.imgButton}
+                  onClick={() => {
+                    props.onBack();
+                  }}
+                ></img>
               </div>
             </div>
           </div>

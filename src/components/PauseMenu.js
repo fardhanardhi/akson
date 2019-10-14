@@ -70,8 +70,7 @@ export default function PauseMenu(props) {
                         src={X}
                         alt="X"
                         style={style.imgButton}
-                        onClick={() => {
-                          props.onPlay(); 
+                        onClick={() => { 
                           props.onExit();
                         }}
                       >
