@@ -5,21 +5,28 @@ import FindThePairs from "../components/FindThePairs";
 import ColorCodes from "../components/ColorCodes";
 import ShapeAndPattern from "../components/ShapeAndPattern";
 import PauseMenu from "../components/PauseMenu";
+import ExitGameCon from "../components/ExitGameConfirm";
 
 export default class GamePlay extends Component {
   state = {
     score: 15,
     paused: false,
+    exitDialogVisible: false,
+    pauseDialogVisible: false,
 
     game: null
   };
 
   onPause = () => {
-    this.setState({ paused: true });
+    this.setState({ paused: true, pauseDialogVisible: true });
+  };
+
+  onExit = () => {
+    this.setState({ paused: true, exitDialogVisible: true, pauseDialogVisible: false });
   };
 
   onPlay = () => {
-    this.setState({ paused: false });
+    this.setState({ paused: false, pauseDialogVisible: false });
   };
 
   getGame = () => {
@@ -56,14 +63,11 @@ export default class GamePlay extends Component {
     return gameComponent;
   };
 
-  onPause = () => {
-    this.setState({ paused: !this.state.paused });
-  };
-
   render() {
     return (
       <div>
-        <PauseMenu show={this.state.paused} onPlay={this.onPlay} />
+        <PauseMenu show={this.state.pauseDialogVisible} onPlay={this.onPlay} onExit={this.onExit} />
+         <ExitGameCon show={this.state.exitDialogVisible} />     
         <div
           className={`container-fluid p-0 ${
             this.state.paused ? "aks-blur" : "aks-nonblur"
