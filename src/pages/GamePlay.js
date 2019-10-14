@@ -6,6 +6,7 @@ import ColorCodes from "../components/ColorCodes";
 import ShapeAndPattern from "../components/ShapeAndPattern";
 import PauseMenu from "../components/PauseMenu";
 import ExitGameCon from "../components/ExitGameConfirm";
+import RestartGameCon from "../components/RestartGameConfirm";
 
 export default class GamePlay extends Component {
   state = {
@@ -13,6 +14,7 @@ export default class GamePlay extends Component {
     paused: false,
     exitDialogVisible: false,
     pauseDialogVisible: false,
+    restartDialogVisible: false,
 
     game: null
   };
@@ -29,6 +31,14 @@ export default class GamePlay extends Component {
     });
   };
 
+  onRestart = () => {
+    this.setState({
+      paused: true,
+      restartDialogVisible: true,
+      pauseDialogVisible: false
+    });
+  };
+
   onPlay = () => {
     this.setState({ paused: false, pauseDialogVisible: false });
   };
@@ -41,11 +51,12 @@ export default class GamePlay extends Component {
     });
   };
 
-  onRestart = () => {
+  onBack2 = () => {
     this.setState({
-      
-
-    })
+      paused: true,
+      restartDialogVisible: false,
+      pauseDialogVisible: true
+    });
   }
 
   getGame = () => {
@@ -91,7 +102,8 @@ export default class GamePlay extends Component {
           onExit={this.onExit}
           onRestart={this.onRestart}
         />
-        <ExitGameCon show={this.state.exitDialogVisible} onBack={this.onBack} />
+        <ExitGameCon show={this.state.exitDialogVisible} onBack={this.onBack} referensi="/Menu"/>
+        <RestartGameCon show={this.state.restartDialogVisible} onBack={this.onBack2} />
         <div
           className={`container-fluid p-0 ${
             this.state.paused ? "aks-blur" : "aks-nonblur"

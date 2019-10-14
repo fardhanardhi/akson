@@ -24,7 +24,7 @@ export default class MenuGame extends Component {
                 <div className="row">
                   <div className="col-md-3"></div>
                   <div className="col-md-6 ml-3" style={style.fontLain}>
-                    <a href="/" style={style.fontLain}>
+                    <a href="/GamePlay" style={style.fontLain}>
                     MAIN
                     </a>
                   </div>

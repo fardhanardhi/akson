@@ -62,6 +62,9 @@ export default function PauseMenu(props) {
                         src={Restart}
                         alt="Restart"
                         style={style.imgButton}
+                        onClick={() => { 
+                          props.onRestart();
+                        }}
                       ></img>
                     </div>
                     <div className="col-md-4">

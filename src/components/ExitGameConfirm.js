@@ -46,6 +46,7 @@ export default function ExitGameConfirm(props) {
                   className="aks-btn"
                   src={Check}
                   alt="CheckButton"
+                  href={props.referensi}
                   style={styles.imgButton}
                 ></img>
               </div>
