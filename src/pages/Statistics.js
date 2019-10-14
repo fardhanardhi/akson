@@ -33,8 +33,10 @@ export default class Statistics extends Component {
                       className="col-md-auto text-center "
                       style={style.whiteContainerStyle}
                     >
-                      <img alt="leftArrow" src={LeftArrow} style={style.lArrowStyle}>
+                      <a href="/Menu">
+                      <img alt="leftArrow" src={LeftArrow} style={style.lArrowStyle} >
                       </img>
+                      </a>
                       <h4 style={style.titleStyle}>Statistikmu</h4>
                       <div className={"my-pretty-chart-container "}>
                         <Chart

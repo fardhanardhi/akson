@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import score from "../assets/score.svg";
-import thermo from "../assets/thermo.svg";
 import checkScore from "../assets/checkScore.svg";
 import errorScore from "../assets/errorScore.svg";
-import thermo2 from "../assets/thermo2.svg";
 import Home from "../assets/Home.svg";
 import ThermoBlue from "../components/ThermoBlue";
 

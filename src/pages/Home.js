@@ -23,12 +23,12 @@ export default class Home extends Component {
               <Link to="/Menu">Menu</Link>
             </li>
             <li>
-            <Link to="/statistics">Statistic</Link>
+              <Link to="/statistics">Statistic</Link>
             </li>
           </ul>
         </nav>
         <div className="container-fluid ">
-          <div style={style.nganu} className="row" >
+          <div style={style.nganu} className="row">
             <div className="col-md-12">
               <div className="row">
                 <img
@@ -38,11 +38,12 @@ export default class Home extends Component {
                 ></img>
               </div>
               <div class="row">
-                <img
-                  src={PlayButton}
-                  alt="playbtn"
-                  style={style.playBtnStyle}
-                ></img>
+                <a href="/login" className="aks-btn" style={style.playBtnStyle}>
+                  <img
+                    src={PlayButton}
+                    alt="playbtn"
+                  />
+                </a>
               </div>
             </div>
           </div>

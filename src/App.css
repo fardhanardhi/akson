@@ -44,3 +44,8 @@
   -o-filter: blur(0px);
   -ms-filter: blur(0px);
 }
+
+.aks-grayscale-filter {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
