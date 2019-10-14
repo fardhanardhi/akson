@@ -38,12 +38,11 @@ export default class Home extends Component {
                 ></img>
               </div>
               <div class="row">
-                <a href="/login" style={style.playBtnStyle}>
+                <a href="/login" className="aks-btn" style={style.playBtnStyle}>
                   <img
                     src={PlayButton}
                     alt="playbtn"
-                    
-                  ></img>
+                  />
                 </a>
               </div>
             </div>
