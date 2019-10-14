@@ -2,7 +2,7 @@ import React from "react";
 import Play from "../assets/play.svg";
 import Restart from "../assets/restart.svg";
 import X from "../assets/x.svg";
-import ExitGameCon from "../components/ExitGameConfirm"
+// import ExitGameCon from "../components/ExitGameConfirm"
 
 export default function PauseMenu(props) {
   return (
@@ -70,8 +70,7 @@ export default function PauseMenu(props) {
                         src={X}
                         alt="X"
                         style={style.imgButton}
-                      >
-                      </img>
+                      ></img>
                     </div>
                   </div>
                 </div>
