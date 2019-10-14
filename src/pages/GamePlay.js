@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
 import ShapeAndPattern from "../components/ShapeAndPattern";
+import ColorCodes from "../components/ColorCodes";
 import PauseMenu from "../components/PauseMenu";
 
 export default class GamePlay extends Component {
@@ -44,6 +45,10 @@ export default class GamePlay extends Component {
         break;
     }
     return gameComponent;
+  };
+
+  onPause = () => {
+    this.setState({ paused: !this.state.paused });
   };
 
   render() {
