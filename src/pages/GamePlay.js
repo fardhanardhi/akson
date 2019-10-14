@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
-import ShapeAndPattern from "../components/ShapeAndPattern";
 import ColorCodes from "../components/ColorCodes";
+import ShapeAndPattern from "../components/ShapeAndPattern";
 import PauseMenu from "../components/PauseMenu";
 
 export default class GamePlay extends Component {
@@ -38,6 +37,16 @@ export default class GamePlay extends Component {
         break;
       case "shapeAndPattern":
         gameComponent = <ShapeAndPattern />;
+        break;
+      case "colorCodes":
+        gameComponent = (
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ height: "85%" }}
+          >
+            <ColorCodes />
+          </div>
+        );
         break;
 
       default:
@@ -81,6 +90,12 @@ export default class GamePlay extends Component {
               onClick={() => this.setState({ game: "shapeAndPattern" })}
             >
               Shape And Pattern
+            </button>
+            <button
+              className="btn btn-success btn-lg m-1"
+              onClick={() => this.setState({ game: "colorCodes" })}
+            >
+              Color Codes
             </button>
           </div>
 
