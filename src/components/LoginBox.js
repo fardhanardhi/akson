@@ -19,11 +19,6 @@ export default class LoginBox extends Component {
     this.setState({username: event.target.value})
   };
 
-  isEmpty = username => {
-    
-
-  }  
-
   render() {
     return (
       <div className="col-md-3" style={style.boxStyle}>

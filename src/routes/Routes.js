@@ -7,6 +7,7 @@ import GamePlay from "../pages/GamePlay";
 import Statistics from "../pages/Statistics";
 import CountObject from "../components/CountTheObject";
 import Menu from "../pages/Menu";
+import FindThePairs from "../components/FindThePairs";
 
 export default function Routes() {
   return (
@@ -30,6 +31,9 @@ export default function Routes() {
           </Route>
           <Route path="/Count-the-Object" >
             <CountObject/>
+          </Route>
+          <Route path="/find-the-pairs" >
+            <FindThePairs/>
           </Route>
           <Route path="/">
             <Home />
