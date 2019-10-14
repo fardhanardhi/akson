@@ -69,35 +69,50 @@ export default class FindThePairs extends Component {
       <div className="container text-center m-0 p-0">
         <div className="row">
           {this.state.choices.map((item, index) => {
+            let component = null;
             if (index < 4) {
-              return (
+              component = (
                 <div className="col-md-3">
                   {this.getObject(item.object, item.color)}
                 </div>
               );
+            } else {
+              component = null;
             }
+            return component;
           })}
         </div>
         <div className="row mt-5">
           {this.state.choices.map((item, index) => {
+            let component = null;
+
             if (index < 8 && index >= 4) {
-              return (
-                <div className="col-md-3">
-                  {this.getObject(item.object, item.color)}
-                </div>
+              
+                component = (<div className="col-md-3">
+                {this.getObject(item.object, item.color)}
+              </div>
               );
             }
+            else{
+              component = null;
+            }  
+            return component;
           })}
         </div>
         <div className="row mt-5">
           {this.state.choices.map((item, index) => {
+            let component = null;
             if (index < 12 && index >= 8) {
-              return (
-                <div className="col-md-3">
+              component =
+                (<div className="col-md-3">
                   {this.getObject(item.object, item.color)}
                 </div>
               );
             }
+            else{
+              component = null;
+            }
+            return component;
           })}
         </div>
       </div>

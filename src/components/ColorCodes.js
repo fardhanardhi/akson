@@ -10,7 +10,8 @@ export default class ColorCodes extends Component {
         super(props);
     
         this.state = {
-            choices : []
+            choices : [],
+            trueId : []
         }
 
         this.objects = [
@@ -19,19 +20,39 @@ export default class ColorCodes extends Component {
     };
 
     componentDidMount() {
-        const choices = [...Array(8)].map(x => {
+        const choices = [...Array(4)].map(x => {
+
+            // var sorted_arr = .slice().sort();
+            var results = [];
+
+            for (var i = 0; i < sorted_arr.length - 1; i++){
+                if(sorted_arr[i+1] == sorted_arr[i]){
+                    results.push(sorted_arr[i])
+                }
+            }
             return {
-                object: this.getRandomId(this.objects),
-                color: this.getRandomId(colors),
-                name : this.getRandomId(colors)
-            };
+                object : this.getRandomId(this.objects),
+                // color : results,
+                // name : results, 
+            }
         });
+        
+        // return ({
+        //     object: this.getRandomId(this.objects),
+        //     color: this.getRandomId(colors),
+        //     name : this.getRandomId(colors)
+        // })
     this.setState({ choices }, () => console.log(this.state.choices));
   }
 
     getRandomId = arr => {
         const id = Math.floor(Math.random() * arr.length);
         return id;
+    }
+
+    getTrueId = arr => {
+        const id = Math.floor(Math.random() * arr.length);
+        return this.state.trueId.push(id);
     }
 
     randColor = (objectId, colorIdCode, colorIdName) => {
@@ -42,14 +63,6 @@ export default class ColorCodes extends Component {
     }
 
     render(){
-        const style = {
-            position : "absolute",
-            fontSize : "1.5em",
-            color : "#FAFAFA",
-            top : "17px",
-            left : "0",
-            right : "0"
-        }
         return(
             <div className="container text-center m-0 p-0">
                 <div className = "row">
@@ -58,7 +71,6 @@ export default class ColorCodes extends Component {
                             return (
                                 <div className="col-md-3">
                                     {this.randColor(item.object, item.color, item.name)}
-                                    <p style={style}>{item.name}</p>
                                 </div>
                             );
                         }
@@ -70,7 +82,6 @@ export default class ColorCodes extends Component {
                             return (
                                 <div className="col-md-3">
                                     {this.randColor(item.object, item.color, item.name)}
-                                    <p style={style}>{item.name}</p>
                                 </div>
                             );
                         }

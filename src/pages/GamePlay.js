@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import colors from "../assets/colors";
-import objects from "../assets/objects";
-
 import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
 import ColorCodes from "../components/ColorCodes"
@@ -12,7 +9,16 @@ import PauseMenu from "../components/PauseMenu";
 export default class GamePlay extends Component {
   state = {
     score: 15,
-    paused: false
+    paused: false,
+    pauseModalShow: true
+  };
+
+  showPauseModal = () => {
+    this.setState({ pauseModalShow: true });
+  };
+
+  hidePauseModal = () => {
+    this.setState({ pauseModalShow: false });
   };
   
   onPause = () => {
@@ -22,19 +28,25 @@ export default class GamePlay extends Component {
   render() {
     return (
       <div className="container-fluid p-0" style={styles.wrapper}>
-        
-        
-          <Link to="/Count-the-Object">Count Object</Link>
+        <GameHeader
+          score={this.state.score}
+          onTimeOut={() => alert("Time Out")}
+          paused={this.state.paused}
+          onPause={() => {
+            this.onPause();
+            this.showPauseModal();
+          }}
+        />
         <div
           className="d-flex justify-content-center align-items-center"
           style={{ height: "85%" }}
         >
-          <div className="row">
-            <FindThePairs />
-          </div>
-          <div className="row">
-            <ColorCodes />
-          </div> 
+          {/* <FindThePairs /> */}
+          <ColorCodes />
+          <PauseMenu
+            show={this.state.pauseModalShow}
+            hide={this.hidePauseModal}
+          />
         </div>
       </div>
     );

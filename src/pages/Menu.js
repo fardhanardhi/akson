@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import MenuGame from "../components/MenuGame.js";
-import { Link } from "react-router-dom";
 import Background from "../assets/Background.svg";
 import LogoAkson from "../assets/logoAkson.svg";
 

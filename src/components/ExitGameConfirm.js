@@ -25,18 +25,18 @@ export default class ExitGameConfirm extends Component {
             </div>
           </div>
         </div>
-        <div style={styles.tulisanDua, styles.tulisanTiga}>
+        <div style={styles.tulisanTiga}>
             Apakah kamu yakin mengakhiri game ini ?
         </div>
         <div className="container" style={styles.gambar}>
             <div className="col-md-12">
                 <div className="row">
                     <div className="col-md-5">
-                        <img src={Check}></img>
+                        <img src={Check} alt="CheckButton"></img>
                     </div>
                     <div className="col-md-2"></div>
                     <div className="col-md-5">
-                        <img src={X}></img>
+                        <img src={X} alt="XButton"></img>
                     </div>
                 </div>
             </div>
