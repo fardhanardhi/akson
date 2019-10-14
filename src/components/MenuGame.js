@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class MenuGame extends Component {
   render() {
     return (
-      <div>
+      <div >
         <div style={style.kotakDepan}>
           <div className="container">
             <div className="col-md-12">
@@ -18,39 +18,45 @@ export default class MenuGame extends Component {
               </div>
             </div>
           </div>
-          <div style={style.kotakMain}>
+          <div className="aks-btn" style={style.kotakMain}>
             <div className="container">
               <div className="col-md-12">
                 <div className="row">
                   <div className="col-md-3"></div>
                   <div className="col-md-6 ml-3" style={style.fontLain}>
+                    <a href="/" style={style.fontLain}>
                     MAIN
+                    </a>
                   </div>
                   <div className="col-md-3"></div>
                 </div>
               </div>
             </div>
           </div>
-          <div style={style.kotakLain}>
+          <div className="aks-btn" style={style.kotakLain}>
             <div className="container">
               <div className="col-md-12">
                 <div className="row">
                   <div className="col-md-3"></div>
                   <div className="col-md-6" style={style.fontLain}>
+                    <a href="/statistics" style={style.fontLain}>
                     STATISTIK
+                    </a>
                   </div>
                   <div className="col-md-3"></div>
                 </div>
               </div>
             </div>
           </div>
-          <div style={style.kotakLain}>
+          <div className="aks-btn" style={style.kotakLain}>
             <div className="container">
               <div className="col-md-12">
                 <div className="row">
                   <div className="col-md-3"></div>
                   <div className="col-md-6 ml-2" style={style.fontLain}>
+                    <a href="/Home" style={style.fontLain}>
                     KELUAR
+                    </a>
                   </div>
                   <div className="col-md-3"></div>
                 </div>
@@ -120,6 +126,8 @@ const style = {
     fontFamily: "Carter One",
     fontSize: "24px",
     color: "#FFFFFF",
-    marginTop: "10px"
+    marginTop: "10px",
+    textDecoration:"none",
+    
   }
 };
