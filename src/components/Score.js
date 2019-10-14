@@ -47,7 +47,7 @@ export default class Score extends Component {
           </div>
         </div>
         <div className="container ml-4 mt-4">
-          <div clasName="col-md-12">
+          <div className="col-md-12">
             <div className="row">
               <div className="col-md-6">
                 <div className="row">
