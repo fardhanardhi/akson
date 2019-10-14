@@ -22,7 +22,11 @@ export default class GamePlay extends Component {
   };
 
   onExit = () => {
-    this.setState({ paused: true, exitDialogVisible: true, pauseDialogVisible: false });
+    this.setState({
+      paused: true,
+      exitDialogVisible: true,
+      pauseDialogVisible: false
+    });
   };
 
   onPlay = () => {
@@ -30,7 +34,18 @@ export default class GamePlay extends Component {
   };
 
   onBack = () => {
-    this.setState({ paused: true, exitDialogVisible: false, pauseDialogVisible: true });
+    this.setState({
+      paused: true,
+      exitDialogVisible: false,
+      pauseDialogVisible: true
+    });
+  };
+
+  onRestart = () => {
+    this.setState({
+      
+
+    })
   }
 
   getGame = () => {
@@ -70,8 +85,13 @@ export default class GamePlay extends Component {
   render() {
     return (
       <div>
-        <PauseMenu show={this.state.pauseDialogVisible} onPlay={this.onPlay} onExit={this.onExit} />
-         <ExitGameCon show={this.state.exitDialogVisible} onBack={this.onBack} />     
+        <PauseMenu
+          show={this.state.pauseDialogVisible}
+          onPlay={this.onPlay}
+          onExit={this.onExit}
+          onRestart={this.onRestart}
+        />
+        <ExitGameCon show={this.state.exitDialogVisible} onBack={this.onBack} />
         <div
           className={`container-fluid p-0 ${
             this.state.paused ? "aks-blur" : "aks-nonblur"
