@@ -14,12 +14,12 @@ export default function Sphere(props) {
           d="M86.75 43.5C86.75 67.3863 67.3863 86.75 43.5 86.75C19.6137 86.75 0.25 67.3863 0.25 43.5C0.25 19.6137 19.6137 0.25 43.5 0.25C67.3863 0.25 86.75 19.6137 86.75 43.5Z"
           fill={props.color}
           stroke="black"
-          stroke-width="0.5"
+          strokeWidth="0.5"
         />
         <path
           d="M87 43.5C87 67.5244 67.5244 87 43.5 87C19.4756 87 0 67.5244 0 43.5C0 19.4756 19.4756 0 43.5 0C67.5244 0 87 19.4756 87 43.5Z"
           fill="url(#paint0_linear)"
-          fill-opacity="0.3"
+          fillOpacity="0.3"
         />
         <ellipse
           cx="18.3224"
@@ -28,7 +28,7 @@ export default function Sphere(props) {
           ry="10.1896"
           transform="rotate(28.7573 18.3224 21.9242)"
           fill="white"
-          fill-opacity="0.5"
+          fillOpacity="0.5"
         />
         <defs>
           <linearGradient
@@ -40,7 +40,7 @@ export default function Sphere(props) {
             gradientUnits="userSpaceOnUse"
           >
             <stop />
-            <stop offset="1" stop-color={props.color} stop-opacity="0" />
+            <stop offset="1" stopColor={props.color} stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>

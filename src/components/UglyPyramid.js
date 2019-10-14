@@ -14,18 +14,18 @@ export default function UglyPyramid(props) {
           d="M19.7168 88L30.9817 1L65.9897 61.1375L19.7168 88Z"
           fill={props.color}
           stroke="black"
-          stroke-width="0.5"
+          strokeWidth="0.5"
         />
         <path
           d="M19.5442 88L30.9824 1.17334L1.00035 52.4721L19.5442 88Z"
           fill={props.color}
           stroke="black"
-          stroke-width="0.5"
+          strokeWidth="0.5"
         />
         <path
           d="M19.7168 88L30.9817 1L65.9897 61.1375L19.7168 88Z"
           fill="black"
-          fill-opacity="0.15"
+          fillOpacity="0.15"
         />
       </svg>
     </div>

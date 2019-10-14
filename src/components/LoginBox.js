@@ -15,8 +15,7 @@ export default class LoginBox extends Component {
   }
 
   onLoginInput = event => {
-
-    this.setState({username: event.target.value})
+    this.setState({ username: event.target.value });
   };
 
   render() {
@@ -48,7 +47,15 @@ export default class LoginBox extends Component {
           <div className="col"></div>
         </div>
         <Link to={this.state.username === "" ? null : "/menu"}>
-          <img src={MasukBtn} alt="Masuk" className={this.state.username === "" ? "p-4 aks-grayscale-filter" : "p-4 aks-btn" }/>
+          <img
+            src={MasukBtn}
+            alt="Masuk"
+            className={
+              this.state.username === ""
+                ? "p-4 aks-grayscale-filter"
+                : "p-4 aks-btn"
+            }
+          />
         </Link>
 
         <div>

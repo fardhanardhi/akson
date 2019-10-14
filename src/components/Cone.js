@@ -12,14 +12,14 @@ export default function Cone(props) {
       >
         <mask id="path-1-inside-1" fill="white">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M63.3131 66.9257L32.0744 0L1.22138 66.0992C1.12342 66.2956 1.03107 66.4934 0.944433 66.6925L0.835585 66.9257H0.845805C0.292619 68.2726 0 69.6768 0 71.1201C0 81.219 14.3269 89.4058 32 89.4058C49.6731 89.4058 64 81.219 64 71.1201C64 69.6768 63.7074 68.2726 63.1542 66.9257H63.3131Z"
           />
         </mask>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M63.3131 66.9257L32.0744 0L1.22138 66.0992C1.12342 66.2956 1.03107 66.4934 0.944433 66.6925L0.835585 66.9257H0.845805C0.292619 68.2726 0 69.6768 0 71.1201C0 81.219 14.3269 89.4058 32 89.4058C49.6731 89.4058 64 81.219 64 71.1201C64 69.6768 63.7074 68.2726 63.1542 66.9257H63.3131Z"
           fill={props.color}
         />
@@ -29,11 +29,11 @@ export default function Cone(props) {
           mask="url(#path-1-inside-1)"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M63.3161 66.9257L32.0773 0L1.22431 66.0992C1.12635 66.2956 1.034 66.4934 0.947363 66.6925L0.838514 66.9257H0.848735C0.295549 68.2726 0.00292969 69.6768 0.00292969 71.1201C0.00292969 81.219 14.3298 89.4058 32.0029 89.4058C49.676 89.4058 64.0029 81.219 64.0029 71.1201C64.0029 69.6768 63.7103 68.2726 63.1571 66.9257H63.3161Z"
           fill="url(#paint0_linear)"
-          fill-opacity="0.5"
+          fillOpacity="0.5"
         />
         <defs>
           <linearGradient
@@ -45,7 +45,7 @@ export default function Cone(props) {
             gradientUnits="userSpaceOnUse"
           >
             <stop />
-            <stop offset="1" stop-color={props.color} stop-opacity="0" />
+            <stop offset="1" stopColor={props.color} stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
