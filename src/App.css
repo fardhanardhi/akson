@@ -20,3 +20,27 @@
 .App-link {
   color: #09d3ac;
 }
+
+.aks-btn {
+  transition: transform 0.1s ease;
+}
+
+.aks-btn:hover {
+  transform: scale(1.15);
+}
+
+.aks-blur {
+  filter: blur(30px);
+  -webkit-filter: blur(30px);
+  -moz-filter: blur(30px);
+  -o-filter: blur(30px);
+  -ms-filter: blur(30px);
+}
+
+.aks-unblur {
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+}

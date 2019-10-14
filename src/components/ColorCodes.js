@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 
 import Rectangel from "../components/Rectangel";
-import Love from "../components/Love"
 
 import colors from "../assets/colors";
 
@@ -23,17 +22,17 @@ export default class ColorCodes extends Component {
         const choices = [...Array(4)].map(x => {
 
             // var sorted_arr = .slice().sort();
-            var results = [];
+            // var results = [];
 
-            for (var i = 0; i < sorted_arr.length - 1; i++){
-                if(sorted_arr[i+1] == sorted_arr[i]){
-                    results.push(sorted_arr[i])
-                }
-            }
+            // for (var i = 0; i < sorted_arr.length - 1; i++){
+            //     if(sorted_arr[i+1] == sorted_arr[i]){
+            //         results.push(sorted_arr[i])
+            //     }
+            // }
             return {
                 object : this.getRandomId(this.objects),
-                // color : results,
-                // name : results, 
+                color : this.getRandomId(colors),
+                name : this.getRandomId(colors), 
             }
         });
         

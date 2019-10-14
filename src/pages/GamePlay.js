@@ -3,50 +3,84 @@ import { Link } from "react-router-dom";
 
 import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
-import ColorCodes from "../components/ColorCodes"
+import ColorCodes from "../components/ColorCodes";
+import ShapeAndPattern from "../components/ShapeAndPattern";
 import PauseMenu from "../components/PauseMenu";
 
 export default class GamePlay extends Component {
   state = {
     score: 15,
     paused: false,
-    pauseModalShow: true
+
+    game: null
   };
 
-  showPauseModal = () => {
-    this.setState({ pauseModalShow: true });
-  };
-
-  hidePauseModal = () => {
-    this.setState({ pauseModalShow: false });
-  };
-  
   onPause = () => {
-    this.setState({ paused: !this.state.paused });
+    this.setState({ paused: true });
+  };
+
+  onPlay = () => {
+    this.setState({ paused: false });
+  };
+
+  getGame = () => {
+    let gameComponent;
+    switch (this.state.game) {
+      case "findThePairs":
+        gameComponent = (
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ height: "85%" }}
+          >
+            <FindThePairs />
+          </div>
+        );
+        break;
+      case "shapeAndPattern":
+        gameComponent = <ShapeAndPattern />;
+        break;
+
+      default:
+        gameComponent = null;
+        break;
+    }
+    return gameComponent;
   };
 
   render() {
     return (
-      <div className="container-fluid p-0" style={styles.wrapper}>
-        <GameHeader
-          score={this.state.score}
-          onTimeOut={() => alert("Time Out")}
-          paused={this.state.paused}
-          onPause={() => {
-            this.onPause();
-            this.showPauseModal();
-          }}
-        />
+      <div>
+        <PauseMenu show={this.state.paused} onPlay={this.onPlay} />
         <div
-          className="d-flex justify-content-center align-items-center"
-          style={{ height: "85%" }}
+          className={`container-fluid p-0 ${
+            this.state.paused ? "aks-blur" : "aks-nonblur"
+          }`}
+          style={styles.wrapper}
         >
-          {/* <FindThePairs /> */}
-          <ColorCodes />
-          <PauseMenu
-            show={this.state.pauseModalShow}
-            hide={this.hidePauseModal}
+          <GameHeader
+            score={this.state.score}
+            onTimeOut={() => alert("Time Out")}
+            paused={this.state.paused}
+            onPause={() => {
+              this.onPause();
+            }}
           />
+          <div className="text-center">
+            <button
+              className="btn btn-success btn-lg m-1"
+              onClick={() => this.setState({ game: "findThePairs" })}
+            >
+              Find The Pairs
+            </button>
+            <button
+              className="btn btn-success btn-lg m-1"
+              onClick={() => this.setState({ game: "shapeAndPattern" })}
+            >
+              Shape And Pattern
+            </button>
+          </div>
+
+          {this.getGame()}
         </div>
       </div>
     );
@@ -56,6 +90,7 @@ export default class GamePlay extends Component {
 const styles = {
   wrapper: {
     backgroundColor: "#FFEBD2",
-    height: "100vh"
+    height: "100vh",
+    transition: "filter 0.5s ease"
   }
 };

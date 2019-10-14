@@ -27,7 +27,7 @@ export default class GameHeader extends Component {
             <img
               src={pauseIcon}
               alt="pause"
-              className="mr-5"
+              className="mr-5 aks-btn"
               onClick={this.props.onPause}
               style={styles.pauseBtn}
             />

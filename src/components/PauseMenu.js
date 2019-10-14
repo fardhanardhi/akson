@@ -6,18 +6,17 @@ import X from "../assets/x.svg";
 export default function PauseMenu(props) {
   return (
     <div
-      onClick={props.hide}
       className="container-fluid justify-content-center"
       style={{
         opacity: props.show ? "1" : "0",
         transition: "all .8s",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
         position: "absolute",
         height: "100vh",
-        pointerEvents: props.show ? "auto" : "none",
         display: "flex",
         alignItems: "center",
-        zIndex: 1
+        zIndex: 1,
+        pointerEvents: props.show ? "auto" : "none"
       }}
     >
       <div>
@@ -28,7 +27,7 @@ export default function PauseMenu(props) {
             transition: "all .8s"
           }}
         >
-          <div style={style.shape}>
+          <div style={style.shape} className="aks-unblur">
             <div className="mt-4 ml-4" style={style.tulisanSatu}>
               Mencocokkan objek
             </div>
@@ -46,13 +45,31 @@ export default function PauseMenu(props) {
                 <div className="col-md-12">
                   <div className="row">
                     <div className="col-md-4">
-                      <img src={Play} alt="Play"></img>
+                      <img
+                        className="aks-btn"
+                        src={Play}
+                        alt="Play"
+                        onClick={() => {
+                          props.onPlay();
+                        }}
+                        style={style.imgButton}
+                      ></img>
                     </div>
                     <div className="col-md-4">
-                      <img src={Restart} alt="Restart"></img>
+                      <img
+                        className="aks-btn"
+                        src={Restart}
+                        alt="Restart"
+                        style={style.imgButton}
+                      ></img>
                     </div>
                     <div className="col-md-4">
-                      <img src={X} alt="X"></img>
+                      <img
+                        className="aks-btn"
+                        src={X}
+                        alt="X"
+                        style={style.imgButton}
+                      ></img>
                     </div>
                   </div>
                 </div>
@@ -90,5 +107,8 @@ const style = {
   tulisanDua: {
     fontFamily: "Roboto",
     fontSize: "18px"
+  },
+  imgButton: {
+    cursor: "pointer"
   }
 };
