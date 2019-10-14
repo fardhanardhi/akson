@@ -2,7 +2,6 @@ import React from "react";
 import Play from "../assets/play.svg";
 import Restart from "../assets/restart.svg";
 import X from "../assets/x.svg";
-
 // import ExitGameCon from "../components/ExitGameConfirm"
 
 export default function PauseMenu(props) {

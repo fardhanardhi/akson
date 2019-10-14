@@ -61,24 +61,28 @@ export default class ColorCodes extends Component {
       <div className="container text-center m-0 p-0">
         <div className="row">
           {this.state.choices.map((item, index) => {
+            let component;
             if (index < 4) {
-              return (
+              component = (
                 <div className="col-md-3">
                   {this.randColor(item.object, item.color, item.name)}
                 </div>
               );
             }
+            return component;
           })}
         </div>
         <div className="row mt-5">
           {this.state.choices.map((item, index) => {
+            let component;
             if (index < 8 && index >= 4) {
-              return (
+              component = (
                 <div className="col-md-3">
                   {this.randColor(item.object, item.color, item.name)}
                 </div>
               );
             }
+            return component;
           })}
         </div>
       </div>
