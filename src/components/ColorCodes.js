@@ -19,7 +19,6 @@ export default class ColorCodes extends Component {
     };
 
     componentDidMount() {
-        const choices = [...Array(4)].map(x => {
 
             // var sorted_arr = .slice().sort();
             // var results = [];
@@ -29,18 +28,13 @@ export default class ColorCodes extends Component {
             //         results.push(sorted_arr[i])
             //     }
             // }
+        const choices = [...Array(8)].map(x => {
             return {
                 object : this.getRandomId(this.objects),
                 color : this.getRandomId(colors),
                 name : this.getRandomId(colors), 
             }
         });
-        
-        // return ({
-        //     object: this.getRandomId(this.objects),
-        //     color: this.getRandomId(colors),
-        //     name : this.getRandomId(colors)
-        // })
     this.setState({ choices }, () => console.log(this.state.choices));
   }
 
