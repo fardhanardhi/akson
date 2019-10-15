@@ -9,8 +9,7 @@ export default class ColorCodes extends Component {
     super(props);
 
     this.state = {
-      choices: [],
-      trueId: []
+      choices: []
     };
 
     this.objects = [<Rectangel />];
@@ -32,18 +31,12 @@ export default class ColorCodes extends Component {
         name: this.getRandomId(colors)
       };
     });
-
     this.setState({ choices }, () => console.log(this.state.choices));
   }
 
   getRandomId = arr => {
     const id = Math.floor(Math.random() * arr.length);
     return id;
-  };
-
-  getTrueId = arr => {
-    const id = Math.floor(Math.random() * arr.length);
-    return this.state.trueId.push(id);
   };
 
   randColor = (objectId, colorIdCode, colorIdName) => {
