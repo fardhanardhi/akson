@@ -34,6 +34,71 @@ export default class CountTheObject extends Component {
         Sunflower3,
         Turtles,
         Turtles2
+      ],
+
+      soal: [
+        {
+          image: Animal,
+          pertanyaan: [
+            {
+              text: "berapa jumlah hewan yang ada?",
+              pilihanJawaban: [
+                {
+                  text: "17",
+                  isBenar: true
+                },
+                {
+                  text: "15",
+                  isBenar: false
+                },
+                {
+                  text: "19",
+                  isBenar: false
+                }
+              ]
+            },
+            {
+              text: "berapa jumlah bebek berwarna coklat?",
+              pilihanJawaban: [
+                {
+                  text: "4",
+                  isBenar: true
+                },
+                {
+                  text: "3",
+                  isBenar: false
+                },
+                {
+                  text: "2",
+                  isBenar: false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          image: Animal2,
+          pertanyaan: [
+            {
+              text: "berapa jumlah hewan yang ada?",
+              pilihanJawaban: [
+                {
+                  text: "17",
+                  isBenar: true
+                },
+                {
+                  text: "15",
+                  isBenar: false
+                },
+                {
+                  text: "19",
+                  isBenar: false
+                }
+              ]
+            },
+          ]
+        }
+        
       ]
     };
   }
@@ -44,15 +109,35 @@ export default class CountTheObject extends Component {
     return img;
   };
 
+  // pertanyaan = TanyaGambar =>{
+
+  // }
+
   render() {
     return (
       <div className="container-fluid">
+        
         <div className="row">
+          <div className="col"></div>
           <div className="col-md-8">
-            <img src={this.getRandomImage(this.state.arrayImg)} alt="" />
+            <img
+              src={Animal}
+              alt="countImage"
+              style={style.imageStyle}
+            />
           </div>
+          <div className="col"></div>
         </div>
       </div>
     );
   }
 }
+
+const style = {
+  imageStyle: {
+    maxHeight: "500px",
+    maxWidth: "500px",
+    align: "center",
+    margin: "auto"
+  }
+};
