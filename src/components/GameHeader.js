@@ -31,7 +31,9 @@ export default class GameHeader extends Component {
               onClick={this.props.onPause}
               style={styles.pauseBtn}
             />
-            <h2 style={styles.text}>{this.props.title}</h2>
+            <h2 style={styles.text}>
+              {this.props.title}
+            </h2>
           </div>
         </div>
         <div className="col"></div>
