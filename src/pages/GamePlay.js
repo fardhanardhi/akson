@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
 import ColorCodes from "../components/ColorCodes";
+import CountTheObject from "../components/CountTheObject"
 import ShapeAndPattern from "../components/ShapeAndPattern";
 import PauseMenu from "../components/PauseMenu";
 import ExitGameCon from "../components/ExitGameConfirm";
@@ -15,6 +16,7 @@ export default class GamePlay extends Component {
     exitDialogVisible: false,
     pauseDialogVisible: false,
     restartDialogVisible: false,
+    title: "Find the Pairs",
 
     game: null
   };
@@ -85,6 +87,16 @@ export default class GamePlay extends Component {
           </div>
         );
         break;
+        case "countObject":
+        gameComponent = (
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ height: "85%" }}
+          >
+            <CountTheObject />
+          </div>
+        );
+        break;
 
       default:
         gameComponent = null;
@@ -112,6 +124,7 @@ export default class GamePlay extends Component {
         >
           <GameHeader
             score={this.state.score}
+            title={this.state.title}
             onTimeOut={() => alert("Time Out")}
             paused={this.state.paused}
             onPause={() => {
@@ -121,21 +134,31 @@ export default class GamePlay extends Component {
           <div className="text-center">
             <button
               className="btn btn-success btn-lg m-1"
-              onClick={() => this.setState({ game: "findThePairs" })}
+              onClick={() => {
+                this.setState(
+                  { game: "findThePairs", 
+                  title: "Find the Pairs" }
+                )}}
             >
               Find The Pairs
             </button>
             <button
               className="btn btn-success btn-lg m-1"
-              onClick={() => this.setState({ game: "shapeAndPattern" })}
+              onClick={() => this.setState({ game: "shapeAndPattern", title: "Shape and Pattern" })}
             >
               Shape And Pattern
             </button>
             <button
               className="btn btn-success btn-lg m-1"
-              onClick={() => this.setState({ game: "colorCodes" })}
+              onClick={() => this.setState({ game: "colorCodes", title: "Color Codes" })}
             >
               Color Codes
+            </button>
+            <button
+              className="btn btn-success btn-lg m-1"
+              onClick={() => this.setState({ game: "countObject", title: "Count The Object" })}
+            >
+              Count The Object
             </button>
           </div>
 
