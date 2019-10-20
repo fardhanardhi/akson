@@ -16,22 +16,7 @@ export default class ColorCodes extends Component {
   }
 
   componentDidMount() {
-    const choices = [...Array(8)].map(x => {
-      // var sorted_arr = .slice().sort();
-      // var results = [];
-
-      // for (var i = 0; i < sorted_arr.length - 1; i++){
-      //     if(sorted_arr[i+1] == sorted_arr[i]){
-      //         results.push(sorted_arr[i])
-      //     }
-      // }
-      return {
-        object: this.getRandomId(this.objects),
-        color: this.getRandomId(colors),
-        name: this.getRandomId(colors)
-      };
-    });
-    this.setState({ choices }, () => console.log(this.state.choices));
+    this.getChoices();
   }
 
   getRandomId = arr => {
@@ -48,6 +33,113 @@ export default class ColorCodes extends Component {
     ];
     return obj[objectId];
   };
+
+  getChoices = () => {
+    // generate pilihan jawaban yang benar
+    let rightAnswer = [...Array(3)].map(x => {
+      return {
+        object : this.getRandomId(this.objects),
+        color : this.getRandomId(colors),
+        name : this.getRandomId(colors)
+      }
+    })
+
+    // mendapatkan jawaban benar
+    let rightChoicesNotPassed = true
+    while (rightChoicesNotPassed) {
+      for (let i = 0; i < rightAnswer.length; i++) {
+        for (let i = 0; i < rightAnswer.length; i++) {
+            if (
+              rightAnswer[i].name === rightAnswer[j].color
+            ) {
+              rightAnswer = rightAnswer.map(x => {
+                return {
+                  object: this.getRandomId(this.objects),
+                  color: this.getRandomId(colors),
+                  name: this.getRandomId(colors)
+                };
+              });
+            } else {
+              rightChoicesNotPassed = false;
+            }
+          }
+      }
+    }
+
+    // menggandakan jawaban benar
+    rightAnswer = [...rightAnswer, ...rightAnswer];
+
+    // generate pilihan jawaban yang salah
+    let wrongAnswer = [...Array(4)].map(x => {
+      return {
+        object: this.getRandomId(this.objects),
+        color: this.getRandomId(colors),
+        name: this.getRandomId(colors)
+      };
+    });
+
+    //Membandingkan jawaban benar dengan jawaban salah
+    let wrongChoicesNotPassed1 = true;
+    let wrongChoicesNotPassed2 = true;
+    while (wrongChoicesNotPassed1 || wrongChoicesNotPassed2) {
+      for (let i = 0; i < rightAnswer.length; i++) {
+        for (let j = 0; j < rightAnswer.length; j++) {
+          if (i !== j) {
+            if (
+              rightAnswer[i].name === wrongAnswer[j].name &&
+              rightAnswer[i].color === wrongAnswer[j].color
+            ) {
+              wrongAnswer = wrongAnswer.map(x => {
+                return {
+                  object: this.getRandomId(this.objects),
+                  color: this.getRandomId(colors),
+                  name: this.getRandomId(colors)
+                };
+              });
+            } else {
+              wrongChoicesNotPassed1 = false;
+            }
+          }
+        }
+      }
+
+      //Mendapatkan jawaban salah
+      for (let i = 0; i < wrongAnswer.length; i++) {
+        for (let j = 0; j < wrongAnswer.length; j++) {
+          if (i !== j) {
+            if (
+              wrongAnswer[i].name === wrongAnswer[j].name &&
+              wrongAnswer[i].color === wrongAnswer[j].color
+            ) {
+              wrongAnswer = wrongAnswer.map(x => {
+                return {
+                  object: this.getRandomId(this.objects),
+                  color: this.getRandomId(colors),
+                  name: this.getRandomId(colors)
+                };
+              });
+            } else {
+              wrongChoicesNotPassed2 = false;
+            }
+          }
+        }
+      }
+    }
+
+     // penggabungan pilihan jawaban salah & benar
+     let hasil = [...rightAnswer, ...wrongAnswer];
+
+     // acak posisi pilihan jawaban
+    const choices = [...hasil].sort(() => Math.random() - 0.5);
+
+    this.setState({ choices });
+    console.log("hasil benar", rightAnswer);
+    console.log("hasil salah", wrongAnswer);
+    console.log("hasil", hasil);
+    
+    
+    
+  }
 
   render() {
     return (
