@@ -36,7 +36,8 @@ export default class ColorCodes extends Component {
 
   getChoices = () => {
     // generate pilihan jawaban yang benar
-    let rightAnswer = [...Array(3)].map(x => {
+    
+    let rightAnswer = [...Array(2)].map(x => {
       return {
         object : this.getRandomId(this.objects),
         color : this.getRandomId(colors),
@@ -45,32 +46,33 @@ export default class ColorCodes extends Component {
     })
 
     // mendapatkan jawaban benar
-    let rightChoicesNotPassed = true
-    while (rightChoicesNotPassed) {
+    let rightChoicesNotPassed = true;
+    
+    while (rightChoicesNotPassed ) {
       for (let i = 0; i < rightAnswer.length; i++) {
-        for (let i = 0; i < rightAnswer.length; i++) {
-            if (
-              rightAnswer[i].name === rightAnswer[j].color
+        for (let j = 0; j < rightAnswer.length; j++) {
+          if (
+            rightAnswer[i].name === rightAnswer[j].name &&
+            rightAnswer[i].color === rightAnswer[j].color
             ) {
               rightAnswer = rightAnswer.map(x => {
+                let randColor = this.getRandomId(colors)
                 return {
                   object: this.getRandomId(this.objects),
-                  color: this.getRandomId(colors),
-                  name: this.getRandomId(colors)
+                  color: randColor,
+                  name: randColor
                 };
               });
-            } else {
-              rightChoicesNotPassed = false;
-            }
+          } else {
+            rightChoicesNotPassed = false;
           }
+        }
       }
     }
 
-    // menggandakan jawaban benar
-    rightAnswer = [...rightAnswer, ...rightAnswer];
-
     // generate pilihan jawaban yang salah
-    let wrongAnswer = [...Array(4)].map(x => {
+    // let getWrongColor
+    let wrongAnswer = [...Array(6)].map(x => {
       return {
         object: this.getRandomId(this.objects),
         color: this.getRandomId(colors),
@@ -102,32 +104,27 @@ export default class ColorCodes extends Component {
           }
         }
       }
-
       //Mendapatkan jawaban salah
       for (let i = 0; i < wrongAnswer.length; i++) {
-        for (let j = 0; j < wrongAnswer.length; j++) {
-          if (i !== j) {
-            if (
-              wrongAnswer[i].name === wrongAnswer[j].name &&
-              wrongAnswer[i].color === wrongAnswer[j].color
-            ) {
-              wrongAnswer = wrongAnswer.map(x => {
-                return {
-                  object: this.getRandomId(this.objects),
-                  color: this.getRandomId(colors),
-                  name: this.getRandomId(colors)
-                };
-              });
-            } else {
-              wrongChoicesNotPassed2 = false;
-            }
-          }
+        if (
+          wrongAnswer[i].name === wrongAnswer[i].color
+        ) {
+          wrongAnswer = wrongAnswer.map(x => {
+            return {
+              object: this.getRandomId(this.objects),
+              color: this.getRandomId(colors),
+              name: this.getRandomId(colors)
+            };
+          });
+        } else {
+          wrongChoicesNotPassed1 = false;
+          wrongChoicesNotPassed2 = false;
         }
       }
     }
 
      // penggabungan pilihan jawaban salah & benar
-     let hasil = [...rightAnswer, ...wrongAnswer];
+    let hasil = [...rightAnswer, ...wrongAnswer];
 
      // acak posisi pilihan jawaban
     const choices = [...hasil].sort(() => Math.random() - 0.5);
@@ -136,14 +133,12 @@ export default class ColorCodes extends Component {
     console.log("hasil benar", rightAnswer);
     console.log("hasil salah", wrongAnswer);
     console.log("hasil", hasil);
-    
-    
-    
   }
 
   render() {
     return (
       <div className="container text-center m-0 p-0">
+        <h2 style={styles.text}>Pilih warna yang sesuai dengan tulisannya</h2>
         <div className="row">
           {this.state.choices.map((item, index) => {
             let component;
@@ -173,4 +168,13 @@ export default class ColorCodes extends Component {
       </div>
     );
   }
+}
+
+const styles = {
+  text: {
+    fontWeight: "normal",
+    fontFamily: "Carter One",
+    color: "#1D1D1D",
+    marginBottom: "100px"
+  },
 }
