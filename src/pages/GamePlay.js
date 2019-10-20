@@ -8,6 +8,7 @@ import ShapeAndPattern from "../components/ShapeAndPattern";
 import PauseMenu from "../components/PauseMenu";
 import ExitGameCon from "../components/ExitGameConfirm";
 import RestartGameCon from "../components/RestartGameConfirm";
+import Score from "../components/Score";
 
 export default class GamePlay extends Component {
   state = {
@@ -16,6 +17,7 @@ export default class GamePlay extends Component {
     exitDialogVisible: false,
     pauseDialogVisible: false,
     restartDialogVisible: false,
+    scoreDialogVisible: false,
     title: "Find the Pairs",
     questionOnPause : "Temukan objek yang berpasangan",
 
@@ -60,6 +62,15 @@ export default class GamePlay extends Component {
       restartDialogVisible: false,
       pauseDialogVisible: true
     });
+  }
+
+  onFinish = () => {
+    this.setState(
+      {
+        paused: true,
+        scoreDialogVisible: true
+      }
+    )
   }
 
   getGame = () => {
@@ -117,6 +128,10 @@ export default class GamePlay extends Component {
           onExit={this.onExit}
           onRestart={this.onRestart}
         />
+        <Score
+          show={this.state.scoreDialogVisible}
+
+        />
         <ExitGameCon show={this.state.exitDialogVisible} onBack={this.onBack} referensi="/Menu"/>
         <RestartGameCon show={this.state.restartDialogVisible} onBack={this.onBack2} />
         <div
@@ -128,7 +143,7 @@ export default class GamePlay extends Component {
           <GameHeader
             score={this.state.score}
             title={this.state.title}
-            onTimeOut={() => alert("Time Out")}
+            onTimeOut={() => alert("Time Out"), this.onFinish}
             paused={this.state.paused}
             onPause={() => {
               this.onPause();
