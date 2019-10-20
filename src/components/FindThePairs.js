@@ -157,7 +157,7 @@ export default class FindThePairs extends Component {
   render() {
     return (
       <div className="container text-center m-0 p-0">
-        <h2 style={styles.text}>Temukan pasangan objek</h2>
+        <h2 style={styles.text}>Temukan objek yang berpasangan</h2>
         <div className="row">
           {this.state.choices.map((item, index) => {
             let component = null;

@@ -30,19 +30,19 @@ export default function PauseMenu(props) {
         >
           <div style={style.shape} className="aks-unblur">
             <div className="mt-4 ml-4" style={style.tulisanSatu}>
-              Mencocokkan objek
+              {props.title}
             </div>
             <div className="ml-5" style={style.tulisanDua}>
               <div className="container">
                 <div className="col-md-12">
-                  <div className="row" styles={style.tulisanDua}>
-                    Temukan objek yang berpasangan
+                  <div className="row">
+                    {props.questionOnPause}
                   </div>
                 </div>
               </div>
             </div>
             <div className="mt-4 mr-5">
-              <div className="container">
+              <div className="container" style={style.btnLayout}>
                 <div className="col-md-12">
                   <div className="row">
                     <div className="col-md-4">
@@ -102,21 +102,30 @@ const style = {
     borderRadius: "40px",
 
     padding: "5px",
-    paddingLeft: "60px"
+    paddingLeft: "auto",
+    paddingRight: "auto",
   },
 
   tulisanSatu: {
     fontFamily: "Carter One",
     fontSize: "35px",
-
-    color: "#000000"
+    color: "#000000",
+    textAlign : "center",
   },
 
   tulisanDua: {
+    display: "block",
     fontFamily: "Roboto",
-    fontSize: "18px"
+    fontSize: "18px",
+    paddingLeft: "auto",
+    paddingRight: "auto",
+    textAlign: "center",
   },
   imgButton: {
     cursor: "pointer"
+  },
+  btnLayout:{
+    marginTop: "10px",
+    marginLeft: "40px"
   }
 };

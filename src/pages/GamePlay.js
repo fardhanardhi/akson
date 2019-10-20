@@ -17,8 +17,9 @@ export default class GamePlay extends Component {
     pauseDialogVisible: false,
     restartDialogVisible: false,
     title: "Find the Pairs",
+    questionOnPause : "Temukan objek yang berpasangan",
 
-    game: null
+    game: "findThePairs"
   };
 
   onPause = () => {
@@ -110,6 +111,8 @@ export default class GamePlay extends Component {
       <div>
         <PauseMenu
           show={this.state.pauseDialogVisible}
+          questionOnPause={this.state.questionOnPause}
+          title={this.state.title}
           onPlay={this.onPlay}
           onExit={this.onExit}
           onRestart={this.onRestart}
@@ -134,29 +137,41 @@ export default class GamePlay extends Component {
           <div className="text-center">
             <button
               className="btn btn-success btn-lg m-1"
-              onClick={() => {
-                this.setState(
-                  { game: "findThePairs", 
-                  title: "Find the Pairs" }
-                )}}
+              onClick={() => this.setState({ 
+                game: "findThePairs", 
+                title: "Find the Pairs",
+                questionOnPause: "Temukan objek yang berpasangan"  
+              })}
             >
               Find The Pairs
             </button>
             <button
               className="btn btn-success btn-lg m-1"
-              onClick={() => this.setState({ game: "shapeAndPattern", title: "Shape and Pattern" })}
+              onClick={() => this.setState({ 
+                game: "shapeAndPattern", 
+                title: "Shape and Pattern", 
+                questionOnPause : "Temukan bentuk, warna, dan pola"
+              })}
             >
               Shape And Pattern
             </button>
             <button
               className="btn btn-success btn-lg m-1"
-              onClick={() => this.setState({ game: "colorCodes", title: "Color Codes" })}
+              onClick={() => this.setState({ 
+                game: "colorCodes", 
+                title: "Color Codes",
+                questionOnPause : "Pilih warna yang sesuai dengan tulisannya"
+               })}
             >
               Color Codes
             </button>
             <button
               className="btn btn-success btn-lg m-1"
-              onClick={() => this.setState({ game: "countObject", title: "Count The Object" })}
+              onClick={() => this.setState({ 
+                game: "countObject", 
+                title: "Count The Object",
+                questionOnPause: "Hitung jumlah burung yang ada pada gambar"
+              })}
             >
               Count The Object
             </button>
