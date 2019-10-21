@@ -37,6 +37,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "19",
                   isBenar: false
+                },
+                {
+                  text: "20",
+                  isBenar: false
                 }
               ]
             },
@@ -53,6 +57,10 @@ export default class CountTheObject extends Component {
                 },
                 {
                   text: "2",
+                  isBenar: false
+                },
+                {
+                  text: "5",
                   isBenar: false
                 }
               ]
@@ -76,6 +84,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "4",
                   isBenar: false
+                },
+                {
+                  text: "3",
+                  isBenar: false
                 }
               ]
             }
@@ -97,6 +109,10 @@ export default class CountTheObject extends Component {
                 },
                 {
                   text: "11",
+                  isBenar: false
+                },
+                {
+                  text: "10",
                   isBenar: false
                 }
               ]
@@ -120,6 +136,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "20",
                   isBenar: true
+                },
+                {
+                  text: "26",
+                  isBenar: true
                 }
               ]
             },
@@ -136,6 +156,10 @@ export default class CountTheObject extends Component {
                 },
                 {
                   text: "13",
+                  isBenar: false
+                },
+                {
+                  text: "12",
                   isBenar: false
                 }
               ]
@@ -159,6 +183,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "11",
                   isBenar: false
+                },
+                {
+                  text: "10",
+                  isBenar: false
                 }
               ]
             },
@@ -175,6 +203,10 @@ export default class CountTheObject extends Component {
                 },
                 {
                   text: "12",
+                  isBenar: false
+                },
+                {
+                  text: "13",
                   isBenar: false
                 }
               ]
@@ -198,6 +230,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "4",
                   isBenar: false
+                },
+                {
+                  text: "6",
+                  isBenar: false
                 }
               ]
             }
@@ -219,6 +255,10 @@ export default class CountTheObject extends Component {
                 },
                 {
                   text: "4",
+                  isBenar: true
+                },
+                {
+                  text: "3",
                   isBenar: true
                 }
               ]
@@ -242,6 +282,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "6",
                   isBenar: false
+                },
+                {
+                  text: "8",
+                  isBenar: false
                 }
               ]
             }
@@ -264,6 +308,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "6",
                   isBenar: false
+                },
+                {
+                  text: "8",
+                  isBenar: false
                 }
               ]
             },
@@ -281,6 +329,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "6",
                   isBenar: true
+                },
+                {
+                  text: "5",
+                  isBenar: false
                 }
               ]
             }
@@ -302,6 +354,10 @@ export default class CountTheObject extends Component {
                 },
                 {
                   text: "6",
+                  isBenar: false
+                },
+                {
+                  text: "7",
                   isBenar: false
                 }
               ]
@@ -325,6 +381,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "6",
                   isBenar: false
+                },
+                {
+                  text: "10",
+                  isBenar: false
                 }
               ]
             }
@@ -347,6 +407,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "3",
                   isBenar: false
+                },
+                {
+                  text: "6",
+                  isBenar: false
                 }
               ]
             }
@@ -360,6 +424,10 @@ export default class CountTheObject extends Component {
               pilihanJawaban: [
                 {
                   text: "5",
+                  isBenar: false
+                },
+                {
+                  text: "7",
                   isBenar: false
                 },
                 {
@@ -391,6 +459,10 @@ export default class CountTheObject extends Component {
                 {
                   text: "6",
                   isBenar: false
+                },
+                {
+                  text: "3",
+                  isBenar: false
                 }
               ]
             }
@@ -415,10 +487,18 @@ export default class CountTheObject extends Component {
     var jwb1 = jwb[0];
     var jwb2 = jwb[1];
     var jwb3 = jwb[2];
+    var jwb4 = jwb[3];
     return {
-      img,qst,jwb,jwb1,jwb2,jwb3
+      img,
+      qst,
+      jwb,
+      jwb1,
+      jwb2,
+      jwb3,
+      jwb4
     };
   };
+
 
   render() {
     const soal = this.getRandomImage(this.state.soal);
@@ -427,28 +507,46 @@ export default class CountTheObject extends Component {
     const soalJawaban1 = soal.jwb1;
     const soalJawaban2 = soal.jwb2;
     const soalJawaban3 = soal.jwb3;
+    const soalJawaban4 = soal.jwb4;
     return (
       console.log(soalTanya.pilihanJawaban),
       (
         <div className="container-fluid">
           <div className="row">
             <div className="col"></div>
-            <div className="col-md-8">
-              <h1>{soalTanya.text}</h1>
-              <img
-                src={soalGambar.image}
-                alt="countImage"
-                style={style.imageStyle}
-              />
+            <div className="col-md-8" style={style.pertanyaanStyle}>
               <div className="row">
-                <div className="col-4">
-                  <h3>{soalJawaban1.text}</h3>
+                <h1>{soalTanya.text}</h1>
+                <div className="col-2"></div>
+                <div className="col-8">
+                  <img
+                    src={soalGambar.image}
+                    alt="countImage"
+                    style={style.imageStyle}
+                  />
                 </div>
-                <div className="col-4">
-                  <h3>{soalJawaban2.text}</h3>
+                <div className="col"></div>
+              </div>
+              <div className="row" style={style.buttonGroup}>
+                <div className="col-3">
+                  <button style={style.buttonSyle} onClick={()=>console.log(soalJawaban1.isBenar)}>
+                  {soalJawaban1.text}
+                  </button>
                 </div>
-                <div className="col-4">
-                  <h3>{soalJawaban3.text}</h3>
+                <div className="col-3">
+                  <button style={style.buttonSyle} onClick={()=>console.log(soalJawaban2.isBenar)}>
+                  {soalJawaban2.text}
+                  </button>
+                </div>
+                <div className="col-3">
+                  <button style={style.buttonSyle} onClick={()=>console.log(soalJawaban3.isBenar)}>
+                  {soalJawaban3.text}
+                  </button>
+                </div>
+                <div className="col-3">
+                  <button style={style.buttonSyle} onClick={()=>console.log(soalJawaban4.isBenar)} >
+                  {soalJawaban4.text}
+                  </button>
                 </div>
               </div>
             </div>
@@ -462,9 +560,27 @@ export default class CountTheObject extends Component {
 
 const style = {
   imageStyle: {
-    maxHeight: "500px",
-    maxWidth: "500px",
-    align: "center",
-    margin: "auto"
+    maxHeight: "400px",
+    maxWidth: "500px"
+    // marginLeft: "auto",
+    // marginRight: "auto"
+  },
+  pertanyaanStyle: {
+    fontWeight: "normal",
+    fontFamily: "Carter One"
+  },
+  buttonSyle: {
+    backgroundColor: "#4CAF50" /* Green */,
+    border: "none",
+    color: "white",
+    padding: "15px 32px",
+    textAlign: "center",
+    textDecoration: "none",
+    display: "inline-block",
+    fontSize: "16px",
+    radiusBorder : "5px"
+  },
+  buttonGroup: {
+    marginTop : "25px",
   }
 };
