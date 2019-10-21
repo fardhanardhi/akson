@@ -144,7 +144,7 @@ export default class GamePlay extends Component {
             score={this.state.score}
             title={this.state.title}
             onTimeOut={() => alert("Time Out")
-            // , this.onFinish
+            , this.onFinish
           }
             paused={this.state.paused}
             onPause={() => {
