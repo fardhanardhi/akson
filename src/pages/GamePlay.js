@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
 import ColorCodes from "../components/ColorCodes";
-import CountTheObject from "../components/CountTheObject"
+import CountTheObject from "../components/CountTheObject";
 import ShapeAndPattern from "../components/ShapeAndPattern";
 import PauseMenu from "../components/PauseMenu";
 import ExitGameCon from "../components/ExitGameConfirm";
@@ -12,16 +12,42 @@ import Score from "../components/Score";
 
 export default class GamePlay extends Component {
   state = {
-    score: 15,
     paused: false,
     exitDialogVisible: false,
     pauseDialogVisible: false,
     restartDialogVisible: false,
     scoreDialogVisible: false,
-    title: "Find the Pairs",
-    questionOnPause : "Temukan objek yang berpasangan",
+    questionOnPause: "Temukan objek yang berpasangan",
 
-    game: "findThePairs"
+    // 0 = findThePairs, 1 = CountTheObject, 2 = colorCodes, 3 = shapeAndPattern
+    playing: null,
+
+    game: [
+      {
+        key: "findThePairs",
+        name: "Find The Pairs",
+        score: 0,
+        totalTime: 30
+      },
+      {
+        key: "CountTheObject",
+        name: "Count The Object",
+        score: 0,
+        totalTime: 30
+      },
+      {
+        key: "colorCodes",
+        name: "Color Codes",
+        score: 0,
+        totalTime: 30
+      },
+      {
+        key: "shapeAndPattern",
+        name: "Shape And Pattern",
+        score: 0,
+        totalTime: 30
+      }
+    ]
   };
 
   onPause = () => {
@@ -62,16 +88,14 @@ export default class GamePlay extends Component {
       restartDialogVisible: false,
       pauseDialogVisible: true
     });
-  }
+  };
 
   onFinish = () => {
-    this.setState(
-      {
-        paused: true,
-        scoreDialogVisible: true
-      }
-    )
-  }
+    this.setState({
+      paused: true,
+      scoreDialogVisible: true
+    });
+  };
 
   getGame = () => {
     let gameComponent;
@@ -99,7 +123,7 @@ export default class GamePlay extends Component {
           </div>
         );
         break;
-        case "countObject":
+      case "countObject":
         gameComponent = (
           <div
             className="d-flex justify-content-center align-items-center"
@@ -128,12 +152,16 @@ export default class GamePlay extends Component {
           onExit={this.onExit}
           onRestart={this.onRestart}
         />
-        <Score
-          show={this.state.scoreDialogVisible}
-
+        <Score show={this.state.scoreDialogVisible} />
+        <ExitGameCon
+          show={this.state.exitDialogVisible}
+          onBack={this.onBack}
+          referensi="/Menu"
         />
-        <ExitGameCon show={this.state.exitDialogVisible} onBack={this.onBack} referensi="/Menu"/>
-        <RestartGameCon show={this.state.restartDialogVisible} onBack={this.onBack2} />
+        <RestartGameCon
+          show={this.state.restartDialogVisible}
+          onBack={this.onBack2}
+        />
         <div
           className={`container-fluid p-0 ${
             this.state.paused ? "aks-blur" : "aks-nonblur"
@@ -141,55 +169,26 @@ export default class GamePlay extends Component {
           style={styles.wrapper}
         >
           <GameHeader
-            score={this.state.score}
-            title={this.state.title}
-            onTimeOut={() => alert("Time Out")
-            // , this.onFinish
-          }
+            game={this.state.game}
+            playing={this.state.playing}
+            onTimeOut={
+              () => alert("Time Out")
+              // , this.onFinish
+            }
             paused={this.state.paused}
             onPause={() => {
               this.onPause();
             }}
           />
           <div className="text-center">
-            <button
-              className="btn btn-success btn-lg m-1"
-              onClick={() => this.setState({ 
-                game: "findThePairs", 
-                title: "Find the Pairs",
-                questionOnPause: "Temukan objek yang berpasangan"  
-              })}
-            >
+            <button className="btn btn-success btn-lg m-1">
               Find The Pairs
             </button>
-            <button
-              className="btn btn-success btn-lg m-1"
-              onClick={() => this.setState({ 
-                game: "shapeAndPattern", 
-                title: "Shape and Pattern", 
-                questionOnPause : "Temukan bentuk, warna, dan pola"
-              })}
-            >
+            <button className="btn btn-success btn-lg m-1">
               Shape And Pattern
             </button>
-            <button
-              className="btn btn-success btn-lg m-1"
-              onClick={() => this.setState({ 
-                game: "colorCodes", 
-                title: "Color Codes",
-                questionOnPause : "Pilih warna yang sesuai dengan tulisannya"
-               })}
-            >
-              Color Codes
-            </button>
-            <button
-              className="btn btn-success btn-lg m-1"
-              onClick={() => this.setState({ 
-                game: "countObject", 
-                title: "Count The Object",
-                questionOnPause: "Hitung jumlah burung yang ada pada gambar"
-              })}
-            >
+            <button className="btn btn-success btn-lg m-1">Color Codes</button>
+            <button className="btn btn-success btn-lg m-1">
               Count The Object
             </button>
           </div>
