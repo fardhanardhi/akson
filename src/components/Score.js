@@ -1,13 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 import score from "../assets/score.svg";
 import checkScore from "../assets/checkScore.svg";
 import errorScore from "../assets/errorScore.svg";
 import Home from "../assets/Home.svg";
 import ThermoBlue from "../components/ThermoBlue";
 
-export default class Score extends Component {
-  render() {
-    return (
+
+export default function Score(props) {
+  return (
+    <div
+      className="container-fluid justify-content-center"
+      style={{
+        opacity: props.show ? "1" : "0",
+        transition: "all .8s",
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
+        position: "absolute",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        zIndex: 1,
+        pointerEvents: props.show ? "auto" : "none"
+      }}
+    >
       <div style={style.box}>
         <div style={style.fontSatu}>Permainan Selesai</div>
         <div className="container">
@@ -82,8 +96,8 @@ export default class Score extends Component {
           <img src={Home} alt="home icon"></img>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const style = {
