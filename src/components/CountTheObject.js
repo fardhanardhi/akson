@@ -19,7 +19,6 @@ export default class CountTheObject extends Component {
     super(props);
 
     this.state = {
-
       soal: [
         {
           image: Animal,
@@ -79,7 +78,7 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -101,7 +100,7 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -140,7 +139,7 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -179,7 +178,7 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -201,7 +200,7 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -223,7 +222,7 @@ export default class CountTheObject extends Component {
                   isBenar: true
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -245,7 +244,7 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -284,7 +283,7 @@ export default class CountTheObject extends Component {
                   isBenar: true
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -306,7 +305,7 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -328,7 +327,7 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -350,7 +349,7 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -372,7 +371,7 @@ export default class CountTheObject extends Component {
                   isBenar: true
                 }
               ]
-            },
+            }
           ]
         },
         {
@@ -394,10 +393,9 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            },
+            }
           ]
-        },
-        
+        }
       ]
     };
   }
@@ -406,35 +404,58 @@ export default class CountTheObject extends Component {
     var num = Math.floor(Math.random() * ArImg.length);
     var img = ArImg[num];
     var num2 = Math.floor(Math.random() * img.pertanyaan.length);
-    var Qst = img.pertanyaan[num2];
+    var qst = img.pertanyaan[num2];
+    var jwb = qst.pilihanJawaban;
+    for (var i = jwb.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = jwb[i];
+      jwb[i] = jwb[j];
+      jwb[j] = temp;
+    }
+    var jwb1 = jwb[0];
+    var jwb2 = jwb[1];
+    var jwb3 = jwb[2];
     return {
-      img,
-      Qst
+      img,qst,jwb,jwb1,jwb2,jwb3
     };
-    
   };
 
-
   render() {
-    var Question =this.getRandomImage(this.state.soal);
+    const soal = this.getRandomImage(this.state.soal);
+    const soalGambar = soal.img;
+    const soalTanya = soal.qst;
+    const soalJawaban1 = soal.jwb1;
+    const soalJawaban2 = soal.jwb2;
+    const soalJawaban3 = soal.jwb3;
     return (
-      console.log(Question.img),
-      <div className="container-fluid">
-        
-        <div className="row">
-          <div className="col"></div>
-          <div className="col-md-8">
-            <h1>{Question.Qst.text}</h1>
-            <img
-              src={Question.img.image}
-              alt="countImage"
-              style={style.imageStyle}
-            />
-          </div>
-          <div className="col">
+      console.log(soalTanya.pilihanJawaban),
+      (
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-md-8">
+              <h1>{soalTanya.text}</h1>
+              <img
+                src={soalGambar.image}
+                alt="countImage"
+                style={style.imageStyle}
+              />
+              <div className="row">
+                <div className="col-4">
+                  <h3>{soalJawaban1.text}</h3>
+                </div>
+                <div className="col-4">
+                  <h3>{soalJawaban2.text}</h3>
+                </div>
+                <div className="col-4">
+                  <h3>{soalJawaban3.text}</h3>
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
           </div>
         </div>
-      </div>
+      )
     );
   }
 }
