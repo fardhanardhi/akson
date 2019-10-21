@@ -17,7 +17,6 @@ export default class GamePlay extends Component {
     pauseDialogVisible: false,
     restartDialogVisible: false,
     scoreDialogVisible: false,
-    questionOnPause: "Temukan objek yang berpasangan",
 
     // 0 = findThePairs, 1 = CountTheObject, 2 = colorCodes, 3 = shapeAndPattern
     playing: null,
