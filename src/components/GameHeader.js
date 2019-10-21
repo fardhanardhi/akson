@@ -32,7 +32,9 @@ export default class GameHeader extends Component {
               style={styles.pauseBtn}
             />
             <h2 style={styles.text}>
-            {this.props.title}
+              {this.props.playing == null
+                ? "Loading..."
+                : this.props.game[this.props.playing].name}
             </h2>
           </div>
         </div>
@@ -40,7 +42,9 @@ export default class GameHeader extends Component {
         <div className="col-auto">
           <div className="row">
             <h2 style={styles.text} className="mr-2">
-              {this.props.score}
+              {this.props.playing == null
+                ? 0
+                : this.props.game[this.props.playing].score}
             </h2>
             <img src={medalIcon} alt="medal" className="mr-4" />
             <h2 style={styles.text} className="mr-2">

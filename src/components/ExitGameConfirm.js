@@ -20,11 +20,7 @@ export default function ExitGameConfirm(props) {
       }}
     >
       <div style={styles.shape}>
-        <div className="mt-4 ml-4" style={styles.tulisanSatu}>
-          <p>Mencocokkan objek</p>
-        </div>
-        <div style={styles.tulisanDua}>Temukan objek yang berpasangan</div>
-        <div className="container mt-4">
+        <div className="container mt-3">
           <div className="col-md-12">
             <div className="row">
               <div className="col-md-4"></div>
@@ -35,8 +31,12 @@ export default function ExitGameConfirm(props) {
             </div>
           </div>
         </div>
-        <div style={styles.tulisanTiga}>
-          Apakah kamu yakin mengakhiri game ini ?
+        <div className="container mt-1">
+          <div className="col-md-12">
+            <div className="mt-1" style={styles.tulisanSatu}>
+              Apakah kamu yakin ingin mengakhiri game ini ?
+            </div>
+          </div>
         </div>
         <div className="container" style={styles.gambar}>
           <div className="col-md-12">
@@ -72,8 +72,8 @@ export default function ExitGameConfirm(props) {
 
 const styles = {
   shape: {
-    width: "511px",
-    height: "387px",
+    width: "500px",
+    height: "300px",
 
     background: "#EFFFF0",
     borderRadius: "40px",
@@ -84,28 +84,15 @@ const styles = {
 
   tulisanSatu: {
     fontFamily: "Carter One",
-    fontSize: "35px",
-
-    color: "#000000"
-  },
-
-  tulisanDua: {
-    fontFamily: "Roboto",
-    fontSize: "18px",
-    marginTop: "5px",
-    marginLeft: "60px"
-  },
-
-  tulisanTiga: {
-    fontFamily: "Roboto",
-    fontSize: "18px",
-    marginTop: "10px",
-    marginLeft: "40px"
+    fontSize: "26px",
+    marginRight:"50px",
+    color: "#000000",
+    textAlign: "center"
   },
 
   gambar: {
     marginTop: "10px",
-    marginLeft: "10px"
+    marginLeft: "5px"
   },
 
   imgButton: {
