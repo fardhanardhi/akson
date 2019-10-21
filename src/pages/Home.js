@@ -25,6 +25,18 @@ export default class Home extends Component {
             <li>
               <Link to="/statistics">Statistic</Link>
             </li>
+            <li>
+              <Link to="/find-the-pairs">Find the Pairs</Link>
+            </li>
+            <li>
+              <Link to="/Shape-and-Pattern">SHape and Pattern</Link>
+            </li>
+            <li>
+              <Link to="/Color-Codes">Color Codes</Link>
+            </li>
+            <li>
+              <Link to="/Count-the-Object">Count the Object</Link>
+            </li>
           </ul>
         </nav>
         <div className="container-fluid ">
