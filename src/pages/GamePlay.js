@@ -143,7 +143,9 @@ export default class GamePlay extends Component {
           <GameHeader
             score={this.state.score}
             title={this.state.title}
-            onTimeOut={() => alert("Time Out"), this.onFinish}
+            onTimeOut={() => alert("Time Out")
+            // , this.onFinish
+          }
             paused={this.state.paused}
             onPause={() => {
               this.onPause();
