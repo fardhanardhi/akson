@@ -13,6 +13,7 @@ import Sunflower2 from "../assets/imgCount/Sunflower2.svg";
 import Sunflower3 from "../assets/imgCount/Sunflower3.svg";
 import Turtles from "../assets/imgCount/Turtles.svg";
 import Turtles2 from "../assets/imgCount/Turtles2.svg";
+import GameHeader from "./GameHeader";
 
 export default class CountTheObject extends Component {
   constructor(props) {
@@ -416,7 +417,12 @@ export default class CountTheObject extends Component {
     var jwb2 = jwb[1];
     var jwb3 = jwb[2];
     return {
-      img,qst,jwb,jwb1,jwb2,jwb3
+      img,
+      qst,
+      jwb,
+      jwb1,
+      jwb2,
+      jwb3
     };
   };
 
@@ -430,7 +436,14 @@ export default class CountTheObject extends Component {
     return (
       console.log(soalTanya.pilihanJawaban),
       (
-        <div className="container-fluid">
+        <div className="container-fluid p-0">
+          <GameHeader
+            gameInfo={this.props.gameInfo}
+            onTimeOut={this.props.onTimeOut}
+            paused={this.props.paused}
+            onPause={this.props.onPause}
+            ref={this.headerRef}
+          />
           <div className="row">
             <div className="col"></div>
             <div className="col-md-8">
