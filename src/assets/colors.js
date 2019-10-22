@@ -25,7 +25,7 @@ const colors = [
   },
   {
     name: "brown",
-    code: "#795548"
+    code: "#5c3000"
   },
   {
     name: "grey",

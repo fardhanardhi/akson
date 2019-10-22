@@ -5,9 +5,11 @@ import Home from "../pages/Home";
 import Permainan from "../pages/Permainan";
 import GamePlay from "../pages/GamePlay";
 import Statistics from "../pages/Statistics";
-import CountObject from "../components/CountTheObject";
 import Menu from "../pages/Menu";
 import FindThePairs from "../components/FindThePairs";
+import CountObject from "../components/CountTheObject";
+import ColorCodes from "../components/ColorCodes";
+import ShapeAndPatteren from "../components/ShapeAndPattern";
 
 export default function Routes() {
   return (
@@ -31,6 +33,12 @@ export default function Routes() {
           </Route>
           <Route path="/Count-the-Object" >
             <CountObject/>
+          </Route>
+          <Route path="/Color-Codes" >
+            <ColorCodes/>
+          </Route>
+          <Route path="/Shape-and-Pattern" >
+            <ShapeAndPatteren/>
           </Route>
           <Route path="/find-the-pairs" >
             <FindThePairs/>

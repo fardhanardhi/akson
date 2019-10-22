@@ -24,15 +24,21 @@ export default class ColorCodes extends Component {
     return id;
   };
 
-  randColor = (objectId, colorIdCode, colorIdName) => {
+  getColor = (objectId, colorIdCode, colorIdName) => {
     const obj = [
       <Rectangel
         color={colors[colorIdCode].code}
         name={colors[colorIdName].name}
+        onClick={()=>this.checked(colorIdName, colorIdCode)}
       />
     ];
     return obj[objectId];
   };
+
+  checked = (colorIdName, colorIdCode) => {
+    console.log("hasil:",colorIdCode === colorIdName?"benar":"salah");
+    // console.log("hahahahaa");
+  }
 
   getChoices = () => {
     // generate pilihan jawaban yang benar
@@ -44,6 +50,7 @@ export default class ColorCodes extends Component {
         name : this.getRandomId(colors)
       }
     })
+
 
     // mendapatkan jawaban benar
     let rightChoicesNotPassed = true;
@@ -144,8 +151,8 @@ export default class ColorCodes extends Component {
             let component;
             if (index < 4) {
               component = (
-                <div className="col-md-3">
-                  {this.randColor(item.object, item.color, item.name)}
+                <div className="col-md-3" key={index}>
+                  {this.getColor(item.object, item.color, item.name)}
                 </div>
               );
             }
@@ -157,8 +164,8 @@ export default class ColorCodes extends Component {
             let component;
             if (index < 8 && index >= 4) {
               component = (
-                <div className="col-md-3">
-                  {this.randColor(item.object, item.color, item.name)}
+                <div className="col-md-3" key={index}>
+                  {this.getColor(item.object, item.color, item.name)}
                 </div>
               );
             }
