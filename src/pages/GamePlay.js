@@ -28,25 +28,25 @@ export default class GamePlay extends Component {
           key: "findThePairs",
           name: "Find The Pairs",
           score: 0,
-          totalTime: 5
+          totalTime: 7
         },
         {
           key: "CountTheObject",
           name: "Count The Object",
           score: 0,
-          totalTime: 5
+          totalTime: 7
         },
         {
           key: "colorCodes",
           name: "Color Codes",
           score: 0,
-          totalTime: 5
+          totalTime: 7
         },
         {
           key: "shapeAndPattern",
           name: "Shape And Pattern",
           score: 0,
-          totalTime: 5
+          totalTime: 7
         }
       ],
 
