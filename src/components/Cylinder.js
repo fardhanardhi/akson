@@ -1,9 +1,13 @@
 import React from 'react'
 
 export default function Cylinder(props) {
+  const styles={
+    cursor: "pointer"
+  }
+
   return (
-    <div>
-      <svg width="110" height="92" viewBox="0 0 110 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div onClick={props.onClick}>
+      <svg width="110" height="92" viewBox="0 0 110 92" fill="none" xmlns="http://www.w3.org/2000/svg" style={styles}>
         <mask id="path-1-inside-1" fill="white">
           <path fillRule="evenodd" clipRule="evenodd" d="M103.518 47.4154C110.702 42.9661 110.86 29.3918 103.788 16.7835C96.6028 3.97391 84.6767 -2.98793 77.1499 1.23381C77.0071 1.31391 76.8669 1.39746 76.7293 1.48439L13.8682 37.146L40.5259 83.999L103.535 47.4456L103.518 47.4154Z" />
         </mask>

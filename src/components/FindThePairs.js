@@ -17,7 +17,9 @@ export default class FindThePairs extends Component {
     super(props);
 
     this.state = {
-      choices: []
+      choices: [],
+      pair : [],
+      isClicked : null,
     };
 
     this.objects = [
@@ -45,24 +47,26 @@ export default class FindThePairs extends Component {
   getObject = (objectId, colorId) => {
     const obj = [
       <Sphere color={colors[colorId].code} />,
-      <Cone color={colors[colorId].code} />,
-      <UglyPyramid color={colors[colorId].code} />,
-      <Pyramid color={colors[colorId].code} />,
-      <Cylinder color={colors[colorId].code} />,
-      <Prism color={colors[colorId].code} />,
+      <Cone color={colors[colorId].code}/>,
+      <UglyPyramid color={colors[colorId].code}/>,
+      <Pyramid color={colors[colorId].code}/>,
+      <Cylinder color={colors[colorId].code}/>,
+      <Prism color={colors[colorId].code}/>,
       <Cube color={colors[colorId].code} />,
-      <Cuboid color={colors[colorId].code} />,
-      <HexagonalPrism color={colors[colorId].code} />
+      <Cuboid color={colors[colorId].code}/>,
+      <HexagonalPrism color={colors[colorId].code}/>
     ];
     return obj[objectId];
   };
+
 
   getChoices = () => {
     // generate pilihan jawaban benar
     let rightChoices = [...Array(3)].map(x => {
       return {
         object: this.getRandomId(this.objects),
-        color: this.getRandomId(colors)
+        color: this.getRandomId(colors),
+        click : this.state.isClicked,
       };
     });
 
@@ -79,7 +83,8 @@ export default class FindThePairs extends Component {
               rightChoices = rightChoices.map(x => {
                 return {
                   object: this.getRandomId(this.objects),
-                  color: this.getRandomId(colors)
+                  color: this.getRandomId(colors),
+                  click : this.state.isClicked,
                 };
               });
             } else {
@@ -97,7 +102,8 @@ export default class FindThePairs extends Component {
     let wrongChoices = [...Array(6)].map(x => {
       return {
         object: this.getRandomId(this.objects),
-        color: this.getRandomId(colors)
+        color: this.getRandomId(colors),
+        click : this.state.isClicked,
       };
     });
 
@@ -115,7 +121,8 @@ export default class FindThePairs extends Component {
               wrongChoices = wrongChoices.map(x => {
                 return {
                   object: this.getRandomId(this.objects),
-                  color: this.getRandomId(colors)
+                  color: this.getRandomId(colors),
+                  click : this.state.isClicked,
                 };
               });
             } else {
@@ -134,7 +141,8 @@ export default class FindThePairs extends Component {
               wrongChoices = wrongChoices.map(x => {
                 return {
                   object: this.getRandomId(this.objects),
-                  color: this.getRandomId(colors)
+                  color: this.getRandomId(colors),
+                  click : this.state.isClicked,
                 };
               });
             } else {
@@ -154,6 +162,30 @@ export default class FindThePairs extends Component {
     this.setState({ choices });
   };
 
+  checked = (index) => {
+    console.log(this.state.choices[index].click);
+    
+    if (
+        this.state.choices[index].click === false ||
+        this.state.choices[index].click === null) {
+      this.state.choices[index].click = true
+      this.state.pair.push(index)
+
+      if (this.state.pair.length > 2) {
+        this.state.pair = [index];
+        this.state.choices.click = false
+      }
+    }
+    else if(this.state.choices[index].click === true){
+      this.state.choices[index].click = false
+    }
+    console.log("ini objek ", this.state.choices[index]);  
+    console.log("ini array pair ", this.state.pair);
+    console.log("ini index ", index);
+    
+    
+  }
+
   render() {
     return (
       <div className="container text-center m-0 p-0">
@@ -163,7 +195,7 @@ export default class FindThePairs extends Component {
             let component = null;
             if (index < 4) {
               component = (
-                <div className="col-md-3" key={index}>
+                <div className="col-md-3" key={index} onClick={()=>this.checked(index)}>
                   {this.getObject(item.object, item.color)}
                 </div>
               );
@@ -179,7 +211,7 @@ export default class FindThePairs extends Component {
 
             if (index < 8 && index >= 4) {
               component = (
-                <div className="col-md-3" key={index}>
+                <div className="col-md-3" key={index} onClick={()=>this.checked(index)}>
                   {this.getObject(item.object, item.color)}
                 </div>
               );
@@ -194,7 +226,7 @@ export default class FindThePairs extends Component {
             let component = null;
             if (index < 12 && index >= 8) {
               component = (
-                <div className="col-md-3" key={index}>
+                <div className="col-md-3" key={index} onClick={()=>this.checked(index)}>
                   {this.getObject(item.object, item.color)}
                 </div>
               );
@@ -216,4 +248,5 @@ const styles = {
     color: "#1D1D1D",
     marginBottom: "75px"
   },
+ 
 }

@@ -1,14 +1,19 @@
 import React from "react";
 
 export default function Sphere(props) {
+  const styles={
+    cursor: "pointer"
+  }
+
   return (
-    <div>
+    <div onClick={props.onClick}>
       <svg
         width="87"
         height="87"
         viewBox="0 0 87 87"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        style={styles}
       >
         <path
           d="M86.75 43.5C86.75 67.3863 67.3863 86.75 43.5 86.75C19.6137 86.75 0.25 67.3863 0.25 43.5C0.25 19.6137 19.6137 0.25 43.5 0.25C67.3863 0.25 86.75 19.6137 86.75 43.5Z"

@@ -37,7 +37,6 @@ export default class ColorCodes extends Component {
 
   checked = (colorIdName, colorIdCode) => {
     console.log("hasil:",colorIdCode === colorIdName?"benar":"salah");
-    // console.log("hahahahaa");
   }
 
   getChoices = () => {

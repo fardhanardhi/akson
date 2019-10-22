@@ -1,7 +1,6 @@
 import React from'react'
 
 export default function Rectangel(props){
-    
     const styles = {
         text:{
             position : "absolute",
@@ -15,8 +14,6 @@ export default function Rectangel(props){
             cursor: "pointer"
         }
     }
-
-    // checked = () => {}
     
     return(
         <div onClick={props.onClick}>  

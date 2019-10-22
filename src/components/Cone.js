@@ -1,14 +1,19 @@
 import React from "react";
 
 export default function Cone(props) {
+  const styles={
+    cursor: "pointer"
+  }
+
   return (
-    <div>
+    <div onClick={props.onClick}>
       <svg
         width="65"
         height="90"
         viewBox="0 0 65 90"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        style={styles}
       >
         <mask id="path-1-inside-1" fill="white">
           <path

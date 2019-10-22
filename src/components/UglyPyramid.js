@@ -1,14 +1,19 @@
 import React from "react";
 
 export default function UglyPyramid(props) {
+  const styles={
+    cursor: "pointer"
+  }
+
   return (
-    <div>
+    <div onClick={props.onClick}>
       <svg
         width="67"
         height="89"
         viewBox="0 0 67 89"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        style={styles}
       >
         <path
           d="M19.7168 88L30.9817 1L65.9897 61.1375L19.7168 88Z"

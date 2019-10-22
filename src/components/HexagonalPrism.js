@@ -1,9 +1,13 @@
 import React from 'react'
 
 export default function HexagonalPrism(props) {
+  const styles={
+    cursor: "pointer"
+  }
+
   return (
-    <div>
-      <svg width="102" height="88" viewBox="0 0 102 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div onClick={props.onClick}>
+      <svg width="102" height="88" viewBox="0 0 102 88" fill="none" xmlns="http://www.w3.org/2000/svg" style={styles}>
         <path d="M31.1097 46.6204L11.7666 35.1241L70.7082 1L90.4162 12.6788L31.1097 46.6204Z" fill={props.color} stroke="black" strokeWidth="0.5" />
         <path d="M31.3431 46.6204L12 35.1241L70.9416 1L90.6496 12.6788L31.3431 46.6204Z" fill="black" fillOpacity="0.15" />
         <path d="M41.8758 72.8978L31.1094 46.6205L90.7809 12.8613L100.817 38.7737L41.8758 72.8978Z" fill={props.color} stroke="black" strokeWidth="0.5" />
