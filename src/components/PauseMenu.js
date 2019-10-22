@@ -29,17 +29,8 @@ export default function PauseMenu(props) {
           }}
         >
           <div style={style.shape} className="aks-unblur">
-            <div className="mt-4 ml-4" style={style.tulisanSatu}>
-              {props.title}
-            </div>
-            <div className="ml-5" style={style.tulisanDua}>
-              <div className="container">
-                <div className="col-md-12">
-                  <div className="row">
-                    {props.questionOnPause}
-                  </div>
-                </div>
-              </div>
+            <div className="mt-3 ml-4" style={style.tulisanSatu}>
+              Paused
             </div>
             <div className="mt-4 mr-5">
               <div className="container" style={style.btnLayout}>
@@ -95,8 +86,8 @@ const style = {
     position: "absolute"
   },
   shape: {
-    width: "511px",
-    height: "283px",
+    width: "500px",
+    height: "230px",
 
     background: "#EFFFF0",
     borderRadius: "40px",
