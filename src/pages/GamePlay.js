@@ -123,24 +123,32 @@ export default class GamePlay extends Component {
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
       />,
       <CountTheObject
         gameInfo={game[gameId]}
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
       />,
       <ColorCodes
         gameInfo={game[gameId]}
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
       />,
       <ShapeAndPattern
         gameInfo={game[gameId]}
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
       />
     ];
     this.setState({ gameComponent: gameComponent[gameId] });
@@ -170,7 +178,7 @@ export default class GamePlay extends Component {
     this.setState({ game });
   };
 
-  addWrongScrore = () => {
+  addWrongScore = () => {
     this.setState({ wrongScore: this.state.wrongScore + 1 });
   };
 
