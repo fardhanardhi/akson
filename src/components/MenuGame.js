@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+const username = localStorage.getItem('username');
+
 export default class MenuGame extends Component {
   render() {
     return (
@@ -12,7 +14,7 @@ export default class MenuGame extends Component {
                   <div style={style.bening}></div>
                 </div>
                 <div className="col-md-6" style={style.fontJudul}>
-                  <h2>Hai, User</h2>
+                  <h2>Hai, {username}</h2>
                 </div>
                 <div className="col-md-3"></div>
               </div>

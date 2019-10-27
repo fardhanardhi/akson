@@ -25,30 +25,36 @@ export default class GamePlay extends Component {
 
       game: [
         {
+          id: 0,
           key: "findThePairs",
           name: "Find The Pairs",
           score: 0,
           totalTime: 7
         },
         {
+          id: 1,
           key: "CountTheObject",
           name: "Count The Object",
           score: 0,
           totalTime: 7
         },
         {
+          id: 2,
           key: "colorCodes",
           name: "Color Codes",
           score: 0,
           totalTime: 7
         },
         {
+          id: 3,
           key: "shapeAndPattern",
           name: "Shape And Pattern",
           score: 0,
           totalTime: 7
         }
       ],
+
+      wrongScore: 0,
 
       gameComponent: null
     };
@@ -117,24 +123,32 @@ export default class GamePlay extends Component {
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
       />,
       <CountTheObject
         gameInfo={game[gameId]}
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
       />,
       <ColorCodes
         gameInfo={game[gameId]}
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
       />,
       <ShapeAndPattern
         gameInfo={game[gameId]}
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
       />
     ];
     this.setState({ gameComponent: gameComponent[gameId] });
@@ -155,6 +169,17 @@ export default class GamePlay extends Component {
         this.onFinish();
       }
     }
+  };
+
+  addScore = gameId => {
+    let game = this.state.game;
+    game[gameId].score++;
+
+    this.setState({ game });
+  };
+
+  addWrongScore = () => {
+    this.setState({ wrongScore: this.state.wrongScore + 1 });
   };
 
   render() {
