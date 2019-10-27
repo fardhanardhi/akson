@@ -10,6 +10,8 @@ import Cuboid from "../components/Cuboid";
 import Cube from "../components/Cube";
 import HexagonalPrism from "../components/HexagonalPrism";
 
+import GameHeader from "../components/GameHeader";
+
 import colors from "../assets/colors";
 
 export default class FindThePairs extends Component {
@@ -155,54 +157,65 @@ export default class FindThePairs extends Component {
   };
 
   render() {
-    return (
-      <div className="container text-center m-0 p-0">
-        <h2 style={styles.text}>Temukan objek yang berpasangan</h2>
-        <div className="row">
-          {this.state.choices.map((item, index) => {
-            let component = null;
-            if (index < 4) {
-              component = (
-                <div className="col-md-3" key={index}>
-                  {this.getObject(item.object, item.color)}
-                </div>
-              );
-            } else {
-              component = null;
-            }
-            return component;
-          })}
-        </div>
-        <div className="row mt-5">
-          {this.state.choices.map((item, index) => {
-            let component = null;
+    console.log("gameinfo ftp:", this.props.gameInfo);
 
-            if (index < 8 && index >= 4) {
-              component = (
-                <div className="col-md-3" key={index}>
-                  {this.getObject(item.object, item.color)}
-                </div>
-              );
-            } else {
-              component = null;
-            }
-            return component;
-          })}
-        </div>
-        <div className="row mt-5">
-          {this.state.choices.map((item, index) => {
-            let component = null;
-            if (index < 12 && index >= 8) {
-              component = (
-                <div className="col-md-3" key={index}>
-                  {this.getObject(item.object, item.color)}
-                </div>
-              );
-            } else {
-              component = null;
-            }
-            return component;
-          })}
+    return (
+      <div className="container-fluid p-0">
+        <GameHeader
+          gameInfo={this.props.gameInfo}
+          onTimeOut={this.props.onTimeOut}
+          paused={this.props.paused}
+          onPause={this.props.onPause}
+          ref={this.headerRef}
+        />
+        <div className="container text-center m-0 p-0">
+          <h2 style={styles.text}>Temukan objek yang berpasangan</h2>
+          <div className="row">
+            {this.state.choices.map((item, index) => {
+              let component = null;
+              if (index < 4) {
+                component = (
+                  <div className="col-md-3" key={index}>
+                    {this.getObject(item.object, item.color)}
+                  </div>
+                );
+              } else {
+                component = null;
+              }
+              return component;
+            })}
+          </div>
+          <div className="row mt-5">
+            {this.state.choices.map((item, index) => {
+              let component = null;
+
+              if (index < 8 && index >= 4) {
+                component = (
+                  <div className="col-md-3" key={index}>
+                    {this.getObject(item.object, item.color)}
+                  </div>
+                );
+              } else {
+                component = null;
+              }
+              return component;
+            })}
+          </div>
+          <div className="row mt-5">
+            {this.state.choices.map((item, index) => {
+              let component = null;
+              if (index < 12 && index >= 8) {
+                component = (
+                  <div className="col-md-3" key={index}>
+                    {this.getObject(item.object, item.color)}
+                  </div>
+                );
+              } else {
+                component = null;
+              }
+              return component;
+            })}
+          </div>
         </div>
       </div>
     );
@@ -215,5 +228,5 @@ const styles = {
     fontFamily: "Carter One",
     color: "#1D1D1D",
     marginBottom: "75px"
-  },
-}
+  }
+};
