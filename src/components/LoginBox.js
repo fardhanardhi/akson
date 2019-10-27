@@ -15,6 +15,10 @@ export default class LoginBox extends Component {
     };
   }
 
+  check = event => {
+    localStorage.setItem("username", event.target.value)
+  };
+
   onLoginInput = event => {
     var usernameRegex = /^[a-z_-]+$/;
     if (event.target.value === "") {
@@ -31,6 +35,8 @@ export default class LoginBox extends Component {
       }
     }
     this.setState({ username: event.target.value });
+    localStorage.setItem('username', event.target.value);
+
   };
 
   render() {
@@ -67,13 +73,13 @@ export default class LoginBox extends Component {
             src={MasukBtn}
             alt="Masuk"
             className={
-              this.state.username === "" ? 
-              "p-4 aks-grayscale-filter" :
-              this.state.isValid ?
-              "p-4 aks-btn" :
-              "p-4 aks-grayscale-filter"
+              this.state.username === ""
+                ? "p-4 aks-grayscale-filter"
+                : this.state.isValid
+                ? "p-4 aks-btn"
+                : "p-4 aks-grayscale-filter"
             }
-            onClick={() => this.validateForm()}
+            // onClick={() => this.check(this.state.username.valueOf)}
           />
         </Link>
 
