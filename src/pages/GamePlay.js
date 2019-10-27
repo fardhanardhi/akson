@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import GameHeader from "../components/GameHeader";
 import FindThePairs from "../components/FindThePairs";
 import ColorCodes from "../components/ColorCodes";
 import CountTheObject from "../components/CountTheObject";
@@ -11,43 +10,61 @@ import RestartGameCon from "../components/RestartGameConfirm";
 import Score from "../components/Score";
 
 export default class GamePlay extends Component {
-  state = {
-    paused: false,
-    exitDialogVisible: false,
-    pauseDialogVisible: false,
-    restartDialogVisible: false,
-    scoreDialogVisible: false,
+  constructor(props) {
+    super(props);
 
-    // 0 = findThePairs, 1 = CountTheObject, 2 = colorCodes, 3 = shapeAndPattern
-    playing: null,
+    this.state = {
+      paused: false,
+      exitDialogVisible: false,
+      pauseDialogVisible: false,
+      restartDialogVisible: false,
+      scoreDialogVisible: false,
 
-    game: [
-      {
-        key: "findThePairs",
-        name: "Find The Pairs",
-        score: 0,
-        totalTime: 30
-      },
-      {
-        key: "CountTheObject",
-        name: "Count The Object",
-        score: 0,
-        totalTime: 30
-      },
-      {
-        key: "colorCodes",
-        name: "Color Codes",
-        score: 0,
-        totalTime: 30
-      },
-      {
-        key: "shapeAndPattern",
-        name: "Shape And Pattern",
-        score: 0,
-        totalTime: 30
-      }
-    ]
-  };
+      // 0 = findThePairs, 1 = CountTheObject, 2 = colorCodes, 3 = shapeAndPattern
+      playing: null,
+
+      game: [
+        {
+          id: 0,
+          key: "findThePairs",
+          name: "Find The Pairs",
+          score: 0,
+          totalTime: 7
+        },
+        {
+          id: 1,
+          key: "CountTheObject",
+          name: "Count The Object",
+          score: 0,
+          totalTime: 7
+        },
+        {
+          id: 2,
+          key: "colorCodes",
+          name: "Color Codes",
+          score: 0,
+          totalTime: 7
+        },
+        {
+          id: 3,
+          key: "shapeAndPattern",
+          name: "Shape And Pattern",
+          score: 0,
+          totalTime: 7
+        }
+      ],
+
+      wrongScore: 0,
+
+      gameComponent: null
+    };
+
+    this.headerRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.changeGame();
+  }
 
   onPause = () => {
     this.setState({ paused: true, pauseDialogVisible: true });
@@ -96,51 +113,78 @@ export default class GamePlay extends Component {
     });
   };
 
-  getGame = () => {
-    let gameComponent;
-    switch (this.state.game) {
-      case "findThePairs":
-        gameComponent = (
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{ height: "85%" }}
-          >
-            <FindThePairs />
-          </div>
-        );
-        break;
-      case "shapeAndPattern":
-        gameComponent = <ShapeAndPattern />;
-        break;
-      case "colorCodes":
-        gameComponent = (
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{ height: "85%" }}
-          >
-            <ColorCodes />
-          </div>
-        );
-        break;
-      case "countObject":
-        gameComponent = (
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{ height: "85%" }}
-          >
-            <CountTheObject />
-          </div>
-        );
-        break;
+  getGame = (gameId, game) => {
+    console.log("gameid:", gameId);
+    console.log("gamea:", game);
 
-      default:
-        gameComponent = null;
-        break;
+    const gameComponent = [
+      <FindThePairs
+        gameInfo={game[gameId]}
+        onTimeOut={this.changeGame}
+        paused={this.state.paused}
+        onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
+      />,
+      <CountTheObject
+        gameInfo={game[gameId]}
+        onTimeOut={this.changeGame}
+        paused={this.state.paused}
+        onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
+      />,
+      <ColorCodes
+        gameInfo={game[gameId]}
+        onTimeOut={this.changeGame}
+        paused={this.state.paused}
+        onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
+      />,
+      <ShapeAndPattern
+        gameInfo={game[gameId]}
+        onTimeOut={this.changeGame}
+        paused={this.state.paused}
+        onPause={this.onPause}
+        addScore={this.addScore}
+        addWrongScore={this.addWrongScore}
+      />
+    ];
+    this.setState({ gameComponent: gameComponent[gameId] });
+  };
+
+  changeGame = () => {
+    if (this.state.playing == null) {
+      this.setState({ playing: 0 }, () =>
+        this.getGame(this.state.playing, this.state.game)
+      );
+    } else {
+      if (this.state.playing < 3) {
+        // this.headerRef.current.stopTick();
+        this.setState({ playing: this.state.playing + 1 }, () =>
+          this.getGame(this.state.playing, this.state.game)
+        );
+      } else {
+        this.onFinish();
+      }
     }
-    return gameComponent;
+  };
+
+  addScore = gameId => {
+    let game = this.state.game;
+    game[gameId].score++;
+
+    this.setState({ game });
+  };
+
+  addWrongScore = () => {
+    this.setState({ wrongScore: this.state.wrongScore + 1 });
   };
 
   render() {
+    console.log("playing: ", this.state.playing);
+
     return (
       <div>
         <PauseMenu
@@ -167,20 +211,11 @@ export default class GamePlay extends Component {
           }`}
           style={styles.wrapper}
         >
-          <GameHeader
-            game={this.state.game}
-            playing={this.state.playing}
-            onTimeOut={
-              () => alert("Time Out")
-              // , this.onFinish
-            }
-            paused={this.state.paused}
-            onPause={() => {
-              this.onPause();
-            }}
-          />
           <div className="text-center">
-            <button className="btn btn-success btn-lg m-1">
+            <button
+              className="btn btn-success btn-lg m-1"
+              onClick={this.changeGame}
+            >
               Find The Pairs
             </button>
             <button className="btn btn-success btn-lg m-1">
@@ -191,8 +226,7 @@ export default class GamePlay extends Component {
               Count The Object
             </button>
           </div>
-
-          {this.getGame()}
+          {this.state.gameComponent}
         </div>
       </div>
     );

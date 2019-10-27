@@ -13,6 +13,7 @@ import Sunflower2 from "../assets/imgCount/Sunflower2.svg";
 import Sunflower3 from "../assets/imgCount/Sunflower3.svg";
 import Turtles from "../assets/imgCount/Turtles.svg";
 import Turtles2 from "../assets/imgCount/Turtles2.svg";
+import GameHeader from "./GameHeader";
 
 export default class CountTheObject extends Component {
   constructor(props) {
@@ -499,7 +500,6 @@ export default class CountTheObject extends Component {
     };
   };
 
-
   render() {
     const soal = this.getRandomImage(this.state.soal);
     const soalGambar = soal.img;
@@ -511,7 +511,14 @@ export default class CountTheObject extends Component {
     return (
       console.log(soalTanya.pilihanJawaban),
       (
-        <div className="container-fluid">
+        <div className="container-fluid p-0">
+          <GameHeader
+            gameInfo={this.props.gameInfo}
+            onTimeOut={this.props.onTimeOut}
+            paused={this.props.paused}
+            onPause={this.props.onPause}
+            ref={this.headerRef}
+          />
           <div className="row">
             <div className="col"></div>
             <div className="col-md-8" style={style.pertanyaanStyle}>
@@ -529,23 +536,35 @@ export default class CountTheObject extends Component {
               </div>
               <div className="row" style={style.buttonGroup}>
                 <div className="col-3">
-                  <button style={style.buttonSyle} onClick={()=>console.log(soalJawaban1.isBenar)}>
-                  {soalJawaban1.text}
+                  <button
+                    style={style.buttonSyle}
+                    onClick={() => console.log(soalJawaban1.isBenar)}
+                  >
+                    {soalJawaban1.text}
                   </button>
                 </div>
                 <div className="col-3">
-                  <button style={style.buttonSyle} onClick={()=>console.log(soalJawaban2.isBenar)}>
-                  {soalJawaban2.text}
+                  <button
+                    style={style.buttonSyle}
+                    onClick={() => console.log(soalJawaban2.isBenar)}
+                  >
+                    {soalJawaban2.text}
                   </button>
                 </div>
                 <div className="col-3">
-                  <button style={style.buttonSyle} onClick={()=>console.log(soalJawaban3.isBenar)}>
-                  {soalJawaban3.text}
+                  <button
+                    style={style.buttonSyle}
+                    onClick={() => console.log(soalJawaban3.isBenar)}
+                  >
+                    {soalJawaban3.text}
                   </button>
                 </div>
                 <div className="col-3">
-                  <button style={style.buttonSyle} onClick={()=>console.log(soalJawaban4.isBenar)} >
-                  {soalJawaban4.text}
+                  <button
+                    style={style.buttonSyle}
+                    onClick={() => console.log(soalJawaban4.isBenar)}
+                  >
+                    {soalJawaban4.text}
                   </button>
                 </div>
               </div>
@@ -578,9 +597,9 @@ const style = {
     textDecoration: "none",
     display: "inline-block",
     fontSize: "16px",
-    radiusBorder : "5px"
+    radiusBorder: "5px"
   },
   buttonGroup: {
-    marginTop : "25px",
+    marginTop: "25px"
   }
 };

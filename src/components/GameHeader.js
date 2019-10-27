@@ -8,7 +8,7 @@ import stopwatchIcon from "../assets/icons/stopwatch.svg";
 
 /**
 |--------------------------------------------------
-| score (int)
+| gameInfo {obj}
 | paused (bool)
 | onPause (fx)
 | onTimeOut (fx)
@@ -16,7 +16,23 @@ import stopwatchIcon from "../assets/icons/stopwatch.svg";
 */
 
 export default class GameHeader extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      time: 5
+    };
+    this.countdownRef = React.createRef();
+  }
+
+  stopTick = () => {
+    this.countdownRef.currentstopTick();
+  };
+
+  // state = { time: 10 };
   render() {
+    console.log("game: ", this.props.gameInfo);
+
     return (
       <div
         className="d-flex flex-wrap align-items-center pt-3 pb-3 pl-5 pr-5"
@@ -31,25 +47,19 @@ export default class GameHeader extends Component {
               onClick={this.props.onPause}
               style={styles.pauseBtn}
             />
-            <h2 style={styles.text}>
-              {this.props.playing == null
-                ? "Loading..."
-                : this.props.game[this.props.playing].name}
-            </h2>
+            <h2 style={styles.text}>{this.props.gameInfo.name}</h2>
           </div>
         </div>
         <div className="col"></div>
         <div className="col-auto">
           <div className="row">
             <h2 style={styles.text} className="mr-2">
-              {this.props.playing == null
-                ? 0
-                : this.props.game[this.props.playing].score}
+              {this.props.gameInfo.score}
             </h2>
             <img src={medalIcon} alt="medal" className="mr-4" />
             <h2 style={styles.text} className="mr-2">
               <Countdown
-                time={60}
+                time={this.props.gameInfo.totalTime}
                 onTimeOut={this.props.onTimeOut}
                 paused={this.props.paused}
               />

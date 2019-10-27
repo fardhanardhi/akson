@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Rectangel from "../components/Rectangel";
 
 import colors from "../assets/colors";
+import GameHeader from "./GameHeader";
 
 export default class ColorCodes extends Component {
   constructor(props) {
@@ -42,34 +43,34 @@ export default class ColorCodes extends Component {
 
   getChoices = () => {
     // generate pilihan jawaban yang benar
-    
+
     let rightAnswer = [...Array(2)].map(x => {
       return {
-        object : this.getRandomId(this.objects),
-        color : this.getRandomId(colors),
-        name : this.getRandomId(colors)
-      }
-    })
+        object: this.getRandomId(this.objects),
+        color: this.getRandomId(colors),
+        name: this.getRandomId(colors)
+      };
+    });
 
 
     // mendapatkan jawaban benar
     let rightChoicesNotPassed = true;
-    
-    while (rightChoicesNotPassed ) {
+
+    while (rightChoicesNotPassed) {
       for (let i = 0; i < rightAnswer.length; i++) {
         for (let j = 0; j < rightAnswer.length; j++) {
           if (
             rightAnswer[i].name === rightAnswer[j].name &&
             rightAnswer[i].color === rightAnswer[j].color
-            ) {
-              rightAnswer = rightAnswer.map(x => {
-                let randColor = this.getRandomId(colors)
-                return {
-                  object: this.getRandomId(this.objects),
-                  color: randColor,
-                  name: randColor
-                };
-              });
+          ) {
+            rightAnswer = rightAnswer.map(x => {
+              let randColor = this.getRandomId(colors);
+              return {
+                object: this.getRandomId(this.objects),
+                color: randColor,
+                name: randColor
+              };
+            });
           } else {
             rightChoicesNotPassed = false;
           }
@@ -113,9 +114,7 @@ export default class ColorCodes extends Component {
       }
       //Mendapatkan jawaban salah
       for (let i = 0; i < wrongAnswer.length; i++) {
-        if (
-          wrongAnswer[i].name === wrongAnswer[i].color
-        ) {
+        if (wrongAnswer[i].name === wrongAnswer[i].color) {
           wrongAnswer = wrongAnswer.map(x => {
             return {
               object: this.getRandomId(this.objects),
@@ -130,21 +129,28 @@ export default class ColorCodes extends Component {
       }
     }
 
-     // penggabungan pilihan jawaban salah & benar
+    // penggabungan pilihan jawaban salah & benar
     let hasil = [...rightAnswer, ...wrongAnswer];
 
-     // acak posisi pilihan jawaban
+    // acak posisi pilihan jawaban
     const choices = [...hasil].sort(() => Math.random() - 0.5);
 
     this.setState({ choices });
     console.log("hasil benar", rightAnswer);
     console.log("hasil salah", wrongAnswer);
     console.log("hasil", hasil);
-  }
+  };
 
   render() {
     return (
-      <div className="container text-center m-0 p-0">
+      <div className="container-fluid text-center m-0 p-0">
+        <GameHeader
+          gameInfo={this.props.gameInfo}
+          onTimeOut={this.props.onTimeOut}
+          paused={this.props.paused}
+          onPause={this.props.onPause}
+          ref={this.headerRef}
+        />
         <h2 style={styles.text}>Pilih warna yang sesuai dengan tulisannya</h2>
         <div className="row">
           {this.state.choices.map((item, index) => {
@@ -183,5 +189,5 @@ const styles = {
     fontFamily: "Carter One",
     color: "#1D1D1D",
     marginBottom: "100px"
-  },
-}
+  }
+};

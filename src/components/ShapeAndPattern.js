@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import patterns from "svg-patterns";
 import stringify from "virtual-dom-stringify";
+import GameHeader from "./GameHeader";
 
 export default class ShapeAndPattern extends Component {
   render() {
@@ -25,7 +26,14 @@ export default class ShapeAndPattern extends Component {
     const randProps = Math.floor(Math.random() * pattern.length);
 
     return (
-      <div>
+      <div className="container-fluid p-0">
+        <GameHeader
+          gameInfo={this.props.gameInfo}
+          onTimeOut={this.props.onTimeOut}
+          paused={this.props.paused}
+          onPause={this.props.onPause}
+          ref={this.headerRef}
+        />
         <svg
           width="152"
           height="135"
