@@ -512,13 +512,15 @@ export default class CountTheObject extends Component {
       console.log(soalTanya.pilihanJawaban),
       (
         <div className="container-fluid p-0">
-          <GameHeader
-            gameInfo={this.props.gameInfo}
-            onTimeOut={this.props.onTimeOut}
-            paused={this.props.paused}
-            onPause={this.props.onPause}
-            ref={this.headerRef}
-          />
+          {this.props.gameInfo == null ? null : (
+            <GameHeader
+              gameInfo={this.props.gameInfo}
+              onTimeOut={this.props.onTimeOut}
+              paused={this.props.paused}
+              onPause={this.props.onPause}
+              ref={this.headerRef}
+            />
+          )}
           <div className="row">
             <div className="col"></div>
             <div className="col-md-8" style={style.pertanyaanStyle}>

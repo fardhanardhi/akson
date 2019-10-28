@@ -161,13 +161,15 @@ export default class FindThePairs extends Component {
 
     return (
       <div className="container-fluid p-0">
-        <GameHeader
-          gameInfo={this.props.gameInfo}
-          onTimeOut={this.props.onTimeOut}
-          paused={this.props.paused}
-          onPause={this.props.onPause}
-          ref={this.headerRef}
-        />
+        {this.props.gameInfo == null ? null : (
+          <GameHeader
+            gameInfo={this.props.gameInfo}
+            onTimeOut={this.props.onTimeOut}
+            paused={this.props.paused}
+            onPause={this.props.onPause}
+            ref={this.headerRef}
+          />
+        )}
         <div className="container text-center m-0 p-0">
           <h2 style={styles.text}>Temukan objek yang berpasangan</h2>
           <div className="row">
