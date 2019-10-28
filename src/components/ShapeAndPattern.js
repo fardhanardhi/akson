@@ -7,6 +7,7 @@ import Rectangel from "../components/Rectangel";
 import Stars from "../components/Stars";
 
 import colors from "../assets/colors";
+import GameHeader from "./GameHeader";
 
 export default class ShapeAndPattern extends Component {
   constructor(props) {
@@ -82,22 +83,23 @@ export default class ShapeAndPattern extends Component {
         />
       </svg>,
 
-      <svg 
-        width="131" 
-        height="131" 
-        viewBox="0 0 131 131" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="131"
+        height="131"
+        viewBox="0 0 131 131"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <circle
-          cx="65.5" 
-          cy="65.5" 
+          cx="65.5"
+          cy="65.5"
           r="65.5"
-          style={{fill: pattern[randProps].url()}}
+          style={{ fill: pattern[randProps].url() }}
         />
         <defs
-           dangerouslySetInnerHTML={{ __html: stringify(pattern[randProps]) }}
+          dangerouslySetInnerHTML={{ __html: stringify(pattern[randProps]) }}
         />
-      </svg> 
+      </svg>
     ];
     return obj[objectId];
   };
@@ -205,9 +207,17 @@ export default class ShapeAndPattern extends Component {
   };
 
   render() {
-   
     return (
-      <div className="container text-center m-0 p-0">
+      <div className="container-fluid text-center m-0 p-0">
+        {this.props.gameInfo == null ? null : (
+          <GameHeader
+            gameInfo={this.props.gameInfo}
+            onTimeOut={this.props.onTimeOut}
+            paused={this.props.paused}
+            onPause={this.props.onPause}
+            ref={this.headerRef}
+          />
+        )}
         <h2 style={styles.text}>Pattern</h2>
         <div className="row">
           {this.state.choices.map((item, index) => {

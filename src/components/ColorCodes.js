@@ -30,16 +30,16 @@ export default class ColorCodes extends Component {
       <Rectangel
         color={colors[colorIdCode].code}
         name={colors[colorIdName].name}
-        onClick={()=>this.checked(colorIdName, colorIdCode)}
+        onClick={() => this.checked(colorIdName, colorIdCode)}
       />
     ];
     return obj[objectId];
   };
 
   checked = (colorIdName, colorIdCode) => {
-    console.log("hasil:",colorIdCode === colorIdName?"benar":"salah");
+    console.log("hasil:", colorIdCode === colorIdName ? "benar" : "salah");
     // console.log("hahahahaa");
-  }
+  };
 
   getChoices = () => {
     // generate pilihan jawaban yang benar
@@ -51,7 +51,6 @@ export default class ColorCodes extends Component {
         name: this.getRandomId(colors)
       };
     });
-
 
     // mendapatkan jawaban benar
     let rightChoicesNotPassed = true;
@@ -144,13 +143,15 @@ export default class ColorCodes extends Component {
   render() {
     return (
       <div className="container-fluid text-center m-0 p-0">
-        <GameHeader
-          gameInfo={this.props.gameInfo}
-          onTimeOut={this.props.onTimeOut}
-          paused={this.props.paused}
-          onPause={this.props.onPause}
-          ref={this.headerRef}
-        />
+        {this.props.gameInfo == null ? null : (
+          <GameHeader
+            gameInfo={this.props.gameInfo}
+            onTimeOut={this.props.onTimeOut}
+            paused={this.props.paused}
+            onPause={this.props.onPause}
+            ref={this.headerRef}
+          />
+        )}
         <h2 style={styles.text}>Pilih warna yang sesuai dengan tulisannya</h2>
         <div className="row">
           {this.state.choices.map((item, index) => {
