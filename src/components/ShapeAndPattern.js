@@ -5,6 +5,8 @@ import stringify from "virtual-dom-stringify";
 import Circle from "../components/Circle";
 import Rectangel from "../components/Rectangel";
 import Stars from "../components/Stars";
+import Rectangular from "../components/Rectangular";
+import Parallelogram from "../components/Parallelogram";
 
 import colors from "../assets/colors";
 import GameHeader from "./GameHeader";
@@ -17,7 +19,13 @@ export default class ShapeAndPattern extends Component {
       choices: []
     };
 
-    this.objects = [<Circle />, <Rectangel />, <Stars />];
+    this.objects = [
+      <Circle />,
+      <Rectangel />,
+      <Stars />,
+      <Rectangular />,
+      <Parallelogram />
+    ];
   }
 
   componentDidMount() {
@@ -29,12 +37,8 @@ export default class ShapeAndPattern extends Component {
     return id;
   };
 
-  getObject = (objectId) => {
+  getObject = objectId => {
     const pattern = [
-      patterns.lines({
-        stroke: "#000000",
-        background: "#9BDBA1"
-      }),
       patterns.lines({
         stroke: "#000000",
         background: "#2196f3"
@@ -43,47 +47,81 @@ export default class ShapeAndPattern extends Component {
         stroke: "#000000",
         background: "#9e9e9e"
       }),
+      patterns.lines({
+        stroke: "#000000",
+        background: "#4caf50"
+      }),
+      patterns.lines({
+        stroke: "#000000",
+        background: "#ff9800"
+      }),
+      patterns.lines({
+        stroke: "#000000",
+        background: "#f44336"
+      }),
 
       patterns.caps({
         stroke: "#000000",
-        background: "#A54E1E"
-      }),
-      patterns.caps({
-        stroke: "#000000",
-        background: "#ffeb3b"
+        background: "#2196f3"
       }),
       patterns.caps({
         stroke: "#000000",
         background: "#9e9e9e"
       }),
-
+      patterns.caps({
+        stroke: "#000000",
+        background: "#4caf50"
+      }),
+      patterns.caps({
+        stroke: "#000000",
+        background: "#ff9800"
+      }),
+      patterns.caps({
+        stroke: "#000000",
+        background: "#f44336"
+      }),
 
       patterns.hexagons({
         stroke: "#000000",
-        background: "#9c27b0"
+        background: "#2196f3"
+      }),
+      patterns.hexagons({
+        stroke: "#000000",
+        background: "#9e9e9e"
+      }),
+      patterns.hexagons({
+        stroke: "#000000",
+        background: "#4caf50"
+      }),
+      patterns.hexagons({
+        stroke: "#000000",
+        background: "#ff9800"
       }),
       patterns.hexagons({
         stroke: "#000000",
         background: "#f44336"
       }),
-      patterns.hexagons({
-        stroke: "#000000",
-        background: "#9e9e9e"
-      }),
 
       patterns.circles({
         stroke: "#000000",
-        background: "#9c27b0"
+        background: "#2196f3"
+      }),
+      patterns.circles({
+        stroke: "#000000",
+        background: "#9e9e9e"
+      }),
+      patterns.circles({
+        stroke: "#000000",
+        background: "#4caf50"
+      }),
+      patterns.circles({
+        stroke: "#000000",
+        background: "#ff9800"
       }),
       patterns.circles({
         stroke: "#000000",
         background: "#f44336"
-      }),
-      patterns.circles({
-        stroke: "#000000",
-        background: "#9e9e9e"
-      }),
-      
+      })
     ];
 
     const randProps = Math.floor(Math.random() * pattern.length);
@@ -133,6 +171,38 @@ export default class ShapeAndPattern extends Component {
           cx="65.5"
           cy="65.5"
           r="65.5"
+          style={{ fill: pattern[randProps].url() }}
+        />
+        <defs
+          dangerouslySetInnerHTML={{ __html: stringify(pattern[randProps]) }}
+        />
+      </svg>,
+
+      <svg
+        width="129"
+        height="129"
+        viewBox="0 0 129 129"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          width="129"
+          height="129"
+          style={{ fill: pattern[randProps].url() }}
+        />
+        <defs
+          dangerouslySetInnerHTML={{ __html: stringify(pattern[randProps]) }}
+        />
+      </svg>,
+      <svg
+        width="270"
+        height="80"
+        viewBox="0 0 270 80"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 79.5L57.5 0H270L215.5 79.5H0Z"
           style={{ fill: pattern[randProps].url() }}
         />
         <defs
