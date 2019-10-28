@@ -29,22 +29,61 @@ export default class ShapeAndPattern extends Component {
     return id;
   };
 
-  getObject = (objectId, patternId) => {
+  getObject = (objectId) => {
     const pattern = [
       patterns.lines({
         stroke: "#000000",
         background: "#9BDBA1"
       }),
+      patterns.lines({
+        stroke: "#000000",
+        background: "#2196f3"
+      }),
+      patterns.lines({
+        stroke: "#000000",
+        background: "#9e9e9e"
+      }),
+
       patterns.caps({
         stroke: "#000000",
         background: "#A54E1E"
       }),
+      patterns.caps({
+        stroke: "#000000",
+        background: "#ffeb3b"
+      }),
+      patterns.caps({
+        stroke: "#000000",
+        background: "#9e9e9e"
+      }),
+
+
       patterns.hexagons({
         stroke: "#000000",
-        background: "#A54E1E"
+        background: "#9c27b0"
+      }),
+      patterns.hexagons({
+        stroke: "#000000",
+        background: "#f44336"
+      }),
+      patterns.hexagons({
+        stroke: "#000000",
+        background: "#9e9e9e"
+      }),
 
-        // orientations: [45]
-      })
+      patterns.circles({
+        stroke: "#000000",
+        background: "#9c27b0"
+      }),
+      patterns.circles({
+        stroke: "#000000",
+        background: "#f44336"
+      }),
+      patterns.circles({
+        stroke: "#000000",
+        background: "#9e9e9e"
+      }),
+      
     ];
 
     const randProps = Math.floor(Math.random() * pattern.length);
