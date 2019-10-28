@@ -64,7 +64,9 @@ export default class FindThePairs extends Component {
     let rightChoices = [...Array(3)].map(x => {
       return {
         object: this.getRandomId(this.objects),
-        color: this.getRandomId(colors)
+        color: this.getRandomId(colors),
+        isSelected: false,
+        isCorrect: false
       };
     });
 
@@ -99,7 +101,9 @@ export default class FindThePairs extends Component {
     let wrongChoices = [...Array(6)].map(x => {
       return {
         object: this.getRandomId(this.objects),
-        color: this.getRandomId(colors)
+        color: this.getRandomId(colors),
+        isSelected: false,
+        isCorrect: false
       };
     });
 
@@ -156,8 +160,16 @@ export default class FindThePairs extends Component {
     this.setState({ choices });
   };
 
+  selectChoice = index => {
+    let choices = this.state.choices;
+    choices[index].isSelected = !choices[index].isSelected;
+    this.setState({ choices: choices });
+    console.log("cois: ", choices[index]);
+  };
+
   render() {
     console.log("gameinfo ftp:", this.props.gameInfo);
+    console.log(this.state.choices);
 
     return (
       <div className="container-fluid p-0">
@@ -178,7 +190,20 @@ export default class FindThePairs extends Component {
               if (index < 4) {
                 component = (
                   <div className="col-md-3" key={index}>
-                    {this.getObject(item.object, item.color)}
+                    <div className="row">
+                      <div className="col"></div>
+                      <div
+                        className={
+                          item.isSelected
+                            ? "col-auto aks-btn bg-success"
+                            : "col-auto aks-btn"
+                        }
+                        onClick={() => this.selectChoice(index)}
+                      >
+                        {this.getObject(item.object, item.color)}
+                      </div>
+                      <div className="col"></div>
+                    </div>
                   </div>
                 );
               } else {
@@ -194,7 +219,20 @@ export default class FindThePairs extends Component {
               if (index < 8 && index >= 4) {
                 component = (
                   <div className="col-md-3" key={index}>
-                    {this.getObject(item.object, item.color)}
+                    <div className="row">
+                      <div className="col"></div>
+                      <div
+                        className={
+                          item.isSelected
+                            ? "col-auto aks-btn bg-success"
+                            : "col-auto aks-btn"
+                        }
+                        onClick={() => this.selectChoice(index)}
+                      >
+                        {this.getObject(item.object, item.color)}
+                      </div>
+                      <div className="col"></div>
+                    </div>
                   </div>
                 );
               } else {
@@ -209,7 +247,20 @@ export default class FindThePairs extends Component {
               if (index < 12 && index >= 8) {
                 component = (
                   <div className="col-md-3" key={index}>
-                    {this.getObject(item.object, item.color)}
+                    <div className="row">
+                      <div className="col"></div>
+                      <div
+                        className={
+                          item.isSelected
+                            ? "col-auto aks-btn bg-success"
+                            : "col-auto aks-btn"
+                        }
+                        onClick={() => this.selectChoice(index)}
+                      >
+                        {this.getObject(item.object, item.color)}
+                      </div>
+                      <div className="col"></div>
+                    </div>
                   </div>
                 );
               } else {
