@@ -10,6 +10,8 @@ import Cuboid from "../components/Cuboid";
 import Cube from "../components/Cube";
 import HexagonalPrism from "../components/HexagonalPrism";
 
+import GameHeader from "../components/GameHeader";
+
 import colors from "../assets/colors";
 
 export default class FindThePairs extends Component {
@@ -18,9 +20,9 @@ export default class FindThePairs extends Component {
 
     this.state = {
       choices: [],
-      pair : [],
-      isClicked : null,
-      isCorrect : false,
+      pair: [],
+      isClicked: null,
+      isCorrect: false
     };
 
     this.objects = [
@@ -48,18 +50,17 @@ export default class FindThePairs extends Component {
   getObject = (objectId, colorId) => {
     const obj = [
       <Sphere color={colors[colorId].code} />,
-      <Cone color={colors[colorId].code}/>,
-      <UglyPyramid color={colors[colorId].code}/>,
-      <Pyramid color={colors[colorId].code}/>,
-      <Cylinder color={colors[colorId].code}/>,
-      <Prism color={colors[colorId].code}/>,
+      <Cone color={colors[colorId].code} />,
+      <UglyPyramid color={colors[colorId].code} />,
+      <Pyramid color={colors[colorId].code} />,
+      <Cylinder color={colors[colorId].code} />,
+      <Prism color={colors[colorId].code} />,
       <Cube color={colors[colorId].code} />,
-      <Cuboid color={colors[colorId].code}/>,
-      <HexagonalPrism color={colors[colorId].code}/>
+      <Cuboid color={colors[colorId].code} />,
+      <HexagonalPrism color={colors[colorId].code} />
     ];
     return obj[objectId];
   };
-
 
   getChoices = () => {
     // generate pilihan jawaban benar
@@ -67,8 +68,8 @@ export default class FindThePairs extends Component {
       return {
         object: this.getRandomId(this.objects),
         color: this.getRandomId(colors),
-        click : this.state.isClicked,
-        correct : this.state.isCorrect,
+        click: this.state.isClicked,
+        correct: this.state.isCorrect
       };
     });
 
@@ -86,8 +87,8 @@ export default class FindThePairs extends Component {
                 return {
                   object: this.getRandomId(this.objects),
                   color: this.getRandomId(colors),
-                  click : this.state.isClicked,
-                  correct : this.state.isCorrect,
+                  click: this.state.isClicked,
+                  correct: this.state.isCorrect
                 };
               });
             } else {
@@ -106,8 +107,8 @@ export default class FindThePairs extends Component {
       return {
         object: this.getRandomId(this.objects),
         color: this.getRandomId(colors),
-        click : this.state.isClicked,
-        correct : this.state.isCorrect,
+        click: this.state.isClicked,
+        correct: this.state.isCorrect
       };
     });
 
@@ -126,8 +127,8 @@ export default class FindThePairs extends Component {
                 return {
                   object: this.getRandomId(this.objects),
                   color: this.getRandomId(colors),
-                  click : this.state.isClicked,
-                  correct : this.state.isCorrect,
+                  click: this.state.isClicked,
+                  correct: this.state.isCorrect
                 };
               });
             } else {
@@ -147,8 +148,8 @@ export default class FindThePairs extends Component {
                 return {
                   object: this.getRandomId(this.objects),
                   color: this.getRandomId(colors),
-                  click : this.state.isClicked,
-                  correct : this.state.isCorrect,
+                  click: this.state.isClicked,
+                  correct: this.state.isCorrect
                 };
               });
             } else {
@@ -168,16 +169,16 @@ export default class FindThePairs extends Component {
     this.setState({ choices });
   };
 
-  checked = (index) => {
+  checked = index => {
     let choicesUpdate = this.state.choices;
-    
+
     if (
       this.state.choices[index].click === false ||
-      this.state.choices[index].click === null) {
-
+      this.state.choices[index].click === null
+    ) {
       choicesUpdate[index].click = true;
 
-        let pair = [...this.state.pair, index];
+      let pair = [...this.state.pair, index];
 
       // this.state.pair.push(index)==setState
 
@@ -189,70 +190,126 @@ export default class FindThePairs extends Component {
         // this.setState({pair : [index]})
         choicesUpdate[index].click = false;
       }
-      
-      this.setState({pair}); //akhir
-      this.setState({choices: choicesUpdate},()=>{console.log("haha",this.state.choices); console.log("hihi", this.state.pair);
+
+      this.setState({ pair }); //akhir
+      this.setState({ choices: choicesUpdate }, () => {
+        console.log("haha", this.state.choices);
+        console.log("hihi", this.state.pair);
       });
-    }
-    else if(this.state.choices[index].click === true){
+    } else if (this.state.choices[index].click === true) {
       choicesUpdate[index].click = false;
-      this.setState({choices: choicesUpdate},()=>{console.log("haha",this.state.choices); console.log("hihi", this.state.pair);
+      this.setState({ choices: choicesUpdate }, () => {
+        console.log("haha", this.state.choices);
+        console.log("hihi", this.state.pair);
       });
     }
-    
+
     console.log("ini objek ", this.state.choices[index]);
     console.log("ini index ", index);
-  }
+  };
 
   render() {
-    return (
-      <div className="container text-center m-0 p-0">
-        <h2 style={styles.text}>Temukan objek yang berpasangan</h2>
-        <div className="row">
-          {this.state.choices.map((item, index) => {
-            let component = null;
-            if (index < 4) {
-              component = (
-                <div className="col-md-3" key={index} onClick={()=>this.checked(index)}>
-                  {this.getObject(item.object, item.color)}
-                </div>
-              );
-            } else {
-              component = null;
-            }
-            return component;
-          })}
-        </div>
-        <div className="row mt-5">
-          {this.state.choices.map((item, index) => {
-            let component = null;
+    console.log("gameinfo ftp:", this.props.gameInfo);
+    console.log(this.state.choices);
 
-            if (index < 8 && index >= 4) {
-              component = (
-                <div className="col-md-3" key={index} onClick={()=>this.checked(index)}>
-                  {this.getObject(item.object, item.color)}
-                </div>
-              );
-            } else {
-              component = null;
-            }
-            return component;
-          })}
-        </div>
-        <div className="row mt-5">
-          {this.state.choices.map((item, index) => {
-            let component = null;
-            if (index < 12 && index >= 8) {
-              component = (
-                <div className="col-md-3" key={index} onClick={()=>this.checked(index)}>
-                  {this.getObject(item.object, item.color)}
-                </div>
-              );
-            } else {
-              component = null;
-            }
-            return component;
-          })}
+    return (
+      <div className="container-fluid p-0">
+        {this.props.gameInfo == null ? null : (
+          <GameHeader
+            gameInfo={this.props.gameInfo}
+            onTimeOut={this.props.onTimeOut}
+            paused={this.props.paused}
+            onPause={this.props.onPause}
+            ref={this.headerRef}
+          />
+        )}
+        <div className="container text-center m-0 p-0">
+          <h2 style={styles.text}>Temukan objek yang berpasangan</h2>
+          <div className="row">
+            {this.state.choices.map((item, index) => {
+              let component = null;
+              if (index < 4) {
+                component = (
+                  <div className="col-md-3" key={index}>
+                    <div className="row">
+                      <div className="col"></div>
+                      <div
+                        className={
+                          item.click
+                            ? "col-auto aks-btn bg-success"
+                            : "col-auto aks-btn"
+                        }
+                        onClick={() => this.checked(index)}
+                      >
+                        {this.getObject(item.object, item.color)}
+                      </div>
+                      <div className="col"></div>
+                    </div>
+                  </div>
+                );
+              } else {
+                component = null;
+              }
+              return component;
+            })}
+          </div>
+          <div className="row mt-5">
+            {this.state.choices.map((item, index) => {
+              let component = null;
+
+              if (index < 8 && index >= 4) {
+                component = (
+                  <div className="col-md-3" key={index}>
+                    <div className="row">
+                      <div className="col"></div>
+                      <div
+                        className={
+                          item.click
+                            ? "col-auto aks-btn bg-success"
+                            : "col-auto aks-btn"
+                        }
+                        onClick={() => this.checked(index)}
+                      >
+                        {this.getObject(item.object, item.color)}
+                      </div>
+                      <div className="col"></div>
+                    </div>
+                  </div>
+                );
+              } else {
+                component = null;
+              }
+              return component;
+            })}
+          </div>
+          <div className="row mt-5">
+            {this.state.choices.map((item, index) => {
+              let component = null;
+              if (index < 12 && index >= 8) {
+                component = (
+                  <div className="col-md-3" key={index}>
+                    <div className="row">
+                      <div className="col"></div>
+                      <div
+                        className={
+                          item.click
+                            ? "col-auto aks-btn bg-success"
+                            : "col-auto aks-btn"
+                        }
+                        onClick={() => this.checked(index)}
+                      >
+                        {this.getObject(item.object, item.color)}
+                      </div>
+                      <div className="col"></div>
+                    </div>
+                  </div>
+                );
+              } else {
+                component = null;
+              }
+              return component;
+            })}
+          </div>
         </div>
       </div>
     );
@@ -265,6 +322,5 @@ const styles = {
     fontFamily: "Carter One",
     color: "#1D1D1D",
     marginBottom: "75px"
-  },
- 
-}
+  }
+};

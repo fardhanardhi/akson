@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Rectangel from "../components/Rectangel";
 
 import colors from "../assets/colors";
+import GameHeader from "./GameHeader";
 
 export default class ColorCodes extends Component {
   constructor(props) {
@@ -159,7 +160,16 @@ export default class ColorCodes extends Component {
 
   render() {
     return (
-      <div className="container text-center m-0 p-0">
+      <div className="container-fluid text-center m-0 p-0">
+        {this.props.gameInfo == null ? null : (
+          <GameHeader
+            gameInfo={this.props.gameInfo}
+            onTimeOut={this.props.onTimeOut}
+            paused={this.props.paused}
+            onPause={this.props.onPause}
+            ref={this.headerRef}
+          />
+        )}
         <h2 style={styles.text}>Pilih warna yang sesuai dengan tulisannya</h2>
         <div className="row">
           {this.state.choices.map((item, index) => {

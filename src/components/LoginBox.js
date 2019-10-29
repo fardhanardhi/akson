@@ -10,12 +10,39 @@ export default class LoginBox extends Component {
     super(props);
 
     this.state = {
-      username: ""
+      username: "",
+      isValid: null
     };
   }
 
+  check = event => {
+    localStorage.setItem("username", event.target.value);
+  };
+
   onLoginInput = event => {
+    var usernameRegex = /^[a-z_-]+$/;
+    if (event.target.value === "") {
+      this.setState({ isValid: false });
+    } else {
+      if (usernameRegex.test(event.target.value)) {
+        this.setState({
+          isValid: true
+        });
+      } else {
+        this.setState({
+          isValid: false
+        });
+      }
+    }
     this.setState({ username: event.target.value });
+    this.addLocalStorage(event.target.value);
+  };
+
+  addLocalStorage = event => {
+    var simpanan = [{username :  "coba", score:""}];
+    var simpanans = [...simpanan, {username: event, score: ""}];
+    console.log(simpanans);
+    localStorage.setItem("data", JSON.stringify(simpanans));
   };
 
   render() {
@@ -34,6 +61,7 @@ export default class LoginBox extends Component {
         <div className="row">
           <div className="col"></div>
           <div className="col-md-9 form-group pt-2">
+            {/* {this.state.isValid ? "" : "huruf kecil"} */}
             <input
               type="text"
               className="form-control p-2"
@@ -53,8 +81,11 @@ export default class LoginBox extends Component {
             className={
               this.state.username === ""
                 ? "p-4 aks-grayscale-filter"
-                : "p-4 aks-btn"
+                : this.state.isValid
+                ? "p-4 aks-btn"
+                : "p-4 aks-grayscale-filter"
             }
+            // onClick={() => this.check(this.state.username.valueOf)}
           />
         </Link>
 
