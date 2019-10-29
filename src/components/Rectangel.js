@@ -6,8 +6,8 @@ export default function Rectangel(props){
             position : "absolute",
             fontSize : "1.5vw",
             color : "#FAFAFA",
-            top : "17px",
-            marginLeft : "105px",
+            top : "33px",
+            marginLeft : "69px",
             cursor: "pointer"
         },
         btn:{

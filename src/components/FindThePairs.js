@@ -20,6 +20,7 @@ export default class FindThePairs extends Component {
       choices: [],
       pair : [],
       isClicked : null,
+      isCorrect : false,
     };
 
     this.objects = [
@@ -67,6 +68,7 @@ export default class FindThePairs extends Component {
         object: this.getRandomId(this.objects),
         color: this.getRandomId(colors),
         click : this.state.isClicked,
+        correct : this.state.isCorrect,
       };
     });
 
@@ -85,6 +87,7 @@ export default class FindThePairs extends Component {
                   object: this.getRandomId(this.objects),
                   color: this.getRandomId(colors),
                   click : this.state.isClicked,
+                  correct : this.state.isCorrect,
                 };
               });
             } else {
@@ -104,6 +107,7 @@ export default class FindThePairs extends Component {
         object: this.getRandomId(this.objects),
         color: this.getRandomId(colors),
         click : this.state.isClicked,
+        correct : this.state.isCorrect,
       };
     });
 
@@ -123,6 +127,7 @@ export default class FindThePairs extends Component {
                   object: this.getRandomId(this.objects),
                   color: this.getRandomId(colors),
                   click : this.state.isClicked,
+                  correct : this.state.isCorrect,
                 };
               });
             } else {
@@ -143,6 +148,7 @@ export default class FindThePairs extends Component {
                   object: this.getRandomId(this.objects),
                   color: this.getRandomId(colors),
                   click : this.state.isClicked,
+                  correct : this.state.isCorrect,
                 };
               });
             } else {
@@ -163,27 +169,39 @@ export default class FindThePairs extends Component {
   };
 
   checked = (index) => {
-    console.log(this.state.choices[index].click);
+    let choicesUpdate = this.state.choices;
     
     if (
-        this.state.choices[index].click === false ||
-        this.state.choices[index].click === null) {
-      this.state.choices[index].click = true
-      this.state.pair.push(index)
+      this.state.choices[index].click === false ||
+      this.state.choices[index].click === null) {
 
-      if (this.state.pair.length > 2) {
-        this.state.pair = [index];
-        this.state.choices.click = false
+      choicesUpdate[index].click = true;
+
+        let pair = [...this.state.pair, index];
+
+      // this.state.pair.push(index)==setState
+
+      if (pair.length > 2) {
+        // let pairUpdate = this.state.pair.slice()
+        // pairUpdate.push("")
+        // let hallo = index
+        pair = [index];
+        // this.setState({pair : [index]})
+        choicesUpdate[index].click = false;
       }
+      
+      this.setState({pair}); //akhir
+      this.setState({choices: choicesUpdate},()=>{console.log("haha",this.state.choices); console.log("hihi", this.state.pair);
+      });
     }
     else if(this.state.choices[index].click === true){
-      this.state.choices[index].click = false
+      choicesUpdate[index].click = false;
+      this.setState({choices: choicesUpdate},()=>{console.log("haha",this.state.choices); console.log("hihi", this.state.pair);
+      });
     }
-    console.log("ini objek ", this.state.choices[index]);  
-    console.log("ini array pair ", this.state.pair);
+    
+    console.log("ini objek ", this.state.choices[index]);
     console.log("ini index ", index);
-    
-    
   }
 
   render() {
