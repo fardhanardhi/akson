@@ -16,7 +16,7 @@ export default class LoginBox extends Component {
   }
 
   check = event => {
-    localStorage.setItem("username", event.target.value)
+    localStorage.setItem("username", event.target.value);
   };
 
   onLoginInput = event => {
@@ -35,8 +35,14 @@ export default class LoginBox extends Component {
       }
     }
     this.setState({ username: event.target.value });
-    localStorage.setItem('username', event.target.value);
+    this.addLocalStorage(event.target.value);
+  };
 
+  addLocalStorage = event => {
+    var simpanan = [{username :  "coba", score:""}];
+    var simpanans = [...simpanan, {username: event, score: ""}];
+    console.log(simpanans);
+    localStorage.setItem("data", JSON.stringify(simpanans));
   };
 
   render() {
