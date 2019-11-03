@@ -171,7 +171,7 @@ export default class FindThePairs extends Component {
 
   clicked = index => {
     let choicesUpdate = this.state.choices;
-
+    let pair = this.state.pair
     if (
       this.state.choices[index].click === false ||
       this.state.choices[index].click === null
@@ -179,11 +179,21 @@ export default class FindThePairs extends Component {
 
       choicesUpdate[index].click = true;
 
-      let pair = [...this.state.pair, index];
-      
-      if (pair.length > 2) {
+      if (pair.length < 2) {
+        if(pair.length === 0){
+          pair = [...pair, index];
+        }
+        else{
+          for (let i = 0; i < pair.length; i++) {
+            if(pair[i] !== index){
+              pair = [...pair, index];  
+            }
+          }
+        }
+      }
+      else{
         pair = [index];
-        choicesUpdate[index].click = null;
+        choicesUpdate[index].click = null; //all clik is null
       }
 
       this.setState({ pair }); //akhir
