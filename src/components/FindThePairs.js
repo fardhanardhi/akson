@@ -169,33 +169,30 @@ export default class FindThePairs extends Component {
     this.setState({ choices });
   };
 
-  checked = index => {
+  clicked = index => {
     let choicesUpdate = this.state.choices;
 
     if (
       this.state.choices[index].click === false ||
       this.state.choices[index].click === null
     ) {
+
       choicesUpdate[index].click = true;
 
       let pair = [...this.state.pair, index];
-
-      // this.state.pair.push(index)==setState
-
+      
       if (pair.length > 2) {
-        // let pairUpdate = this.state.pair.slice()
-        // pairUpdate.push("")
-        // let hallo = index
         pair = [index];
-        // this.setState({pair : [index]})
-        choicesUpdate[index].click = false;
+        choicesUpdate[index].click = null;
       }
 
       this.setState({ pair }); //akhir
+      
       this.setState({ choices: choicesUpdate }, () => {
         console.log("haha", this.state.choices);
         console.log("hihi", this.state.pair);
       });
+      
     } else if (this.state.choices[index].click === true) {
       choicesUpdate[index].click = false;
       this.setState({ choices: choicesUpdate }, () => {
@@ -234,12 +231,11 @@ export default class FindThePairs extends Component {
                     <div className="row">
                       <div className="col"></div>
                       <div
-                        className={
-                          item.click
-                            ? "col-auto aks-btn bg-success"
-                            : "col-auto aks-btn"
+                        className="col-auto aks-btn"
+                        style={
+                          item.click ? styles.borderDefault : null
                         }
-                        onClick={() => this.checked(index)}
+                        onClick={() => this.clicked(index)}
                       >
                         {this.getObject(item.object, item.color)}
                       </div>
@@ -263,12 +259,11 @@ export default class FindThePairs extends Component {
                     <div className="row">
                       <div className="col"></div>
                       <div
-                        className={
-                          item.click
-                            ? "col-auto aks-btn bg-success"
-                            : "col-auto aks-btn"
+                        className="col-auto aks-btn"
+                        style={
+                          item.click ? styles.borderDefault : null
                         }
-                        onClick={() => this.checked(index)}
+                        onClick={() => this.clicked(index)}
                       >
                         {this.getObject(item.object, item.color)}
                       </div>
@@ -291,12 +286,11 @@ export default class FindThePairs extends Component {
                     <div className="row">
                       <div className="col"></div>
                       <div
-                        className={
-                          item.click
-                            ? "col-auto aks-btn bg-success"
-                            : "col-auto aks-btn"
+                        className="col-auto aks-btn"
+                        style={
+                          item.click ? styles.borderDefault : null
                         }
-                        onClick={() => this.checked(index)}
+                        onClick={() => this.clicked(index)}
                       >
                         {this.getObject(item.object, item.color)}
                       </div>
@@ -322,5 +316,20 @@ const styles = {
     fontFamily: "Carter One",
     color: "#1D1D1D",
     marginBottom: "75px"
+  },
+  borderTrue: {
+    padding: "15px",
+    border: "green solid",
+    margin: "0px 35px"
+  },
+  borderFalse: {
+    padding: "15px",
+    border: "red solid",
+    margin: "0px 35px"
+  },
+  borderDefault: {
+    padding: "15px",
+    border: "black solid",
+    margin: "0px 35px"
   }
 };
