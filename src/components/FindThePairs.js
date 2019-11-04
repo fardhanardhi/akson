@@ -232,13 +232,11 @@ export default class FindThePairs extends Component {
                       <div className="col"></div>
                       <div
                         className="col-auto aks-btn"
-<<<<<<< HEAD
                         style={
-                          item.click ? styles.borderDefault : styles.borderNotClick
+                          item.click
+                            ? styles.borderDefault
+                            : styles.borderNotClick
                         }
-=======
-                        style={item.click ? styles.borderDefault : null}
->>>>>>> 24260f390b7a1ff0a307d9930b18a4ab2e69f580
                         onClick={() => this.clicked(index)}
                       >
                         {this.getObject(item.object, item.color)}
@@ -264,13 +262,11 @@ export default class FindThePairs extends Component {
                       <div className="col"></div>
                       <div
                         className="col-auto aks-btn"
-<<<<<<< HEAD
                         style={
-                          item.click ? styles.borderDefault : styles.borderNotClick
+                          item.click
+                            ? styles.borderDefault
+                            : styles.borderNotClick
                         }
-=======
-                        style={item.click ? styles.borderDefault : null}
->>>>>>> 24260f390b7a1ff0a307d9930b18a4ab2e69f580
                         onClick={() => this.clicked(index)}
                       >
                         {this.getObject(item.object, item.color)}
@@ -295,13 +291,11 @@ export default class FindThePairs extends Component {
                       <div className="col"></div>
                       <div
                         className="col-auto aks-btn"
-<<<<<<< HEAD
                         style={
-                          item.click ? styles.borderDefault : styles.borderNotClick
+                          item.click
+                            ? styles.borderDefault
+                            : styles.borderNotClick
                         }
-=======
-                        style={item.click ? styles.borderDefault : null}
->>>>>>> 24260f390b7a1ff0a307d9930b18a4ab2e69f580
                         onClick={() => this.clicked(index)}
                       >
                         {this.getObject(item.object, item.color)}
@@ -344,7 +338,7 @@ const styles = {
     border: "black solid",
     margin: "0px 35px"
   },
-  borderNotClick : {
+  borderNotClick: {
     padding: "15px",
     border: "none",
     margin: "0px 35px"
