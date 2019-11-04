@@ -38,32 +38,41 @@ const pattern = [
   name: "lines red"
 },
 
-      patterns.caps({
-        stroke: "#000000",
-        background: "#2196f3",
-        name: "caps blue"
-      }),
-      patterns.caps({
-        stroke: "#000000",
-        background: "#9e9e9e",
-        name: "caps grey"
-      }),
-      patterns.caps({
-        stroke: "#000000",
-        background: "#4caf50",
-        name: "caps green"
-      }),
-      patterns.caps({
-        stroke: "#000000",
-        background: "#ff9800",
-        name: "caps orange"
-      }),
-      
-      patterns.caps({
-        stroke: "#000000",
-        background: "#f44336",
-        name: "caps red"
-      }),
+{
+  patt : patterns.caps({
+    stroke: "#000000",
+    background: "#2196f3"
+  }),
+  name: "caps blue"
+},
+{
+  patt : patterns.caps({
+    stroke: "#000000",
+    background: "#9e9e9e"
+  }),
+  name: "caps grey"
+},
+{
+  patt : patterns.caps({
+    stroke: "#000000",
+    background: "#4caf50"
+  }),
+  name: "caps green"
+},
+{
+  patt : patterns.caps({
+    stroke: "#000000",
+    background: "#ff9800"
+  }),
+  name: "caps orange"
+},
+{
+  patt : patterns.caps({
+    stroke: "#000000",
+    background: "#f44336"
+  }),
+  name: "caps red"
+},
 
 {
   patt : patterns.hexagons({
