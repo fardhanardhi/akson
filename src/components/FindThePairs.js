@@ -185,25 +185,41 @@ export default class FindThePairs extends Component {
               pair = [...pair, index];
             }
           }
+          console.log(pair);
+
+          if (
+            choicesUpdate[pair[0]].color === choicesUpdate[pair[1]].color &&
+            choicesUpdate[pair[0]].object === choicesUpdate[pair[1]].object
+          ) {
+            console.log("benar");
+            choicesUpdate[pair[0]].correct = true;
+            choicesUpdate[pair[1]].correct = true;
+          } else {
+            console.log("salah");
+          }
         }
       } else {
         pair = [index];
 
         //all clik is null
-        choicesUpdate = choicesUpdate.map((item) => {
+        choicesUpdate = choicesUpdate.map(item => {
           item.click = false;
           return item;
         });
 
-        choicesUpdate[index].click = true;        
+        choicesUpdate[index].click = true;
       }
 
       this.setState({ pair }); //akhir
 
-      this.setState({ choices: choicesUpdate });
+      this.setState({ choices: choicesUpdate }, () =>
+        console.log(this.state.choices)
+      );
     } else if (this.state.choices[index].click === true) {
       choicesUpdate[index].click = false;
-      this.setState({ choices: choicesUpdate });
+      this.setState({ choices: choicesUpdate }, () =>
+        console.log(this.state.choices)
+      );
     }
   };
 
@@ -235,9 +251,13 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          item.click
+                          !item.click
+                            ? styles.borderNotClick
+                            : this.state.pair.length === 1
                             ? styles.borderDefault
-                            : styles.borderNotClick
+                            : item.correct
+                            ? styles.borderTrue
+                            : styles.borderFalse
                         }
                         onClick={() => this.clicked(index)}
                       >
@@ -265,9 +285,13 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          item.click
+                          !item.click
+                            ? styles.borderNotClick
+                            : this.state.pair.length === 1
                             ? styles.borderDefault
-                            : styles.borderNotClick
+                            : item.correct
+                            ? styles.borderTrue
+                            : styles.borderFalse
                         }
                         onClick={() => this.clicked(index)}
                       >
@@ -294,9 +318,13 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          item.click
+                          !item.click
+                            ? styles.borderNotClick
+                            : this.state.pair.length === 1
                             ? styles.borderDefault
-                            : styles.borderNotClick
+                            : item.correct
+                            ? styles.borderTrue
+                            : styles.borderFalse
                         }
                         onClick={() => this.clicked(index)}
                       >
@@ -328,7 +356,8 @@ const styles = {
   borderTrue: {
     padding: "15px",
     border: "green solid",
-    margin: "0px 35px"
+    margin: "0px 35px",
+    backgroundColor: "#000"
   },
   borderFalse: {
     padding: "15px",
