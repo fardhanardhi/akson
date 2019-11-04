@@ -176,20 +176,21 @@ export default class ColorCodes extends Component {
             let component;
             if (index < 4) {
               component = (
-                <div
-                  className="col-md-3"
-                  key={index}
-                >
-                  <div
-                    className="space"
-                    style={
-                      this.state.choices[index].isChecked
-                        ? styles.borderTrue
-                        : styles.borderFalse
-                    }
-                    onClick={() => this.checked(index, item.name, item.color)}
-                  >
-                    {this.getColor(item.object, item.color, item.name)}
+                <div className="col-md-3" key={index}>
+                  <div className="row">
+                    <div className="col"></div>
+                    <div
+                      className="col-auto aks-btn space"
+                      style={
+                        this.state.choices[index].isChecked
+                          ? styles.borderTrue
+                          : styles.borderFalse
+                      }
+                      onClick={() => this.checked(index, item.name, item.color)}
+                    >
+                      {this.getColor(item.object, item.color, item.name)}
+                    </div>
+                    <div className="col"></div>
                   </div>
                 </div>
               );
@@ -202,20 +203,21 @@ export default class ColorCodes extends Component {
             let component;
             if (index < 8 && index >= 4) {
               component = (
-                <div
-                  className="col-md-3"
-                  key={index}
-                >
-                  <div
-                    className="space"
-                    style={
-                      this.state.choices[index].isChecked
-                        ? styles.borderTrue
-                        : styles.borderFalse
-                    }
-                    onClick={() => this.checked(index, item.name, item.color)}
-                  >
-                    {this.getColor(item.object, item.color, item.name)}
+                <div className="col-md-3" key={index}>
+                  <div className="row">
+                    <div className="col"></div>
+                    <div
+                      className="col-auto aks-btn space"
+                      style={
+                        this.state.choices[index].isChecked
+                          ? styles.borderTrue
+                          : styles.borderFalse
+                      }
+                      onClick={() => this.checked(index, item.name, item.color)}
+                    >
+                      {this.getColor(item.object, item.color, item.name)}
+                    </div>
+                    <div className="col"></div>
                   </div>
                 </div>
               );
@@ -236,12 +238,12 @@ const styles = {
     marginBottom: "100px"
   },
   borderTrue: {
-    padding: "15px 0px",
+    padding: "15px",
     border: "green solid",
     margin: "0px 35px"
   },
   borderFalse: {
-    padding: "15px 0px",
+    padding: "15px",
     border: "none",
     margin: "0px 35px"
   }

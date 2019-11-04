@@ -21,7 +21,7 @@ export default class FindThePairs extends Component {
     this.state = {
       choices: [],
       pair: [],
-      isClicked: null,
+      isClicked: false,
       isCorrect: false
     };
 
@@ -100,7 +100,8 @@ export default class FindThePairs extends Component {
     }
 
     // duplikasi pilihan jawaban benar
-    rightChoices = [...rightChoices, ...rightChoices];
+    const rightChoices2 = rightChoices.map(object => ({ ...object }));
+    rightChoices = [...rightChoices, ...rightChoices2];
 
     // generate pilihan jawaban salah
     let wrongChoices = [...Array(6)].map(x => {
@@ -164,53 +165,49 @@ export default class FindThePairs extends Component {
     let hasil = [...rightChoices, ...wrongChoices];
 
     // acak posisi pilihan jawaban
-    const choices = [...hasil].sort(() => Math.random() - 0.5);
+    // const choices = [...hasil].sort(() => Math.random() - 0.5);
+    const choices = hasil;
 
     this.setState({ choices });
   };
 
-  checked = index => {
+  clicked = index => {
     let choicesUpdate = this.state.choices;
-
-    if (
-      this.state.choices[index].click === false ||
-      this.state.choices[index].click === null
-    ) {
+    let pair = this.state.pair;
+    if (this.state.choices[index].click === false) {
       choicesUpdate[index].click = true;
-
-      let pair = [...this.state.pair, index];
-
-      // this.state.pair.push(index)==setState
-
-      if (pair.length > 2) {
-        // let pairUpdate = this.state.pair.slice()
-        // pairUpdate.push("")
-        // let hallo = index
+      if (pair.length < 2) {
+        if (pair.length === 0) {
+          pair = [...pair, index];
+        } else {
+          for (let i = 0; i < pair.length; i++) {
+            if (pair[i] !== index) {
+              pair = [...pair, index];
+            }
+          }
+        }
+      } else {
         pair = [index];
-        // this.setState({pair : [index]})
-        choicesUpdate[index].click = false;
+
+        //all clik is null
+        choicesUpdate = choicesUpdate.map((item, index) => {
+          item.click = false;
+          return item;
+        });
       }
 
       this.setState({ pair }); //akhir
-      this.setState({ choices: choicesUpdate }, () => {
-        console.log("haha", this.state.choices);
-        console.log("hihi", this.state.pair);
-      });
+
+      this.setState({ choices: choicesUpdate });
     } else if (this.state.choices[index].click === true) {
       choicesUpdate[index].click = false;
-      this.setState({ choices: choicesUpdate }, () => {
-        console.log("haha", this.state.choices);
-        console.log("hihi", this.state.pair);
-      });
+      this.setState({ choices: choicesUpdate });
     }
-
-    console.log("ini objek ", this.state.choices[index]);
-    console.log("ini index ", index);
   };
 
   render() {
-    console.log("gameinfo ftp:", this.props.gameInfo);
-    console.log(this.state.choices);
+    // console.log("gameinfo ftp:", this.props.gameInfo);
+    // console.log(this.state.choices);
 
     return (
       <div className="container-fluid p-0">
@@ -234,12 +231,15 @@ export default class FindThePairs extends Component {
                     <div className="row">
                       <div className="col"></div>
                       <div
-                        className={
-                          item.click
-                            ? "col-auto aks-btn bg-success"
-                            : "col-auto aks-btn"
+                        className="col-auto aks-btn"
+<<<<<<< HEAD
+                        style={
+                          item.click ? styles.borderDefault : styles.borderNotClick
                         }
-                        onClick={() => this.checked(index)}
+=======
+                        style={item.click ? styles.borderDefault : null}
+>>>>>>> 24260f390b7a1ff0a307d9930b18a4ab2e69f580
+                        onClick={() => this.clicked(index)}
                       >
                         {this.getObject(item.object, item.color)}
                       </div>
@@ -263,12 +263,15 @@ export default class FindThePairs extends Component {
                     <div className="row">
                       <div className="col"></div>
                       <div
-                        className={
-                          item.click
-                            ? "col-auto aks-btn bg-success"
-                            : "col-auto aks-btn"
+                        className="col-auto aks-btn"
+<<<<<<< HEAD
+                        style={
+                          item.click ? styles.borderDefault : styles.borderNotClick
                         }
-                        onClick={() => this.checked(index)}
+=======
+                        style={item.click ? styles.borderDefault : null}
+>>>>>>> 24260f390b7a1ff0a307d9930b18a4ab2e69f580
+                        onClick={() => this.clicked(index)}
                       >
                         {this.getObject(item.object, item.color)}
                       </div>
@@ -291,12 +294,15 @@ export default class FindThePairs extends Component {
                     <div className="row">
                       <div className="col"></div>
                       <div
-                        className={
-                          item.click
-                            ? "col-auto aks-btn bg-success"
-                            : "col-auto aks-btn"
+                        className="col-auto aks-btn"
+<<<<<<< HEAD
+                        style={
+                          item.click ? styles.borderDefault : styles.borderNotClick
                         }
-                        onClick={() => this.checked(index)}
+=======
+                        style={item.click ? styles.borderDefault : null}
+>>>>>>> 24260f390b7a1ff0a307d9930b18a4ab2e69f580
+                        onClick={() => this.clicked(index)}
                       >
                         {this.getObject(item.object, item.color)}
                       </div>
@@ -322,5 +328,25 @@ const styles = {
     fontFamily: "Carter One",
     color: "#1D1D1D",
     marginBottom: "75px"
+  },
+  borderTrue: {
+    padding: "15px",
+    border: "green solid",
+    margin: "0px 35px"
+  },
+  borderFalse: {
+    padding: "15px",
+    border: "red solid",
+    margin: "0px 35px"
+  },
+  borderDefault: {
+    padding: "15px",
+    border: "black solid",
+    margin: "0px 35px"
+  },
+  borderNotClick : {
+    padding: "15px",
+    border: "none",
+    margin: "0px 35px"
   }
 };
