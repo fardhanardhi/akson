@@ -16,7 +16,8 @@ export default class FindThePairs extends Component {
     super(props);
 
     this.state = {
-      choices: []
+      choices: [],
+      isChecked: false
     };
 
     this.objects = [
@@ -30,6 +31,10 @@ export default class FindThePairs extends Component {
 
   componentDidMount() {
     this.getChoices();
+  }
+
+  componentDidUpdate(){
+    console.log(this.state.choices);
   }
 
   getRandomId = arr => {
@@ -48,15 +53,15 @@ export default class FindThePairs extends Component {
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs
-            dangerouslySetInnerHTML={{ __html: stringify(Pattern[patternId]) }}
+            dangerouslySetInnerHTML={{ __html: stringify(Pattern[patternId].patt) }}
           />
 
           <path
             d="M76 0L151.344 134.25H0.655792L76 0Z"
-            style={{ fill: Pattern[patternId].url() }}
+            style={{ fill: Pattern[patternId].patt.url() }}
           />
         </svg>
-        <p style={styles.textHelp}>{`Segitiga + ${Pattern[patternIdName].name}`}</p>
+        <p style={styles.textHelp}>{`Segitiga ${Pattern[patternId].name}`}</p>
       </div>,
 
       <div>
@@ -68,14 +73,14 @@ export default class FindThePairs extends Component {
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs
-            dangerouslySetInnerHTML={{ __html: stringify(Pattern[patternId]) }}
+            dangerouslySetInnerHTML={{ __html: stringify(Pattern[patternId].patt) }}
           />
           <path
             d="M70.5 0L87.0018 50.7873H140.403L97.2004 82.1755L113.702 132.963L70.5 101.575L27.2978 132.963L43.7996 82.1755L0.597343 50.7873H53.9982L70.5 0Z"
-            style={{ fill: Pattern[patternId].url() }}
+            style={{ fill: Pattern[patternId].patt.url() }}
           />
         </svg>
-        <p style={styles.textHelp}>Stars</p>
+        <p style={styles.textHelp}>{`Stars ${Pattern[patternId].name}`}</p>
       </div>,
 
       <div>
@@ -90,13 +95,13 @@ export default class FindThePairs extends Component {
             cx="65.5"
             cy="65.5"
             r="65.5"
-            style={{ fill: Pattern[patternId].url() }}
+            style={{ fill: Pattern[patternId].patt.url() }}
           />
           <defs
-            dangerouslySetInnerHTML={{ __html: stringify(Pattern[patternId]) }}
+            dangerouslySetInnerHTML={{ __html: stringify(Pattern[patternId].patt) }}
           />
         </svg>
-        <p style={styles.textHelp}>Circle</p>
+        <p style={styles.textHelp}>{`Circle ${Pattern[patternId].name}`}</p>
       </div>,
 
       <div>
@@ -110,13 +115,13 @@ export default class FindThePairs extends Component {
           <rect
             width="129"
             height="129"
-            style={{ fill: Pattern[patternId].url() }}
+            style={{ fill: Pattern[patternId].patt.url() }}
           />
           <defs
-            dangerouslySetInnerHTML={{ __html: stringify(Pattern[patternId]) }}
+            dangerouslySetInnerHTML={{ __html: stringify(Pattern[patternId].patt) }}
           />
         </svg>
-        <p style={styles.textHelp}>Rectangular</p>
+        <p style={styles.textHelp}>{`Rectangular ${Pattern[patternId].name}`}</p>
       </div>,
       <div>
         <svg
@@ -128,17 +133,18 @@ export default class FindThePairs extends Component {
         >
           <path
             d="M0 79.5L57.5 0H270L215.5 79.5H0Z"
-            style={{ fill: Pattern[patternId].url() }}
+            style={{ fill: Pattern[patternId].patt.url() }}
           />
           <defs
-            dangerouslySetInnerHTML={{ __html: stringify(Pattern[patternId]) }}
+            dangerouslySetInnerHTML={{ __html: stringify(Pattern[patternId].patt) }}
           />
         </svg>
-        <p style={styles.textHelp}>Parallelogram</p>
+        <p style={styles.textHelp}>{`Parallelogram ${Pattern[patternId].name}`}</p>
       </div>
     ];
     return obj[objectId];
   };
+
 
   getChoices = () => {
     // generate pilihan jawaban benar
@@ -146,6 +152,7 @@ export default class FindThePairs extends Component {
       return {
         object: this.getRandomId(this.objects),
         pattern: this.getRandomId(Pattern),
+        name: this.getRandomId(Pattern),
         isSelected: false,
         isCorrect: false
       };
@@ -159,12 +166,14 @@ export default class FindThePairs extends Component {
           if (i !== j) {
             if (
               rightChoices[i].object === rightChoices[j].object &&
-              rightChoices[i].pattern === rightChoices[j].pattern
+              rightChoices[i].pattern === rightChoices[j].pattern &&
+              rightChoices[i].name === rightChoices[j].name
             ) {
               rightChoices = rightChoices.map(x => {
                 return {
                   object: this.getRandomId(this.objects),
-                  pattern: this.getRandomId(Pattern)
+                  pattern: this.getRandomId(Pattern),
+                  name: this.getRandomId(Pattern)
                 };
               });
             } else {
@@ -183,6 +192,7 @@ export default class FindThePairs extends Component {
       return {
         object: this.getRandomId(this.objects),
         pattern: this.getRandomId(Pattern),
+        name: this.getRandomId(Pattern),
         isSelected: false,
         isCorrect: false
       };
@@ -199,7 +209,8 @@ export default class FindThePairs extends Component {
               wrongChoices = wrongChoices.map(x => {
                 return {
                   object: this.getRandomId(this.objects),
-                  pattern: this.getRandomId(Pattern)
+                  pattern: this.getRandomId(Pattern),
+                  name: this.getRandomId(Pattern)
                 };
               });
             } else {
@@ -213,12 +224,14 @@ export default class FindThePairs extends Component {
           if (i !== j) {
             if (
               wrongChoices[i].object === wrongChoices[j].object &&
-              wrongChoices[i].pattern === wrongChoices[j].pattern
+              wrongChoices[i].pattern === wrongChoices[j].pattern &&
+              rightChoices[i].color === rightChoices[j].color
             ) {
               wrongChoices = wrongChoices.map(x => {
                 return {
                   object: this.getRandomId(this.objects),
-                  pattern: this.getRandomId(Pattern)
+                  pattern: this.getRandomId(Pattern),
+                  name: this.getRandomId(Pattern)
                 };
               });
             } else {
@@ -278,7 +291,7 @@ export default class FindThePairs extends Component {
                         }
                         onClick={() => this.selectChoice(index)}
                       >
-                        {this.getObject(item.object, item.pattern)}
+                        {this.getObject(item.object, item.pattern, item.name)}
                       </div>
                       <div className="col"></div>
                     </div>
@@ -307,7 +320,7 @@ export default class FindThePairs extends Component {
                         }
                         onClick={() => this.selectChoice(index)}
                       >
-                        {this.getObject(item.object, item.pattern)}
+                        {this.getObject(item.object, item.pattern, item.name)}
                       </div>
                       <div className="col"></div>
                     </div>
@@ -335,7 +348,7 @@ export default class FindThePairs extends Component {
                         }
                         onClick={() => this.selectChoice(index)}
                       >
-                        {this.getObject(item.object, item.pattern)}
+                        {this.getObject(item.object, item.pattern, item.name)}
                       </div>
                       <div className="col"></div>
                     </div>

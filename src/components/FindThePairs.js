@@ -190,10 +190,12 @@ export default class FindThePairs extends Component {
         pair = [index];
 
         //all clik is null
-        choicesUpdate = choicesUpdate.map((item, index) => {
+        choicesUpdate = choicesUpdate.map((item) => {
           item.click = false;
           return item;
         });
+
+        choicesUpdate[index].click = true;        
       }
 
       this.setState({ pair }); //akhir
