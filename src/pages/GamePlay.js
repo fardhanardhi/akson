@@ -29,7 +29,7 @@ export default class GamePlay extends Component {
           key: "findThePairs",
           name: "Find The Pairs",
           score: 0,
-          totalTime: 3
+          totalTime: 10
         },
         {
           id: 1,
@@ -123,7 +123,7 @@ export default class GamePlay extends Component {
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
-        addScore={this.addScore}
+        addScore={() => this.addScore(gameId)}
         addWrongScore={this.addWrongScore}
       />,
       <CountTheObject
@@ -131,7 +131,7 @@ export default class GamePlay extends Component {
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
-        addScore={this.addScore}
+        addScore={() => this.addScore(gameId)}
         addWrongScore={this.addWrongScore}
       />,
       <ColorCodes
@@ -139,7 +139,7 @@ export default class GamePlay extends Component {
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
-        addScore={this.addScore}
+        addScore={() => this.addScore(gameId)}
         addWrongScore={this.addWrongScore}
       />,
       <ShapeAndPattern
@@ -147,7 +147,7 @@ export default class GamePlay extends Component {
         onTimeOut={this.changeGame}
         paused={this.state.paused}
         onPause={this.onPause}
-        addScore={this.addScore}
+        addScore={() => this.addScore(gameId)}
         addWrongScore={this.addWrongScore}
       />
     ];

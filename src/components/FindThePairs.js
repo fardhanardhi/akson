@@ -165,8 +165,7 @@ export default class FindThePairs extends Component {
     let hasil = [...rightChoices, ...wrongChoices];
 
     // acak posisi pilihan jawaban
-    // const choices = [...hasil].sort(() => Math.random() - 0.5);
-    const choices = hasil;
+    const choices = [...hasil].sort(() => Math.random() - 0.5);
 
     this.setState({ choices });
   };
@@ -194,8 +193,12 @@ export default class FindThePairs extends Component {
             console.log("benar");
             choicesUpdate[pair[0]].correct = true;
             choicesUpdate[pair[1]].correct = true;
+            // nambah skor benar
+            this.props.addScore();
           } else {
             console.log("salah");
+            // nambah skor salah
+            this.props.addWrongScore();
           }
         }
       } else {
