@@ -47,6 +47,7 @@ const pattern = [
         background: "#ff9800",
         name: "caps orange"
       }),
+      
       patterns.caps({
         stroke: "#000000",
         background: "#f44336",
