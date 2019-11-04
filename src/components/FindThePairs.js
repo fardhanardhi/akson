@@ -216,8 +216,8 @@ export default class FindThePairs extends Component {
   };
 
   render() {
-    console.log("gameinfo ftp:", this.props.gameInfo);
-    console.log(this.state.choices);
+    // console.log("gameinfo ftp:", this.props.gameInfo);
+    // console.log(this.state.choices);
 
     return (
       <div className="container-fluid p-0">
@@ -243,7 +243,7 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          item.click ? styles.borderDefault : null
+                          item.click ? styles.borderDefault : styles.borderNotClick
                         }
                         onClick={() => this.clicked(index)}
                       >
@@ -271,7 +271,7 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          item.click ? styles.borderDefault : null
+                          item.click ? styles.borderDefault : styles.borderNotClick
                         }
                         onClick={() => this.clicked(index)}
                       >
@@ -298,7 +298,7 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          item.click ? styles.borderDefault : null
+                          item.click ? styles.borderDefault : styles.borderNotClick
                         }
                         onClick={() => this.clicked(index)}
                       >
@@ -340,6 +340,11 @@ const styles = {
   borderDefault: {
     padding: "15px",
     border: "black solid",
+    margin: "0px 35px"
+  },
+  borderNotClick : {
+    padding: "15px",
+    border: "none",
     margin: "0px 35px"
   }
 };
