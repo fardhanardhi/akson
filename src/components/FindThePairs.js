@@ -100,7 +100,8 @@ export default class FindThePairs extends Component {
     }
 
     // duplikasi pilihan jawaban benar
-    rightChoices = [...rightChoices, ...rightChoices];
+    const rightChoices2 = rightChoices.map(object => ({ ...object }));
+    rightChoices = [...rightChoices, ...rightChoices2];
 
     // generate pilihan jawaban salah
     let wrongChoices = [...Array(6)].map(x => {
@@ -164,7 +165,8 @@ export default class FindThePairs extends Component {
     let hasil = [...rightChoices, ...wrongChoices];
 
     // acak posisi pilihan jawaban
-    const choices = [...hasil].sort(() => Math.random() - 0.5);
+    // const choices = [...hasil].sort(() => Math.random() - 0.5);
+    const choices = hasil;
 
     this.setState({ choices });
   };
@@ -172,12 +174,8 @@ export default class FindThePairs extends Component {
   clicked = index => {
     let choicesUpdate = this.state.choices;
     let pair = this.state.pair;
-    
-    if (
-      this.state.choices[index].click === false
-    ) {
+    if (this.state.choices[index].click === false) {
       choicesUpdate[index].click = true;
-
       if (pair.length < 2) {
         if (pair.length === 0) {
           pair = [...pair, index];
@@ -202,20 +200,11 @@ export default class FindThePairs extends Component {
 
       this.setState({ pair }); //akhir
 
-      this.setState({ choices: choicesUpdate }, () => {
-        console.log("haha", this.state.choices);
-        console.log("hihi", this.state.pair);
-      });
+      this.setState({ choices: choicesUpdate });
     } else if (this.state.choices[index].click === true) {
       choicesUpdate[index].click = false;
-      this.setState({ choices: choicesUpdate }, () => {
-        console.log("haha", this.state.choices);
-        console.log("hihi", this.state.pair);
-      });
+      this.setState({ choices: choicesUpdate });
     }
-
-    console.log("ini objek ", this.state.choices[index]);
-    console.log("ini index ", index);
   };
 
   render() {
