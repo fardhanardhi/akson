@@ -171,8 +171,7 @@ export default class FindThePairs extends Component {
     let hasil = [...rightChoices, ...wrongChoices];
 
     // acak posisi pilihan jawaban
-    // const choices = [...hasil].sort(() => Math.random() - 0.5);
-    const choices = hasil;
+    const choices = [...hasil].sort(() => Math.random() - 0.5);
 
     this.setState({ choices });
   };
