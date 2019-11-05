@@ -22,7 +22,8 @@ export default class FindThePairs extends Component {
       choices: [],
       pair: [],
       isClicked: false,
-      isCorrect: false
+      isCorrect: false,
+      borderDefault : false
     };
 
     this.objects = [
@@ -69,7 +70,8 @@ export default class FindThePairs extends Component {
         object: this.getRandomId(this.objects),
         color: this.getRandomId(colors),
         click: this.state.isClicked,
-        correct: this.state.isCorrect
+        correct: this.state.isCorrect,
+        border : this.state.borderDefault
       };
     });
 
@@ -88,7 +90,8 @@ export default class FindThePairs extends Component {
                   object: this.getRandomId(this.objects),
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
-                  correct: this.state.isCorrect
+                  correct: this.state.isCorrect,
+                  border : this.state.borderDefault
                 };
               });
             } else {
@@ -109,7 +112,8 @@ export default class FindThePairs extends Component {
         object: this.getRandomId(this.objects),
         color: this.getRandomId(colors),
         click: this.state.isClicked,
-        correct: this.state.isCorrect
+        correct: this.state.isCorrect,
+        border : this.state.borderDefault
       };
     });
 
@@ -129,7 +133,8 @@ export default class FindThePairs extends Component {
                   object: this.getRandomId(this.objects),
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
-                  correct: this.state.isCorrect
+                  correct: this.state.isCorrect,
+                  border : this.state.borderDefault
                 };
               });
             } else {
@@ -150,7 +155,8 @@ export default class FindThePairs extends Component {
                   object: this.getRandomId(this.objects),
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
-                  correct: this.state.isCorrect
+                  correct: this.state.isCorrect,
+                  border : this.state.borderDefault
                 };
               });
             } else {
@@ -174,8 +180,10 @@ export default class FindThePairs extends Component {
   clicked = index => {
     let choicesUpdate = this.state.choices;
     let pair = this.state.pair;
+
     if (this.state.choices[index].click === false) {
       choicesUpdate[index].click = true;
+
       if (pair.length < 2) {
         if (pair.length === 0) {
           pair = [...pair, index];
@@ -187,15 +195,17 @@ export default class FindThePairs extends Component {
           }
           console.log(pair);
 
-          if (
-            choicesUpdate[pair[0]].color === choicesUpdate[pair[1]].color &&
-            choicesUpdate[pair[0]].object === choicesUpdate[pair[1]].object
-          ) {
-            console.log("benar");
-            choicesUpdate[pair[0]].correct = true;
-            choicesUpdate[pair[1]].correct = true;
-          } else {
-            console.log("salah");
+          if (pair.length > 1) {
+            if (
+              choicesUpdate[pair[0]].color === choicesUpdate[pair[1]].color &&
+              choicesUpdate[pair[0]].object === choicesUpdate[pair[1]].object
+            ) {
+              console.log("benar");
+              choicesUpdate[pair[0]].correct = true;
+              choicesUpdate[pair[1]].correct = true;
+            } else {
+              console.log("salah");
+            }
           }
         }
       } else {
@@ -203,7 +213,9 @@ export default class FindThePairs extends Component {
 
         //all clik is null
         choicesUpdate = choicesUpdate.map(item => {
-          item.click = false;
+          if (!item.correct) {
+            item.click = false;
+          }
           return item;
         });
 
@@ -224,6 +236,7 @@ export default class FindThePairs extends Component {
   };
 
   render() {
+    // const clickHandler =
     // console.log("gameinfo ftp:", this.props.gameInfo);
     // console.log(this.state.choices);
 
@@ -357,7 +370,7 @@ const styles = {
     padding: "15px",
     border: "green solid",
     margin: "0px 35px",
-    backgroundColor: "#000"
+    pointerEvents: "none"
   },
   borderFalse: {
     padding: "15px",
