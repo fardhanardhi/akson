@@ -525,19 +525,27 @@ export default class CountTheObject extends Component {
             <div className="col"></div>
             <div className="col-md-8" style={style.pertanyaanStyle}>
               <div className="row">
-                <h1>{soalTanya.text}</h1>
-                <div className="col-2"></div>
-                <div className="col-8">
+                <div className="col"></div>
+                <div className="col-md-8">
+                  <div className="row">
+                    <h1 className="text-center">{soalTanya.text}</h1>
+
+                  </div>
+                  <div className="row">
+                 
                   <img
                     src={soalGambar.image}
                     alt="countImage"
                     style={style.imageStyle}
+                    className="align-center"
                   />
+
+                  </div>
                 </div>
                 <div className="col"></div>
               </div>
               <div className="row" style={style.buttonGroup}>
-                <div className="col-3">
+                <div className="col-3 text-center">
                   <button
                     style={style.buttonSyle}
                     onClick={() => console.log(soalJawaban1.isBenar)}
@@ -545,7 +553,7 @@ export default class CountTheObject extends Component {
                     {soalJawaban1.text}
                   </button>
                 </div>
-                <div className="col-3">
+                <div className="col-3 text-center">
                   <button
                     style={style.buttonSyle}
                     onClick={() => console.log(soalJawaban2.isBenar)}
@@ -553,7 +561,7 @@ export default class CountTheObject extends Component {
                     {soalJawaban2.text}
                   </button>
                 </div>
-                <div className="col-3">
+                <div className="col-3 text-center">
                   <button
                     style={style.buttonSyle}
                     onClick={() => console.log(soalJawaban3.isBenar)}
@@ -561,7 +569,7 @@ export default class CountTheObject extends Component {
                     {soalJawaban3.text}
                   </button>
                 </div>
-                <div className="col-3">
+                <div className="col-3 text-center">
                   <button
                     style={style.buttonSyle}
                     onClick={() => console.log(soalJawaban4.isBenar)}
@@ -582,9 +590,8 @@ export default class CountTheObject extends Component {
 const style = {
   imageStyle: {
     maxHeight: "400px",
-    maxWidth: "500px"
-    // marginLeft: "auto",
-    // marginRight: "auto"
+    maxWidth: "500px",
+    margin: "auto"
   },
   pertanyaanStyle: {
     fontWeight: "normal",

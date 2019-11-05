@@ -6,8 +6,24 @@ import Logo from "../assets/logoAkson.svg";
 // import * as React from "react";
 // import { render } from "react-dom";
 import { Chart } from "react-google-charts";
+import axios from 'axios';
 
 export default class Statistics extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       average: ""
+    }
+  }
+  
+  componentDidMount() {
+    axios.get(`https://api-akson.000webhostapp.com/scoreAvg`)
+      .then(res => {        
+        this.setState({ average: res.data.average });
+      })
+  }
+
   render() {
     return (
       <div style={style.bgStyle}>
@@ -47,7 +63,7 @@ export default class Statistics extends Component {
                           data={[
                             ["Kriteria", "Poin", { role: "style" }, { role: "annotation" }],
                             ["Terbaik", 100, "#3498DB", 100],
-                            ["Rata-rata", 50, "#5EDA6A", 50],
+                            ["Rata-rata", this.state.average, "#5EDA6A", this.state.average],
                             ["Baru Saja", 25, "#F3B431", 25]
                           ]}
                           options={{

@@ -10,6 +10,7 @@ import FindThePairs from "../components/FindThePairs";
 import CountObject from "../components/CountTheObject";
 import ColorCodes from "../components/ColorCodes";
 import ShapeAndPatteren from "../components/ShapeAndPattern";
+import UserStat from "../components/UserStat"
 
 export default function Routes() {
   return (
@@ -42,6 +43,9 @@ export default function Routes() {
           </Route>
           <Route path="/find-the-pairs" >
             <FindThePairs/>
+          </Route>
+          <Route path="/UserStat" >
+            <UserStat/>
           </Route>
           <Route path="/">
             <Home />
