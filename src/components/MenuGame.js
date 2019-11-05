@@ -1,12 +1,29 @@
 import React, { Component } from "react";
+// var username = localStorage.getItem("username");
+// console.log(username[username.length-1]);
 
-var data = localStorage.getItem("data");
-var realData =  JSON.parse(data);
-// console.log(realData[realData.length-1].username);
+
 
 
 export default class MenuGame extends Component {
+constructor(props) {
+  super(props)
+
+  this.state = {
+     username: ""
+  }
+}
+
+
+  componentDidMount() {
+    const username = localStorage.getItem("username");
+    this.setState({username});
+  }
   render() {
+    setTimeout(() => {
+      
+    }, 3000);
+    
     return (
       <div >
         <div style={style.kotakDepan}>
@@ -17,7 +34,7 @@ export default class MenuGame extends Component {
                   <div style={style.bening}></div>
                 </div>
                 <div className="col-md-6" style={style.fontJudul}>
-                  <h2>Hai, {realData[realData.length-1].username}</h2>
+                  <h2>Hai, {this.state.username}</h2>
                 </div>
                 <div className="col-md-3"></div>
               </div>

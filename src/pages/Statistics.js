@@ -5,25 +5,53 @@ import LeftArrow from "../assets/leftArrow.svg";
 import Logo from "../assets/logoAkson.svg";
 // import * as React from "react";
 // import { render } from "react-dom";
-import { Chart } from "react-google-charts";
-import axios from 'axios';
+import GlobalStat from "../components/GlobalStat";
+import UserStat from "../components/UserStat";
 
 export default class Statistics extends Component {
+
   constructor(props) {
     super(props)
   
     this.state = {
-       average: ""
+        username:"",
+        score:[
+
+        ]
+        
     }
   }
-  
-  componentDidMount() {
-    axios.get(`https://api-akson.000webhostapp.com/scoreAvg`)
-      .then(res => {        
-        this.setState({ average: res.data.average });
-      })
-  }
 
+  componentDidMount() {
+    var simpanan = [
+      {username :  "rafif", score:"1870"},
+      {username :  "adan", score:"2180"},
+      {username :  "vian", score:"2345"},
+      {username :  "panji", score:"764"},
+      {username :  "adan", score:"1321"},
+      {username :  "rafif", score:"1221"},
+      {username :  "panji", score:"312"},
+
+    ];
+    const username = localStorage.getItem("username");
+    this.setState({username});
+    // var simpanans = [...simpanan, {username: this.state.username, score: ""}];
+    localStorage.setItem("data", JSON.stringify(simpanan));
+
+    var data = JSON.parse(localStorage.getItem("data"));
+
+    // console.log(data);
+    const hasilScore = data.filter(item => item.username === username).map(item=>{
+      return Number(item.score);
+    });
+
+    this.setState({score: hasilScore})
+
+    console.log(hasilScore);
+    
+  }
+  
+  
   render() {
     return (
       <div style={style.bgStyle}>
@@ -43,10 +71,9 @@ export default class Statistics extends Component {
                   <img src={Logo} alt="logoAkson" style={style.logoStyle}></img>
 
                   <div className="row">
-                    <div className="col"></div>
 
                     <div
-                      className="col-md-auto text-center "
+                      className="col-md text-center "
                       style={style.whiteContainerStyle}
                     >
                       <a href="/Menu">
@@ -55,47 +82,21 @@ export default class Statistics extends Component {
                       </a>
                       <h4 style={style.titleStyle}>Statistikmu</h4>
                       <div className={"my-pretty-chart-container "}>
-                        <Chart
-                          width={"750px"}
-                          height={"400px"}
-                          chartType="ColumnChart"
-                          loader={<div>Loading Chart</div>}
-                          data={[
-                            ["Kriteria", "Poin", { role: "style" }, { role: "annotation" }],
-                            ["Terbaik", 100, "#3498DB", 100],
-                            ["Rata-rata", this.state.average, "#5EDA6A", this.state.average],
-                            ["Baru Saja", 25, "#F3B431", 25]
-                          ]}
-                          options={{
-                            // Material design options                            
-                            bar: { groupWidth: "50%" },
-                            hAxis: {
-                              textStyle: {
-                                color: "#1D1D1D",
-                                fontName: "Carter One"
-                              }
-                            },
-                            vAxis: {
-                              textStyle: {
-                                color: "#1D1D1D",
-                                fontName: "Carter One"
-                              }
-                            },
-                            annotation: {
-                              textStyle: {
-                                color: "#FFFFFF",
-                                fontName: "Carter One"
-                              }
-                            },
-                            legend: { position: "none" }
-                          }}
-                          // For tests
-                          
-                        />
+                        <div className="row">
+
+                          <div className="col">
+                            <GlobalStat/>
+                            
+                          </div>
+                          <div className="col-8">
+                          <UserStat
+                            userScore={this.state.score}                          
+                          />
+                          </div>
+                        </div>
                       </div>
                     </div>
 
-                    <div className="col"></div>
                   </div>
                 </div>
               </div>
