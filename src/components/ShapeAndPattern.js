@@ -284,7 +284,7 @@ export default class FindThePairs extends Component {
 
   selectChoice = (index, objectId, patternId) => {
     let choicesUpdate = this.state.choices;
-    // let shelter = this.state.shelter;
+    let shelter = this.state.shelter;
 
     choicesUpdate[index] = {
       object: this.state.choices[index].object,
@@ -297,23 +297,19 @@ export default class FindThePairs extends Component {
       click: !choicesUpdate[index].click ? true : false
     };
 
-    // if(choicesUpdate[index].click === true){
-    //   if (shelter.length === 0) {
-    //     shelter = [...shelter, index];
-    //   } else {
-    //     console.log("ini ada isinya bos");
-    //     choicesUpdate = choicesUpdate.map(item => {
-    //       if(choicesUpdate === true){
-    //         item.click = false
-    //       }
-    //       return item;
-    //     });
-    //   }
-    // }
+    if (this.state.shelter.length === 0) {
+      shelter = [...shelter, index];
+    } else {
+      choicesUpdate = choicesUpdate.map(item => {
+        item.click = false;
+        return item;
+      });
 
-    this.setState({ choices: choicesUpdate });
+      choicesUpdate[index].click = true;
+    }
+
+    this.setState({ choices: choicesUpdate, shelter });
     console.log("cois: ", choicesUpdate[index]);
-    // console.log("shelter", shelter);
   };
 
   render() {
@@ -471,26 +467,17 @@ const styles = {
     color: "#1D1D1D",
     marginBottom: "75px"
   },
-
-  textHelp: {
-    position: "absolute",
-    fontFamily: "Carter One",
-    fontSize: "1.5vw",
-    color: "#1D1D1D",
-    top: "17px",
-    marginLeft: "105px",
-    cursor: "pointer"
-  },
-
   borderTrue: {
     padding: "15px",
     border: "green solid",
-    margin: "0px 35px"
+    margin: "0px 35px",
+    pointerEvents: "none"
   },
   borderFalse: {
     padding: "15px",
     border: "red solid",
-    margin: "0px 35px"
+    margin: "0px 35px",
+    pointerEvents: "none"
   },
   borderNotClick: {
     padding: "15px",
