@@ -45,139 +45,147 @@ export default class FindThePairs extends Component {
 
   getObject = (objectId, patternId, patternIdName) => {
     const obj = [
-     {
-       objek :  <div>
-       <svg
-         width="152"
-         height="135"
-         viewBox="0 0 152 135"
-         fill="none"
-         xmlns="http://www.w3.org/2000/svg"
-       >
-         <defs
-           dangerouslySetInnerHTML={{
-             __html: stringify(Pattern[patternId].patt)
-           }}
-         />
+      {
+        objek: (
+          <div>
+            <svg
+              width="152"
+              height="135"
+              viewBox="0 0 152 135"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs
+                dangerouslySetInnerHTML={{
+                  __html: stringify(Pattern[patternId].patt)
+                }}
+              />
 
-         <path
-           d="M76 0L151.344 134.25H0.655792L76 0Z"
-           style={{ fill: Pattern[patternId].patt.url() }}
-         />
-       </svg>
-       {/* <p style={styles.textHelp}>{`${Pattern[patternId].name}`}</p> */}
-     </div>,
+              <path
+                d="M76 0L151.344 134.25H0.655792L76 0Z"
+                style={{ fill: Pattern[patternId].patt.url() }}
+              />
+            </svg>
+            {/* <p style={styles.textHelp}>{`${Pattern[patternId].name}`}</p> */}
+          </div>
+        ),
 
-      nama : "segitiga",
-      pattern : <p style={styles.textHelp}>{`${Pattern[patternId].name}`}</p>
-     }
-      ,
-     {
-       objek : <div>
-       <svg
-         width="141"
-         height="133"
-         viewBox="0 0 141 133"
-         fill="none"
-         xmlns="http://www.w3.org/2000/svg"
-       >
-         <defs
-           dangerouslySetInnerHTML={{
-             __html: stringify(Pattern[patternId].patt)
-           }}
-         />
-         <path
-           d="M70.5 0L87.0018 50.7873H140.403L97.2004 82.1755L113.702 132.963L70.5 101.575L27.2978 132.963L43.7996 82.1755L0.597343 50.7873H53.9982L70.5 0Z"
-           style={{ fill: Pattern[patternId].patt.url() }}
-         />
-       </svg>
-       
-     </div>,
-     
-      nama : "Stars",
-      pattern : <p style={styles.textHelp}>{`${Pattern[patternId].name}`}</p>
-     },
+        nama: "segitiga",
+        pattern: Pattern[patternId].name
+      },
+      {
+        objek: (
+          <div>
+            <svg
+              width="141"
+              height="133"
+              viewBox="0 0 141 133"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs
+                dangerouslySetInnerHTML={{
+                  __html: stringify(Pattern[patternId].patt)
+                }}
+              />
+              <path
+                d="M70.5 0L87.0018 50.7873H140.403L97.2004 82.1755L113.702 132.963L70.5 101.575L27.2978 132.963L43.7996 82.1755L0.597343 50.7873H53.9982L70.5 0Z"
+                style={{ fill: Pattern[patternId].patt.url() }}
+              />
+            </svg>
+          </div>
+        ),
 
-     {
-       objek :  <div>
-       <svg
-         width="131"
-         height="131"
-         viewBox="0 0 131 131"
-         fill="none"
-         xmlns="http://www.w3.org/2000/svg"
-       >
-         <circle
-           cx="65.5"
-           cy="65.5"
-           r="65.5"
-           style={{ fill: Pattern[patternId].patt.url() }}
-         />
-         <defs
-           dangerouslySetInnerHTML={{
-             __html: stringify(Pattern[patternId].patt)
-           }}
-         />
-       </svg>
-       {/* <p style={styles.textHelp}>{`${Pattern[patternId].name}`}</p> */}
-     </div>,
+        nama: "Stars",
+        pattern: Pattern[patternId].name
+      },
 
-      nama : "Circle",
-      pattern : <p style={styles.textHelp}>{`${Pattern[patternId].name}`}</p>
-     },
-    
-     {
-       objek : <div>
-       <svg
-         width="129"
-         height="129"
-         viewBox="0 0 129 129"
-         fill="none"
-         xmlns="http://www.w3.org/2000/svg"
-       >
-         <rect
-           width="129"
-           height="129"
-           style={{ fill: Pattern[patternId].patt.url() }}
-         />
-         <defs
-           dangerouslySetInnerHTML={{
-             __html: stringify(Pattern[patternId].patt)
-           }}
-         />
-       </svg>
-       {/* <p style={styles.textHelp} >{`${Pattern[patternId].name}`}</p> */}
-     </div>,
+      {
+        objek: (
+          <div>
+            <svg
+              width="131"
+              height="131"
+              viewBox="0 0 131 131"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="65.5"
+                cy="65.5"
+                r="65.5"
+                style={{ fill: Pattern[patternId].patt.url() }}
+              />
+              <defs
+                dangerouslySetInnerHTML={{
+                  __html: stringify(Pattern[patternId].patt)
+                }}
+              />
+            </svg>
+            {/* <p style={styles.textHelp}>{`${Pattern[patternId].name}`}</p> */}
+          </div>
+        ),
 
-     nama : "Rectangular",
-     pattern : <p style={styles.textHelp}>{`${Pattern[patternId].name}`}</p>
-     },
-      
-     {
-      objek : <div>
-      <svg
-        width="270"
-        height="80"
-        viewBox="0 0 270 80"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 79.5L57.5 0H270L215.5 79.5H0Z"
-          style={{ fill: Pattern[patternId].patt.url() }}
-        />
-        <defs
-          dangerouslySetInnerHTML={{
-            __html: stringify(Pattern[patternId].patt)
-          }}
-        />
-      </svg>
-      {/* <p style={styles.textHelp} >{`${Pattern[patternId].name}`}</p> */}
-    </div>,
+        nama: "Circle",
+        pattern: Pattern[patternId].name
+      },
 
-      nama : "Parallelogram",
-      pattern : <p style={styles.textHelp}>{`${Pattern[patternId].name}`}</p>
-     },
+      {
+        objek: (
+          <div>
+            <svg
+              width="129"
+              height="129"
+              viewBox="0 0 129 129"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="129"
+                height="129"
+                style={{ fill: Pattern[patternId].patt.url() }}
+              />
+              <defs
+                dangerouslySetInnerHTML={{
+                  __html: stringify(Pattern[patternId].patt)
+                }}
+              />
+            </svg>
+            {/* <p style={styles.textHelp} >{`${Pattern[patternId].name}`}</p> */}
+          </div>
+        ),
+
+        nama: "Rectangular",
+        pattern: Pattern[patternId].name
+      },
+
+      {
+        objek: (
+          <div>
+            <svg
+              width="270"
+              height="80"
+              viewBox="0 0 270 80"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 79.5L57.5 0H270L215.5 79.5H0Z"
+                style={{ fill: Pattern[patternId].patt.url() }}
+              />
+              <defs
+                dangerouslySetInnerHTML={{
+                  __html: stringify(Pattern[patternId].patt)
+                }}
+              />
+            </svg>
+            {/* <p style={styles.textHelp} >{`${Pattern[patternId].name}`}</p> */}
+          </div>
+        ),
+
+        nama: "Parallelogram",
+        pattern: Pattern[patternId].name
+      }
     ];
 
     return obj[objectId];
@@ -217,7 +225,8 @@ export default class FindThePairs extends Component {
       for (let j = 0; j < rightChoices.length; j++) {
         if (
           rightChoices.object === wrongChoices[j].object &&
-          rightChoices.pattern === wrongChoices[j].pattern
+          rightChoices.pattern === wrongChoices[j].pattern &&
+          rightChoices.name === wrongChoices[j].name
         ) {
           wrongChoices = wrongChoices.map(x => {
             return {
@@ -236,7 +245,8 @@ export default class FindThePairs extends Component {
           if (i !== j) {
             if (
               wrongChoices[i].object === wrongChoices[j].object &&
-              wrongChoices[i].pattern === wrongChoices[j].pattern
+              wrongChoices[i].pattern === wrongChoices[j].pattern &&
+              wrongChoices[i].name === wrongChoices[j].name
             ) {
               wrongChoices = wrongChoices.map(x => {
                 return {
@@ -293,15 +303,21 @@ export default class FindThePairs extends Component {
           {this.state.isQuestion.map((item, index) => {
             let component = null;
             component = (
-              <div className="col-md-3" key={index}>
+              <div className="col-md-12" key={index}>
                 <div className="row">
-
+                  <div className="col"></div>
+                  <div className="col-auto">
+                    <h4 style={styles.textCase}>
+                      {" "}
+                      {this.getObject(item.object, item.pattern).nama},{" "}
+                      {this.getObject(item.object, item.pattern).pattern}{" "}
+                    </h4>
+                  </div>
+                  <div className="col"></div>
                 </div>
-                <h3> {this.getObject(item.object, item.pattern).nama} </h3>
-                {this.getObject(item.object, item.pattern).pattern}
               </div>
-            )
-            return component
+            );
+            return component;
           })}
 
           <div className="row">
@@ -397,6 +413,12 @@ export default class FindThePairs extends Component {
 
 const styles = {
   text: {
+    fontWeight: "normal",
+    fontFamily: "Carter One",
+    color: "#1D1D1D",
+    marginBottom: "20px"
+  },
+  textCase: {
     fontWeight: "normal",
     fontFamily: "Carter One",
     color: "#1D1D1D",
