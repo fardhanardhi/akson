@@ -11,7 +11,7 @@ export default class ColorCodes extends Component {
 
     this.state = {
       choices: [],
-      isChecked: false
+      isCorrect: false
     };
 
     this.objects = [<Rectangel />];
@@ -46,7 +46,7 @@ export default class ColorCodes extends Component {
       object: this.state.choices[index].object,
       color: this.state.choices[index].color,
       name: this.state.choices[index].name,
-      isChecked: colorIdName === colorIdCode ? true : false
+      isCorrect: colorIdName === colorIdCode ? true : false
     };
     this.setState({
       choices: choicesUpdate,
@@ -62,7 +62,7 @@ export default class ColorCodes extends Component {
         object: this.getRandomId(this.objects),
         color: this.getRandomId(colors),
         name: this.getRandomId(colors),
-        isChecked: this.state.isChecked
+        isCorrect: this.state.isCorrect
       };
     });
 
@@ -82,7 +82,7 @@ export default class ColorCodes extends Component {
                 object: this.getRandomId(this.objects),
                 color: randColor,
                 name: randColor,
-                isChecked: this.state.isChecked
+                isCorrect: this.state.isCorrect
               };
             });
           } else {
@@ -99,7 +99,7 @@ export default class ColorCodes extends Component {
         object: this.getRandomId(this.objects),
         color: this.getRandomId(colors),
         name: this.getRandomId(colors),
-        isChecked: this.state.isChecked
+        isCorrect: this.state.isCorrect
       };
     });
 
@@ -119,7 +119,7 @@ export default class ColorCodes extends Component {
                   object: this.getRandomId(this.objects),
                   color: this.getRandomId(colors),
                   name: this.getRandomId(colors),
-                  isChecked: this.state.isChecked
+                  isCorrect: this.state.isCorrect
                 };
               });
             } else {
@@ -136,7 +136,7 @@ export default class ColorCodes extends Component {
               object: this.getRandomId(this.objects),
               color: this.getRandomId(colors),
               name: this.getRandomId(colors),
-              isChecked: this.state.isChecked
+              isCorrect: this.state.isCorrect
             };
           });
         } else {
@@ -182,7 +182,7 @@ export default class ColorCodes extends Component {
                     <div
                       className="col-auto aks-btn"
                       style={
-                        this.state.choices[index].isChecked
+                        this.state.choices[index].isCorrect
                           ? styles.borderTrue
                           : styles.borderFalse
                       }
@@ -209,7 +209,7 @@ export default class ColorCodes extends Component {
                     <div
                       className="col-auto aks-btn"
                       style={
-                        this.state.choices[index].isChecked
+                        this.state.choices[index].isCorrect
                           ? styles.borderTrue
                           : styles.borderFalse
                       }
