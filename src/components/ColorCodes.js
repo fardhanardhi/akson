@@ -180,7 +180,7 @@ export default class ColorCodes extends Component {
                   <div className="row">
                     <div className="col"></div>
                     <div
-                      className="col-auto aks-btn space"
+                      className="col-auto aks-btn"
                       style={
                         this.state.choices[index].isChecked
                           ? styles.borderTrue
@@ -207,7 +207,7 @@ export default class ColorCodes extends Component {
                   <div className="row">
                     <div className="col"></div>
                     <div
-                      className="col-auto aks-btn space"
+                      className="col-auto aks-btn"
                       style={
                         this.state.choices[index].isChecked
                           ? styles.borderTrue

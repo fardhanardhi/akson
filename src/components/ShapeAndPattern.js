@@ -17,7 +17,9 @@ export default class FindThePairs extends Component {
 
     this.state = {
       choices: [],
-      isChecked: false,
+      isCorrect: false,
+      isClicked: false,
+      shelter: [],
       isQuestion: []
     };
 
@@ -43,7 +45,7 @@ export default class FindThePairs extends Component {
     return id;
   };
 
-  getObject = (objectId, patternId, patternIdName) => {
+  getObject = (objectId, patternId) => {
     const obj = [
       {
         objek: (
@@ -71,7 +73,8 @@ export default class FindThePairs extends Component {
         ),
 
         nama: "segitiga",
-        pattern: Pattern[patternId].name
+        patternName: Pattern[patternId].name,
+        patternColor: Pattern[patternId].color
       },
       {
         objek: (
@@ -97,7 +100,8 @@ export default class FindThePairs extends Component {
         ),
 
         nama: "Stars",
-        pattern: Pattern[patternId].name
+        patternName: Pattern[patternId].name,
+        patternColor: Pattern[patternId].color
       },
 
       {
@@ -127,7 +131,8 @@ export default class FindThePairs extends Component {
         ),
 
         nama: "Circle",
-        pattern: Pattern[patternId].name
+        patternName: Pattern[patternId].name,
+        patternColor: Pattern[patternId].color
       },
 
       {
@@ -156,7 +161,8 @@ export default class FindThePairs extends Component {
         ),
 
         nama: "Rectangular",
-        pattern: Pattern[patternId].name
+        patternName: Pattern[patternId].name,
+        patternColor: Pattern[patternId].color
       },
 
       {
@@ -184,7 +190,8 @@ export default class FindThePairs extends Component {
         ),
 
         nama: "Parallelogram",
-        pattern: Pattern[patternId].name
+        patternName: Pattern[patternId].name,
+        patternColor: Pattern[patternId].color
       }
     ];
 
@@ -201,9 +208,8 @@ export default class FindThePairs extends Component {
       return {
         object: this.getRandomId(this.objects),
         pattern: this.getRandomId(Pattern),
-        name: this.getRandomId(Pattern)
-        // isSelected: false,
-        // isCorrect: false
+        correct: this.state.isCorrect,
+        click: this.state.isClicked
       };
     });
 
@@ -212,9 +218,8 @@ export default class FindThePairs extends Component {
       return {
         object: this.getRandomId(this.objects),
         pattern: this.getRandomId(Pattern),
-        name: this.getRandomId(Pattern)
-        // isSelected: false,
-        // isCorrect: false
+        correct: this.state.isCorrect,
+        click: this.state.isClicked
       };
     });
 
@@ -232,7 +237,8 @@ export default class FindThePairs extends Component {
             return {
               object: this.getRandomId(this.objects),
               pattern: this.getRandomId(Pattern),
-              name: this.getRandomId(Pattern)
+              correct: this.state.isCorrect,
+              click: this.state.isClicked
             };
           });
         } else {
@@ -252,7 +258,8 @@ export default class FindThePairs extends Component {
                 return {
                   object: this.getRandomId(this.objects),
                   pattern: this.getRandomId(Pattern),
-                  name: this.getRandomId(Pattern)
+                  correct: this.state.isCorrect,
+                  click: this.state.isClicked
                 };
               });
             } else {
@@ -275,17 +282,41 @@ export default class FindThePairs extends Component {
     console.log("total", hasil);
   };
 
-  selectChoice = index => {
-    let choices = this.state.choices;
-    choices[index].isSelected = !choices[index].isSelected;
-    this.setState({ choices: choices });
-    console.log("cois: ", choices[index]);
+  selectChoice = (index, objectId, patternId) => {
+    let choicesUpdate = this.state.choices;
+    // let shelter = this.state.shelter;
+
+    choicesUpdate[index] = {
+      object: this.state.choices[index].object,
+      pattern: this.state.choices[index].pattern,
+      correct:
+        objectId === this.state.isQuestion[0].object &&
+        patternId === this.state.isQuestion[0].pattern
+          ? true
+          : false,
+      click: !choicesUpdate[index].click ? true : false
+    };
+
+    // if(choicesUpdate[index].click === true){
+    //   if (shelter.length === 0) {
+    //     shelter = [...shelter, index];
+    //   } else {
+    //     console.log("ini ada isinya bos");
+    //     choicesUpdate = choicesUpdate.map(item => {
+    //       if(choicesUpdate === true){
+    //         item.click = false
+    //       }
+    //       return item;
+    //     });
+    //   }
+    // }
+
+    this.setState({ choices: choicesUpdate });
+    console.log("cois: ", choicesUpdate[index]);
+    // console.log("shelter", shelter);
   };
 
   render() {
-    console.log("gameinfo ftp:", this.props.gameInfo);
-    console.log(this.state.choices);
-
     return (
       <div className="container-fluid p-0">
         {this.props.gameInfo == null ? null : (
@@ -310,7 +341,8 @@ export default class FindThePairs extends Component {
                     <h4 style={styles.textCase}>
                       {" "}
                       {this.getObject(item.object, item.pattern).nama},{" "}
-                      {this.getObject(item.object, item.pattern).pattern}{" "}
+                      {this.getObject(item.object, item.pattern).patternName},{" "}
+                      {this.getObject(item.object, item.pattern).patternColor}{" "}
                     </h4>
                   </div>
                   <div className="col"></div>
@@ -329,12 +361,17 @@ export default class FindThePairs extends Component {
                     <div className="row">
                       <div className="col"></div>
                       <div
-                        className={
-                          item.isSelected
-                            ? "col-auto aks-btn bg-success"
-                            : "col-auto aks-btn"
+                        className="col-auto aks-btn"
+                        style={
+                          !item.click
+                            ? styles.borderNotClick
+                            : item.correct
+                            ? styles.borderTrue
+                            : styles.borderFalse
                         }
-                        onClick={() => this.selectChoice(index)}
+                        onClick={() =>
+                          this.selectChoice(index, item.object, item.pattern)
+                        }
                       >
                         {this.getObject(item.object, item.pattern).objek}
                       </div>
@@ -358,12 +395,17 @@ export default class FindThePairs extends Component {
                     <div className="row">
                       <div className="col"></div>
                       <div
-                        className={
-                          item.isSelected
-                            ? "col-auto aks-btn bg-success"
-                            : "col-auto aks-btn"
+                        className="col-auto aks-btn"
+                        style={
+                          !item.click
+                            ? styles.borderNotClick
+                            : item.correct
+                            ? styles.borderTrue
+                            : styles.borderFalse
                         }
-                        onClick={() => this.selectChoice(index)}
+                        onClick={() =>
+                          this.selectChoice(index, item.object, item.pattern)
+                        }
                       >
                         {this.getObject(item.object, item.pattern).objek}
                       </div>
@@ -386,12 +428,17 @@ export default class FindThePairs extends Component {
                     <div className="row">
                       <div className="col"></div>
                       <div
-                        className={
-                          item.isSelected
-                            ? "col-auto aks-btn bg-success"
-                            : "col-auto aks-btn"
+                        className="col-auto aks-btn"
+                        style={
+                          !item.click
+                            ? styles.borderNotClick
+                            : item.correct
+                            ? styles.borderTrue
+                            : styles.borderFalse
                         }
-                        onClick={() => this.selectChoice(index)}
+                        onClick={() =>
+                          this.selectChoice(index, item.object, item.pattern)
+                        }
                       >
                         {this.getObject(item.object, item.pattern).objek}
                       </div>
@@ -433,5 +480,21 @@ const styles = {
     top: "17px",
     marginLeft: "105px",
     cursor: "pointer"
+  },
+
+  borderTrue: {
+    padding: "15px",
+    border: "green solid",
+    margin: "0px 35px"
+  },
+  borderFalse: {
+    padding: "15px",
+    border: "red solid",
+    margin: "0px 35px"
+  },
+  borderNotClick: {
+    padding: "15px",
+    border: "none",
+    margin: "0px 35px"
   }
 };
