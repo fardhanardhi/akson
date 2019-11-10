@@ -13,6 +13,23 @@ import Sunflower2 from "../assets/imgCount/Sunflower2.svg";
 import Sunflower3 from "../assets/imgCount/Sunflower3.svg";
 import Turtles from "../assets/imgCount/Turtles.svg";
 import Turtles2 from "../assets/imgCount/Turtles2.svg";
+
+import AnakBermain from "../assets/imgCount/AnakBermain.jpg";
+import Apel from "../assets/imgCount/Apel.jpg";
+import Bangku from "../assets/imgCount/Bangku.jpg";
+import Bebek from "../assets/imgCount/Bebek.jpg";
+import Binatang from "../assets/imgCount/Binatang.jpg";
+import Bunga from "../assets/imgCount/Bunga.jpg";
+import Bunga2 from "../assets/imgCount/Bunga2.jpg";
+import BungaMatahari from "../assets/imgCount/BungaMatahari.jpg";
+import Burung from "../assets/imgCount/Burung.jpg";
+import Burung2 from "../assets/imgCount/Burung2.jpg";
+import BurungPelikan from "../assets/imgCount/BurungPelikan.jpg";
+import Ikan from "../assets/imgCount/Ikan.jpg";
+import Ikan2 from "../assets/imgCount/Ikan2.jpg";
+import Orang from "../assets/imgCount/Orang.jpg";
+import OrangTaman from "../assets/imgCount/OrangTaman.jpg";
+
 import GameHeader from "./GameHeader";
 
 export default class CountTheObject extends Component {
@@ -22,40 +39,126 @@ export default class CountTheObject extends Component {
     this.state = {
       soal: [
         {
-          image: Animal,
+          image: AnakBermain,
           pertanyaan: [
             {
-              text: "berapa jumlah hewan yang ada?",
+              text: "berapa jumlah anak yang bermain?",
               pilihanJawaban: [
                 {
-                  text: "17",
+                  text: "5",
                   isBenar: true
                 },
                 {
-                  text: "15",
+                  text: "4",
                   isBenar: false
                 },
                 {
-                  text: "19",
+                  text: "6",
                   isBenar: false
                 },
                 {
-                  text: "20",
+                  text: "8",
                   isBenar: false
                 }
               ]
             },
             {
-              text: "berapa jumlah bebek berwarna coklat?",
+              text: "berapa jumlah pohon yang ada?",
               pilihanJawaban: [
-                {
-                  text: "4",
-                  isBenar: true
-                },
                 {
                   text: "3",
                   isBenar: false
                 },
+                {
+                  text: "5",
+                  isBenar: false
+                },
+                {
+                  text: "2",
+                  isBenar: true
+                },
+                {
+                  text: "1",
+                  isBenar: false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          image: Apel,
+          pertanyaan: [
+            {
+              text: "berapa jumlah apel yang ada?",
+              pilihanJawaban: [
+                {
+                  text: "7",
+                  isBenar: false
+                },
+                {
+                  text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "6",
+                  isBenar: false
+                },
+                {
+                  text: "5",
+                  isBenar: true
+                }
+              ]
+            },
+            {
+              text: "berapa jumlah bunga yang ada?",
+              pilihanJawaban: [
+                {
+                  text: "7",
+                  isBenar: false
+                },
+                {
+                  text: "9",
+                  isBenar: true
+                },
+                {
+                  text: "6",
+                  isBenar: false
+                },
+                {
+                  text: "5",
+                  isBenar: false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          image: Bangku,
+          pertanyaan: [
+            {
+              text: "berapa jumlah bangku yang ada di taman?",
+              pilihanJawaban: [
+                {
+                  text: "5",
+                  isBenar: true
+                },
+                {
+                  text: "6",
+                  isBenar: false
+                },
+                {
+                  text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "7",
+                  isBenar: false
+                }
+              ]
+            },
+            {
+              text: "berapa jumlah perahu yang ada di danau?",
+              pilihanJawaban: [
                 {
                   text: "2",
                   isBenar: false
@@ -63,24 +166,6 @@ export default class CountTheObject extends Component {
                 {
                   text: "5",
                   isBenar: false
-                }
-              ]
-            }
-          ]
-        },
-        {
-          image: Animal2,
-          pertanyaan: [
-            {
-              text: "berapa jumlah hewan yang ada?",
-              pilihanJawaban: [
-                {
-                  text: "7",
-                  isBenar: false
-                },
-                {
-                  text: "5",
-                  isBenar: true
                 },
                 {
                   text: "4",
@@ -88,273 +173,122 @@ export default class CountTheObject extends Component {
                 },
                 {
                   text: "3",
-                  isBenar: false
+                  isBenar: true
                 }
               ]
             }
           ]
         },
         {
-          image: Apples,
+          image: Bebek,
           pertanyaan: [
             {
-              text: "berapa jumlah semua apel pada gambar?",
+              text: "berapa jumlah bebek yang mengapung?",
               pilihanJawaban: [
-                {
-                  text: "13",
-                  isBenar: true
-                },
-                {
-                  text: "17",
-                  isBenar: false
-                },
-                {
-                  text: "11",
-                  isBenar: false
-                },
-                {
-                  text: "10",
-                  isBenar: false
-                }
-              ]
-            }
-          ]
-        },
-        {
-          image: Apples2,
-          pertanyaan: [
-            {
-              text: "berapa jumlah buah berwarna merah?",
-              pilihanJawaban: [
-                {
-                  text: "21",
-                  isBenar: false
-                },
-                {
-                  text: "25",
-                  isBenar: false
-                },
-                {
-                  text: "20",
-                  isBenar: true
-                },
-                {
-                  text: "26",
-                  isBenar: true
-                }
-              ]
-            },
-            {
-              text: "berapa jumlah buah berwarna kuning ?",
-              pilihanJawaban: [
-                {
-                  text: "16",
-                  isBenar: true
-                },
-                {
-                  text: "14",
-                  isBenar: false
-                },
-                {
-                  text: "13",
-                  isBenar: false
-                },
-                {
-                  text: "12",
-                  isBenar: false
-                }
-              ]
-            }
-          ]
-        },
-        {
-          image: Apples3,
-          pertanyaan: [
-            {
-              text: "berapa jumlah semua apel pada gambar?",
-              pilihanJawaban: [
-                {
-                  text: "14",
-                  isBenar: true
-                },
-                {
-                  text: "17",
-                  isBenar: false
-                },
-                {
-                  text: "11",
-                  isBenar: false
-                },
-                {
-                  text: "10",
-                  isBenar: false
-                }
-              ]
-            },
-            {
-              text: "berapa jumlah semua jamur pada gambar?",
-              pilihanJawaban: [
-                {
-                  text: "14",
-                  isBenar: false
-                },
-                {
-                  text: "10",
-                  isBenar: true
-                },
-                {
-                  text: "12",
-                  isBenar: false
-                },
-                {
-                  text: "13",
-                  isBenar: false
-                }
-              ]
-            }
-          ]
-        },
-        {
-          image: Duck,
-          pertanyaan: [
-            {
-              text: "berapa jumlah bebek putih yang ada?",
-              pilihanJawaban: [
-                {
-                  text: "7",
-                  isBenar: false
-                },
                 {
                   text: "5",
-                  isBenar: true
+                  isBenar: false
                 },
                 {
                   text: "4",
-                  isBenar: false
+                  isBenar: true
                 },
                 {
                   text: "6",
                   isBenar: false
+                },
+                {
+                  text: "7",
+                  isBenar: false
                 }
               ]
-            }
-          ]
-        },
-        {
-          image: Duck2,
-          pertanyaan: [
+            },
             {
               text: "berapa jumlah bebek yang ada?",
               pilihanJawaban: [
                 {
-                  text: "7",
-                  isBenar: false
-                },
-                {
-                  text: "5",
+                  text: "2",
                   isBenar: false
                 },
                 {
                   text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "5",
                   isBenar: true
                 },
                 {
                   text: "3",
-                  isBenar: true
+                  isBenar: false
                 }
               ]
             }
           ]
         },
         {
-          image: Monkey,
+          image: Binatang,
           pertanyaan: [
             {
-              text: "berapa jumlah monyet yang ada?",
+              text: "berapa jumlah binatang yang ada pada gambar?",
               pilihanJawaban: [
-                {
-                  text: "7",
-                  isBenar: true
-                },
                 {
                   text: "5",
-                  isBenar: false
-                },
-                {
-                  text: "6",
-                  isBenar: false
-                },
-                {
-                  text: "8",
-                  isBenar: false
-                }
-              ]
-            }
-          ]
-        },
-        {
-          image: Mushroom,
-          pertanyaan: [
-            {
-              text: "berapa jumlah jamur berwarna merah?",
-              pilihanJawaban: [
-                {
-                  text: "10",
                   isBenar: true
                 },
                 {
-                  text: "9",
-                  isBenar: false
-                },
-                {
                   text: "6",
                   isBenar: false
                 },
                 {
-                  text: "8",
+                  text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "7",
                   isBenar: false
                 }
               ]
             },
             {
-              text: "berapa jumlah jamur berwarna biru?",
+              text: "berapa jumlah bunga yang ada pada gambar?",
               pilihanJawaban: [
                 {
                   text: "10",
                   isBenar: false
                 },
                 {
-                  text: "9",
+                  text: "7",
                   isBenar: false
-                },
-                {
-                  text: "6",
-                  isBenar: true
-                },
-                {
-                  text: "5",
-                  isBenar: false
-                }
-              ]
-            }
-          ]
-        },
-        {
-          image: Sunflower,
-          pertanyaan: [
-            {
-              text: "berapa jumlah bunga matahari yang utuh?",
-              pilihanJawaban: [
-                {
-                  text: "9",
-                  isBenar: true
                 },
                 {
                   text: "8",
                   isBenar: false
                 },
                 {
+                  text: "9",
+                  isBenar: true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          image: Bunga,
+          pertanyaan: [
+            {
+              text: "berapa jumlah bunga yang ada pada gambar?",
+              pilihanJawaban: [
+                {
+                  text: "5",
+                  isBenar: false
+                },
+                {
                   text: "6",
+                  isBenar: true
+                },
+                {
+                  text: "4",
                   isBenar: false
                 },
                 {
@@ -366,17 +300,13 @@ export default class CountTheObject extends Component {
           ]
         },
         {
-          image: Sunflower2,
+          image: Bunga2,
           pertanyaan: [
             {
-              text: "berapa jumlah bunga matahari?",
+              text: "berapa jumlah bunga yang ada pada gambar?",
               pilihanJawaban: [
                 {
-                  text: "9",
-                  isBenar: true
-                },
-                {
-                  text: "8",
+                  text: "4",
                   isBenar: false
                 },
                 {
@@ -384,7 +314,53 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 },
                 {
+                  text: "5",
+                  isBenar: true
+                },
+                {
+                  text: "7",
+                  isBenar: false
+                }
+              ]
+            },
+            {
+              text: "berapa jumlah pohon yang ada?",
+              pilihanJawaban: [
+                {
+                  text: "7",
+                  isBenar: false
+                },
+                {
                   text: "10",
+                  isBenar: false
+                },
+                {
+                  text: "8",
+                  isBenar: false
+                },
+                {
+                  text: "9",
+                  isBenar: true
+                }
+              ]
+            },
+            {
+              text: "berapa jumlah kupu-kupu yang berterbangan?",
+              pilihanJawaban: [
+                {
+                  text: "1",
+                  isBenar: false
+                },
+                {
+                  text: "2",
+                  isBenar: true
+                },
+                {
+                  text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "3",
                   isBenar: false
                 }
               ]
@@ -392,10 +368,114 @@ export default class CountTheObject extends Component {
           ]
         },
         {
-          image: Sunflower3,
+          image: BungaMatahari,
           pertanyaan: [
             {
-              text: "berapa jumlah bunga matahari?",
+              text: "berapa jumlah bunga matahari yang ada pada gambar?",
+              pilihanJawaban: [
+                {
+                  text: "6",
+                  isBenar: false
+                },
+                {
+                  text: "8",
+                  isBenar: false
+                },
+                {
+                  text: "9",
+                  isBenar: false
+                },
+                {
+                  text: "7",
+                  isBenar: true
+                }
+              ]
+            },
+          ]
+        },
+        {
+          image: Burung,
+          pertanyaan: [
+            {
+              text: "berapa jumlah burung yang ada pada gambar?",
+              pilihanJawaban: [
+                {
+                  text: "6",
+                  isBenar: false
+                },
+                {
+                  text: "8",
+                  isBenar: false
+                },
+                {
+                  text: "5",
+                  isBenar: true
+                },
+                {
+                  text: "7",
+                  isBenar: false
+                }
+              ]
+            },
+          ]
+        },
+        {
+          image: Burung2,
+          pertanyaan: [
+            {
+              text: "berapa jumlah burung yang terbang?",
+              pilihanJawaban: [
+                {
+                  text: "6",
+                  isBenar: true
+                },
+                {
+                  text: "8",
+                  isBenar: false
+                },
+                {
+                  text: "9",
+                  isBenar: false
+                },
+                {
+                  text: "7",
+                  isBenar: false
+                }
+              ]
+            },
+          ]
+        },
+        {
+          image: BurungPelikan,
+          pertanyaan: [
+            {
+              text: "berapa jumlah burung pelikan yang terbang?",
+              pilihanJawaban: [
+                {
+                  text: "1",
+                  isBenar: false
+                },
+                {
+                  text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "3",
+                  isBenar: false
+                },
+                {
+                  text: "2",
+                  isBenar: true
+                }
+              ]
+            },
+          ]
+        },
+        {
+          image: Ikan,
+          pertanyaan: [
+            {
+              text: "berapa jumlah ikan yang berenang?",
               pilihanJawaban: [
                 {
                   text: "5",
@@ -406,7 +486,148 @@ export default class CountTheObject extends Component {
                   isBenar: true
                 },
                 {
+                  text: "2",
+                  isBenar: false
+                },
+                {
                   text: "3",
+                  isBenar: false
+                }
+              ]
+            },
+            {
+              text: "berapa jumlah ikan badut yang berenang?",
+              pilihanJawaban: [
+                {
+                  text: "5",
+                  isBenar: false
+                },
+                {
+                  text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "2",
+                  isBenar: true
+                },
+                {
+                  text: "3",
+                  isBenar: false
+                }
+              ]
+            },
+          ]
+        },
+        {
+          image: Ikan2,
+          pertanyaan: [
+            {
+              text: "berapa jumlah ikan yang berenang?",
+              pilihanJawaban: [
+                {
+                  text: "5",
+                  isBenar: false
+                },
+                {
+                  text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "6",
+                  isBenar: true
+                },
+                {
+                  text: "7",
+                  isBenar: false
+                }
+              ]
+            },
+            {
+              text: "berapa ubur-ubur yang berenang?",
+              pilihanJawaban: [
+                {
+                  text: "1",
+                  isBenar: false
+                },
+                {
+                  text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "3",
+                  isBenar: false
+                },
+                {
+                  text: "2",
+                  isBenar: true
+                }
+              ]
+            },
+          ]
+        },
+        {
+          image: Orang,
+          pertanyaan: [
+            {
+              text: "berapa orang yang ada di taman?",
+              pilihanJawaban: [
+                {
+                  text: "5",
+                  isBenar: false
+                },
+                {
+                  text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "7",
+                  isBenar: true
+                },
+                {
+                  text: "6",
+                  isBenar: false
+                }
+              ]
+            },
+            {
+              text: "berapa jumlah awan yang ada?",
+              pilihanJawaban: [
+                {
+                  text: "9",
+                  isBenar: false
+                },
+                {
+                  text: "6",
+                  isBenar: false
+                },
+                {
+                  text: "8",
+                  isBenar: true
+                },
+                {
+                  text: "7",
+                  isBenar: false
+                }
+              ]
+            },
+          ]
+        },
+        {
+          image: OrangTaman,
+          pertanyaan: [
+            {
+              text: "berapa orang yang ada di taman?",
+              pilihanJawaban: [
+                {
+                  text: "7",
+                  isBenar: true
+                },
+                {
+                  text: "4",
+                  isBenar: false
+                },
+                {
+                  text: "8",
                   isBenar: false
                 },
                 {
@@ -414,19 +635,10 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 }
               ]
-            }
-          ]
-        },
-        {
-          image: Turtles,
-          pertanyaan: [
+            },
             {
-              text: "berapa jumlah kura-kura pada gambar?",
+              text: "berapa jumlah pohon yang ada?",
               pilihanJawaban: [
-                {
-                  text: "5",
-                  isBenar: false
-                },
                 {
                   text: "7",
                   isBenar: false
@@ -436,39 +648,17 @@ export default class CountTheObject extends Component {
                   isBenar: false
                 },
                 {
-                  text: "6",
-                  isBenar: true
-                }
-              ]
-            }
-          ]
-        },
-        {
-          image: Turtles2,
-          pertanyaan: [
-            {
-              text: "berapa jumlah kura-kura pada gambar?",
-              pilihanJawaban: [
-                {
                   text: "5",
-                  isBenar: false
-                },
-                {
-                  text: "4",
                   isBenar: true
-                },
-                {
-                  text: "6",
-                  isBenar: false
                 },
                 {
                   text: "3",
                   isBenar: false
                 }
               ]
-            }
+            },
           ]
-        }
+        },      
       ]
     };
   }
@@ -525,27 +715,19 @@ export default class CountTheObject extends Component {
             <div className="col"></div>
             <div className="col-md-8" style={style.pertanyaanStyle}>
               <div className="row">
-                <div className="col"></div>
-                <div className="col-md-8">
-                  <div className="row">
-                    <h1 className="text-center">{soalTanya.text}</h1>
-
-                  </div>
-                  <div className="row">
-                 
+                <h1>{soalTanya.text}</h1>
+                <div className="col-2"></div>
+                <div className="col-8">
                   <img
                     src={soalGambar.image}
                     alt="countImage"
                     style={style.imageStyle}
-                    className="align-center"
                   />
-
-                  </div>
                 </div>
                 <div className="col"></div>
               </div>
               <div className="row" style={style.buttonGroup}>
-                <div className="col-3 text-center">
+                <div className="col-3">
                   <button
                     style={style.buttonSyle}
                     onClick={() => console.log(soalJawaban1.isBenar)}
@@ -553,7 +735,7 @@ export default class CountTheObject extends Component {
                     {soalJawaban1.text}
                   </button>
                 </div>
-                <div className="col-3 text-center">
+                <div className="col-3">
                   <button
                     style={style.buttonSyle}
                     onClick={() => console.log(soalJawaban2.isBenar)}
@@ -561,7 +743,7 @@ export default class CountTheObject extends Component {
                     {soalJawaban2.text}
                   </button>
                 </div>
-                <div className="col-3 text-center">
+                <div className="col-3">
                   <button
                     style={style.buttonSyle}
                     onClick={() => console.log(soalJawaban3.isBenar)}
@@ -569,7 +751,7 @@ export default class CountTheObject extends Component {
                     {soalJawaban3.text}
                   </button>
                 </div>
-                <div className="col-3 text-center">
+                <div className="col-3">
                   <button
                     style={style.buttonSyle}
                     onClick={() => console.log(soalJawaban4.isBenar)}
@@ -590,8 +772,9 @@ export default class CountTheObject extends Component {
 const style = {
   imageStyle: {
     maxHeight: "400px",
-    maxWidth: "500px",
-    margin: "auto"
+    maxWidth: "500px"
+    // marginLeft: "auto",
+    // marginRight: "auto"
   },
   pertanyaanStyle: {
     fontWeight: "normal",
