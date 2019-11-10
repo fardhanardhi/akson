@@ -1,18 +1,4 @@
 import React, { Component } from "react";
-import Animal from "../assets/imgCount/Animal.svg";
-import Animal2 from "../assets/imgCount/Animal2.svg";
-import Apples from "../assets/imgCount/Apples.svg";
-import Apples2 from "../assets/imgCount/Apples2.svg";
-import Apples3 from "../assets/imgCount/Apples3.svg";
-import Duck from "../assets/imgCount/Ducks.svg";
-import Duck2 from "../assets/imgCount/Ducks2.svg";
-import Monkey from "../assets/imgCount/Monkey.svg";
-import Mushroom from "../assets/imgCount/Mushroom.svg";
-import Sunflower from "../assets/imgCount/Sunflower.svg";
-import Sunflower2 from "../assets/imgCount/Sunflower2.svg";
-import Sunflower3 from "../assets/imgCount/Sunflower3.svg";
-import Turtles from "../assets/imgCount/Turtles.svg";
-import Turtles2 from "../assets/imgCount/Turtles2.svg";
 
 import AnakBermain from "../assets/imgCount/AnakBermain.jpg";
 import Apel from "../assets/imgCount/Apel.jpg";
