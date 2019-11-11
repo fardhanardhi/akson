@@ -52,6 +52,16 @@ export default class ColorCodes extends Component {
       choices: choicesUpdate,
       ...this.state
     });
+
+    if (this.props.gameInfo != null) {
+      if (choicesUpdate[index].isCorrect === true) {
+        this.props.addScore();
+        console.log("benar");
+      } else {
+        this.props.addWrongScore();
+        console.log("salah");
+      }
+    }
   };
 
   getChoices = () => {

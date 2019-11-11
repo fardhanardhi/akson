@@ -310,6 +310,16 @@ export default class FindThePairs extends Component {
 
     this.setState({ choices: choicesUpdate, shelter });
     console.log("cois: ", choicesUpdate[index]);
+
+    if (this.props.gameInfo != null) {
+      if (choicesUpdate[index].correct === true) {
+        this.props.addScore();
+        console.log("benar");
+      } else {
+        this.props.addWrongScore();
+        console.log("salah");
+      }
+    }
   };
 
   render() {

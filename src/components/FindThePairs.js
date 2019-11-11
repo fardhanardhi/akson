@@ -202,8 +202,10 @@ export default class FindThePairs extends Component {
               console.log("benar");
               choicesUpdate[pair[0]].correct = true;
               choicesUpdate[pair[1]].correct = true;
+              this.props.addScore();
             } else {
               console.log("salah");
+              this.props.addWrongScore();
             }
           }
         }
