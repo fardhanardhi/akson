@@ -215,13 +215,17 @@ export default class FindThePairs extends Component {
               console.log("benar");
               choicesUpdate[pair[0]].correct = true;
               choicesUpdate[pair[1]].correct = true;
-              this.props.addScore();
+              if (this.props.gameInfo != null) {
+                this.props.addScore();
+              }
               this.setState({
                 rightChoicesCount: this.state.rightChoicesCount + 1
               });
             } else {
               console.log("salah");
-              this.props.addWrongScore();
+              if (this.props.gameInfo != null) {
+                this.props.addWrongScore();
+              }
             }
           }
         }
