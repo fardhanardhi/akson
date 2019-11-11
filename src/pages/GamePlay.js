@@ -29,7 +29,7 @@ export default class GamePlay extends Component {
           key: "findThePairs",
           name: "Find The Pairs",
           score: 0,
-          totalTime: 20
+          totalTime: 60
         },
         {
           id: 1,

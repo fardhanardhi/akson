@@ -23,7 +23,8 @@ export default class FindThePairs extends Component {
       pair: [],
       isClicked: false,
       isCorrect: false,
-      borderDefault: false
+      borderDefault: false,
+      rightChoicesCount: 0
     };
 
     this.objects = [
@@ -40,7 +41,8 @@ export default class FindThePairs extends Component {
   }
 
   componentDidMount() {
-    this.getChoices();
+    // this.getChoices();
+    this.reload();
   }
 
   getRandomId = arr => {
@@ -61,6 +63,17 @@ export default class FindThePairs extends Component {
       <HexagonalPrism color={colors[colorId].code} />
     ];
     return obj[objectId];
+  };
+
+  reload = () => {
+    this.getChoices();
+    this.setState({
+      pair: [],
+      isClicked: false,
+      isCorrect: false,
+      borderDefault: false,
+      rightChoicesCount: 0
+    });
   };
 
   getChoices = () => {
@@ -203,6 +216,9 @@ export default class FindThePairs extends Component {
               choicesUpdate[pair[0]].correct = true;
               choicesUpdate[pair[1]].correct = true;
               this.props.addScore();
+              this.setState({
+                rightChoicesCount: this.state.rightChoicesCount + 1
+              });
             } else {
               console.log("salah");
               this.props.addWrongScore();
@@ -225,14 +241,20 @@ export default class FindThePairs extends Component {
 
       this.setState({ pair }); //akhir
 
-      this.setState({ choices: choicesUpdate }, () =>
-        console.log(this.state.choices)
-      );
+      this.setState({ choices: choicesUpdate }, () => {
+        console.log(this.state.choices);
+        if (this.state.rightChoicesCount === 3) {
+          this.reload();
+        }
+      });
     } else if (this.state.choices[index].click === true) {
       choicesUpdate[index].click = false;
-      this.setState({ choices: choicesUpdate }, () =>
-        console.log(this.state.choices)
-      );
+      this.setState({ choices: choicesUpdate }, () => {
+        console.log(this.state.choices);
+        if (this.state.rightChoicesCount === 3) {
+          this.reload();
+        }
+      });
     }
   };
 
