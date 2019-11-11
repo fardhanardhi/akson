@@ -23,7 +23,7 @@ export default class FindThePairs extends Component {
       pair: [],
       isClicked: false,
       isCorrect: false,
-      borderDefault : false
+      borderDefault: false
     };
 
     this.objects = [
@@ -71,7 +71,7 @@ export default class FindThePairs extends Component {
         color: this.getRandomId(colors),
         click: this.state.isClicked,
         correct: this.state.isCorrect,
-        border : this.state.borderDefault
+        border: this.state.borderDefault
       };
     });
 
@@ -91,7 +91,7 @@ export default class FindThePairs extends Component {
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
                   correct: this.state.isCorrect,
-                  border : this.state.borderDefault
+                  border: this.state.borderDefault
                 };
               });
             } else {
@@ -113,7 +113,7 @@ export default class FindThePairs extends Component {
         color: this.getRandomId(colors),
         click: this.state.isClicked,
         correct: this.state.isCorrect,
-        border : this.state.borderDefault
+        border: this.state.borderDefault
       };
     });
 
@@ -134,7 +134,7 @@ export default class FindThePairs extends Component {
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
                   correct: this.state.isCorrect,
-                  border : this.state.borderDefault
+                  border: this.state.borderDefault
                 };
               });
             } else {
@@ -156,7 +156,7 @@ export default class FindThePairs extends Component {
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
                   correct: this.state.isCorrect,
-                  border : this.state.borderDefault
+                  border: this.state.borderDefault
                 };
               });
             } else {
@@ -263,12 +263,12 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          !item.click
+                          item.correct
+                            ? styles.borderTrue
+                            : !item.click
                             ? styles.borderNotClick
                             : this.state.pair.length === 1
                             ? styles.borderDefault
-                            : item.correct
-                            ? styles.borderTrue
                             : styles.borderFalse
                         }
                         onClick={() => this.clicked(index)}
@@ -297,12 +297,12 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          !item.click
+                          item.correct
+                            ? styles.borderTrue
+                            : !item.click
                             ? styles.borderNotClick
                             : this.state.pair.length === 1
                             ? styles.borderDefault
-                            : item.correct
-                            ? styles.borderTrue
                             : styles.borderFalse
                         }
                         onClick={() => this.clicked(index)}
@@ -330,12 +330,12 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          !item.click
+                          item.correct
+                            ? styles.borderTrue
+                            : !item.click
                             ? styles.borderNotClick
                             : this.state.pair.length === 1
                             ? styles.borderDefault
-                            : item.correct
-                            ? styles.borderTrue
                             : styles.borderFalse
                         }
                         onClick={() => this.clicked(index)}
