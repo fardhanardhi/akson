@@ -11,19 +11,28 @@ export default class ColorCodes extends Component {
 
     this.state = {
       choices: [],
-      isCorrect: false
+      isCorrect: false,
+      rightChoicesCount: 0
     };
 
     this.objects = [<Rectangel />];
   }
 
   componentDidMount() {
-    this.getChoices();
+    this.reload();
   }
 
   componentDidUpdate() {
     console.log(this.state.choices);
   }
+
+  reload = () => {
+    this.getChoices();
+    this.setState({
+      isCorrect: false,
+      rightChoicesCount: 0
+    });
+  };
 
   getRandomId = arr => {
     const id = Math.floor(Math.random() * arr.length);
@@ -57,6 +66,16 @@ export default class ColorCodes extends Component {
       if (choicesUpdate[index].isCorrect === true) {
         this.props.addScore();
         console.log("benar");
+        this.setState(
+          {
+            rightChoicesCount: this.state.rightChoicesCount + 1
+          },
+          () => {
+            if (this.state.rightChoicesCount === 2) {
+              this.reload();
+            }
+          }
+        );
       } else {
         this.props.addWrongScore();
         console.log("salah");
@@ -250,7 +269,8 @@ const styles = {
   borderTrue: {
     padding: "15px",
     border: "green solid",
-    margin: "0px 35px"
+    margin: "0px 35px",
+    pointerEvents: "none"
   },
   borderFalse: {
     padding: "15px",
