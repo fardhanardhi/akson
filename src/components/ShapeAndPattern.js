@@ -20,8 +20,7 @@ export default class FindThePairs extends Component {
       isCorrect: false,
       isClicked: false,
       shelter: [],
-      isQuestion: [],
-      rightChoicesCount: 0
+      isQuestion: []
     };
 
     this.objects = [
@@ -34,12 +33,21 @@ export default class FindThePairs extends Component {
   }
 
   componentDidMount() {
-    this.getChoices();
+    this.reload();
   }
 
   componentDidUpdate() {
     console.log(this.state.choices);
   }
+
+  reload = () => {
+    this.getChoices();
+    this.setState({
+      isCorrect: false,
+      isClicked: false,
+      shelter: []
+    });
+  };
 
   getRandomId = arr => {
     const id = Math.floor(Math.random() * arr.length);
@@ -316,6 +324,7 @@ export default class FindThePairs extends Component {
       if (choicesUpdate[index].correct === true) {
         this.props.addScore();
         console.log("benar");
+        this.reload();
       } else {
         this.props.addWrongScore();
         console.log("salah");
