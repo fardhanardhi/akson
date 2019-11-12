@@ -204,7 +204,13 @@ class GamePlay extends Component {
           onExit={this.onExit}
           onRestart={this.onRestart}
         />
-        <Score show={this.state.scoreDialogVisible} />
+        <Score
+          correctScore={this.state.game.reduce((prev, next) => {
+            return prev + next.score;
+          }, 0)}
+          wrongScore={this.state.wrongScore}
+          show={this.state.scoreDialogVisible}
+        />
         <ExitGameCon
           show={this.state.exitDialogVisible}
           onBack={this.onBack}
