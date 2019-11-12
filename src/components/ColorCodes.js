@@ -62,24 +62,26 @@ export default class ColorCodes extends Component {
       ...this.state
     });
 
-    if (this.props.gameInfo != null) {
-      if (choicesUpdate[index].isCorrect === true) {
+    if (choicesUpdate[index].isCorrect === true) {
+      if (this.props.gameInfo != null) {
         this.props.addScore();
-        console.log("benar");
-        this.setState(
-          {
-            rightChoicesCount: this.state.rightChoicesCount + 1
-          },
-          () => {
-            if (this.state.rightChoicesCount === 2) {
-              this.reload();
-            }
-          }
-        );
-      } else {
-        this.props.addWrongScore();
-        console.log("salah");
       }
+      console.log("benar");
+      this.setState(
+        {
+          rightChoicesCount: this.state.rightChoicesCount + 1
+        },
+        () => {
+          if (this.state.rightChoicesCount === 2) {
+            this.reload();
+          }
+        }
+      );
+    } else {
+      if (this.props.gameInfo != null) {
+        this.props.addWrongScore();
+      }
+      console.log("salah");
     }
   };
 
