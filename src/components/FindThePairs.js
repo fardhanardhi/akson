@@ -13,8 +13,9 @@ import HexagonalPrism from "../components/HexagonalPrism";
 import GameHeader from "../components/GameHeader";
 
 import colors from "../assets/colors";
+import AppContext from "../context/AppContext";
 
-export default class FindThePairs extends Component {
+class FindThePairs extends Component {
   constructor(props) {
     super(props);
 
@@ -265,7 +266,6 @@ export default class FindThePairs extends Component {
   render() {
     // const clickHandler =
     // console.log("gameinfo ftp:", this.props.gameInfo);
-    // console.log(this.state.choices);
 
     return (
       <div className="container-fluid p-0">
@@ -415,3 +415,7 @@ const styles = {
     margin: "0px 35px"
   }
 };
+
+FindThePairs.contextType = AppContext;
+
+export default FindThePairs;
