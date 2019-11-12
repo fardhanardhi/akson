@@ -18,6 +18,10 @@ class Countdown extends Component {
     this.setState({ time: this.props.time }, () => this.startTick());
   }
 
+  componentWillUnmount() {
+    this.stopTick();
+  }
+
   startTick = () => {
     clearInterval(this.interval);
     this.interval = setInterval(this.tick, 1000);
