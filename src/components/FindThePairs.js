@@ -22,8 +22,7 @@ export default class FindThePairs extends Component {
       choices: [],
       pair: [],
       isClicked: false,
-      isCorrect: false,
-      borderDefault : false
+      isCorrect: false
     };
 
     this.objects = [
@@ -41,6 +40,7 @@ export default class FindThePairs extends Component {
 
   componentDidMount() {
     this.getChoices();
+    setInterval(this.getChoices, 100)
   }
 
   getRandomId = arr => {
@@ -71,7 +71,6 @@ export default class FindThePairs extends Component {
         color: this.getRandomId(colors),
         click: this.state.isClicked,
         correct: this.state.isCorrect,
-        border : this.state.borderDefault
       };
     });
 
@@ -113,7 +112,6 @@ export default class FindThePairs extends Component {
         color: this.getRandomId(colors),
         click: this.state.isClicked,
         correct: this.state.isCorrect,
-        border : this.state.borderDefault
       };
     });
 
@@ -134,7 +132,6 @@ export default class FindThePairs extends Component {
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
                   correct: this.state.isCorrect,
-                  border : this.state.borderDefault
                 };
               });
             } else {
@@ -156,7 +153,6 @@ export default class FindThePairs extends Component {
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
                   correct: this.state.isCorrect,
-                  border : this.state.borderDefault
                 };
               });
             } else {
@@ -367,18 +363,21 @@ const styles = {
   },
   borderTrue: {
     padding: "15px",
-    border: "green solid",
+    border: "3px solid green",
+    borderRadius: "8px",
     margin: "0px 35px",
     pointerEvents: "none"
   },
   borderFalse: {
     padding: "15px",
-    border: "red solid",
+    border: "3px solid red",
+    borderRadius: "8px",
     margin: "0px 35px"
   },
   borderDefault: {
     padding: "15px",
-    border: "black solid",
+    border: "3px solid black",
+    borderRadius: "8px",
     margin: "0px 35px"
   },
   borderNotClick: {

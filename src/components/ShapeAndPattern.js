@@ -469,13 +469,15 @@ const styles = {
   },
   borderTrue: {
     padding: "15px",
-    border: "green solid",
+    border: "3px solid green",
+    borderRadius: "8px",
     margin: "0px 35px",
     pointerEvents: "none"
   },
   borderFalse: {
     padding: "15px",
-    border: "red solid",
+    border: "3px solid red",
+    borderRadius: "8px",
     margin: "0px 35px",
     pointerEvents: "none"
   },

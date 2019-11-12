@@ -15,6 +15,7 @@ export default class ColorCodes extends Component {
     };
 
     this.objects = [<Rectangel />];
+    
   }
 
   componentDidMount() {
@@ -239,8 +240,10 @@ const styles = {
   },
   borderTrue: {
     padding: "15px",
-    border: "green solid",
-    margin: "0px 35px"
+    border: "3px solid green",
+    borderRadius: "8px",
+    margin: "0px 35px",
+    pointerEvents: "none"
   },
   borderFalse: {
     padding: "15px",
