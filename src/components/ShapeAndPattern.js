@@ -20,7 +20,8 @@ export default class FindThePairs extends Component {
       isCorrect: false,
       isClicked: false,
       shelter: [],
-      isQuestion: []
+      isQuestion: [],
+      rightChoicesCount: 0
     };
 
     this.objects = [
