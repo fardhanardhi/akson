@@ -38,6 +38,16 @@ export default class Score extends Component {
               // handle error
               console.log(error);
             });
+
+          const username = localStorage.getItem("username");
+
+          let data = JSON.parse(localStorage.getItem("data"));
+          if (data == null) {
+            data = [{ username, score: this.state.finalScore }];
+          } else {
+            data = [...data, { username, score: this.state.finalScore }];
+          }
+          localStorage.setItem("data", JSON.stringify(data));
         }
       );
     }
