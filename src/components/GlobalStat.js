@@ -7,7 +7,8 @@ export default class GlobalStat extends Component {
     super(props);
 
     this.state = {
-      average: null
+      average: null,
+      lastScore: null
     };
   }
 
@@ -15,6 +16,11 @@ export default class GlobalStat extends Component {
     axios.get(`https://api-akson.000webhostapp.com/scoreAvg`).then(res => {
       this.setState({ average: Number(res.data.average) });
       console.log("type:", typeof Number(res.data.average));
+    });
+
+    const data = JSON.parse(localStorage.getItem("data"));
+    this.setState({
+      lastScore: data == null ? 0 : data[data.length - 1].score
     });
   }
 
@@ -29,7 +35,7 @@ export default class GlobalStat extends Component {
           data={[
             ["Kriteria", "Poin", { role: "style" }, { role: "annotation" }],
             ["Rata-rata", this.state.average, "#37883d", this.state.average],
-            ["Baru Saja", 25, "#F3B431", 25]
+            ["Baru Saja", this.state.lastScore, "#F3B431", this.state.lastScore]
           ]}
           options={{
             // Material design options
