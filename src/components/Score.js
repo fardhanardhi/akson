@@ -32,7 +32,9 @@ export default function Score(props) {
                     <img src={score} alt="score"></img>
                   </div>
                   <div className="col-md-2" style={style.fontDua}>
-                    {props.correctScore}
+                    {props.correctScore * 10 - props.wrongScore * 5 < 0
+                      ? 0
+                      : props.correctScore * 10 - props.wrongScore * 5}
                   </div>
                 </div>
               </div>
