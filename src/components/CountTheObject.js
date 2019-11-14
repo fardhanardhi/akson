@@ -19,8 +19,12 @@ export default class CountTheObject extends Component {
   }
 
   componentWillMount() {
-    this.getRandomImage(Soal);
+    this.reload();
   }
+
+  reload = () => {
+    this.getRandomImage(Soal);
+  };
 
   getRandomImage = ArImg => {
     let num = Math.floor(Math.random() * ArImg.length);
@@ -65,6 +69,17 @@ export default class CountTheObject extends Component {
     this.setState({ soalJawaban1: jwbUpdate1 }, () =>
       console.log("jwb 1", this.state.soalJawaban1)
     );
+
+    if (this.state.soalJawaban1.isBenar) {
+      this.reload();
+      if (this.props.gameInfo != null) {
+        this.props.addScore();
+      }
+    } else {
+      if (this.props.gameInfo != null) {
+        this.props.addWrongScore();
+      }
+    }
   };
 
   clickedJwb2 = () => {
@@ -79,6 +94,16 @@ export default class CountTheObject extends Component {
     this.setState({ soalJawaban2: jwbUpdate2 }, () =>
       console.log("jwb 2", this.state.soalJawaban2)
     );
+    if (this.state.soalJawaban2.isBenar) {
+      this.reload();
+      if (this.props.gameInfo != null) {
+        this.props.addScore();
+      }
+    } else {
+      if (this.props.gameInfo != null) {
+        this.props.addWrongScore();
+      }
+    }
   };
 
   clickedJwb3 = () => {
@@ -93,6 +118,16 @@ export default class CountTheObject extends Component {
     this.setState({ soalJawaban3: jwbUpdate3 }, () =>
       console.log("jwb 3", this.state.soalJawaban3)
     );
+    if (this.state.soalJawaban3.isBenar) {
+      this.reload();
+      if (this.props.gameInfo != null) {
+        this.props.addScore();
+      }
+    } else {
+      if (this.props.gameInfo != null) {
+        this.props.addWrongScore();
+      }
+    }
   };
 
   clickedJwb4 = () => {
@@ -107,6 +142,16 @@ export default class CountTheObject extends Component {
     this.setState({ soalJawaban4: jwbUpdate4 }, () =>
       console.log("jwb 4", this.state.soalJawaban4)
     );
+    if (this.state.soalJawaban4.isBenar) {
+      this.reload();
+      if (this.props.gameInfo != null) {
+        this.props.addScore();
+      }
+    } else {
+      if (this.props.gameInfo != null) {
+        this.props.addWrongScore();
+      }
+    }
   };
 
   render() {
@@ -152,35 +197,44 @@ export default class CountTheObject extends Component {
                 </button>
               </div>
               <div className="col-3">
-                <button style={
+                <button
+                  style={
                     !this.state.soalJawaban2.isClick
                       ? style.buttonStyleNotClick
                       : this.state.soalJawaban2.isBenar
                       ? style.buttonStyleTrue
                       : style.buttonStyleFalse
-                  } onClick={this.clickedJwb2}>
+                  }
+                  onClick={this.clickedJwb2}
+                >
                   {this.state.soalJawaban2.text}
                 </button>
               </div>
               <div className="col-3">
-                <button style={
+                <button
+                  style={
                     !this.state.soalJawaban3.isClick
                       ? style.buttonStyleNotClick
                       : this.state.soalJawaban3.isBenar
                       ? style.buttonStyleTrue
                       : style.buttonStyleFalse
-                  } onClick={this.clickedJwb3}>
+                  }
+                  onClick={this.clickedJwb3}
+                >
                   {this.state.soalJawaban3.text}
                 </button>
               </div>
               <div className="col-3">
-                <button style={
+                <button
+                  style={
                     !this.state.soalJawaban4.isClick
                       ? style.buttonStyleNotClick
                       : this.state.soalJawaban4.isBenar
                       ? style.buttonStyleTrue
                       : style.buttonStyleFalse
-                  } onClick={this.clickedJwb4}>
+                  }
+                  onClick={this.clickedJwb4}
+                >
                   {this.state.soalJawaban4.text}
                 </button>
               </div>
@@ -247,6 +301,5 @@ const style = {
   },
   buttonGroup: {
     marginTop: "25px"
-  },
-
+  }
 };
