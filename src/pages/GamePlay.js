@@ -30,21 +30,21 @@ class GamePlay extends Component {
           key: "findThePairs",
           name: "Find The Pairs",
           score: 0,
-          totalTime: 30
+          totalTime: 60
         },
         {
           id: 1,
           key: "CountTheObject",
           name: "Count The Object",
           score: 0,
-          totalTime: 30
+          totalTime: 50
         },
         {
           id: 2,
           key: "colorCodes",
           name: "Color Codes",
           score: 0,
-          totalTime: 30
+          totalTime: 40
         },
         {
           id: 3,
