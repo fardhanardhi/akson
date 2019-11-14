@@ -13,8 +13,9 @@ import HexagonalPrism from "../components/HexagonalPrism";
 import GameHeader from "../components/GameHeader";
 
 import colors from "../assets/colors";
+import AppContext from "../context/AppContext";
 
-export default class FindThePairs extends Component {
+class FindThePairs extends Component {
   constructor(props) {
     super(props);
 
@@ -22,7 +23,9 @@ export default class FindThePairs extends Component {
       choices: [],
       pair: [],
       isClicked: false,
-      isCorrect: false
+      isCorrect: false,
+      borderDefault: false,
+      rightChoicesCount: 0
     };
 
     this.objects = [
@@ -39,8 +42,8 @@ export default class FindThePairs extends Component {
   }
 
   componentDidMount() {
-    this.getChoices();
-    setInterval(this.getChoices, 100)
+    // this.getChoices();
+    this.reload();
   }
 
   getRandomId = arr => {
@@ -63,6 +66,17 @@ export default class FindThePairs extends Component {
     return obj[objectId];
   };
 
+  reload = () => {
+    this.getChoices();
+    this.setState({
+      pair: [],
+      isClicked: false,
+      isCorrect: false,
+      borderDefault: false,
+      rightChoicesCount: 0
+    });
+  };
+
   getChoices = () => {
     // generate pilihan jawaban benar
     let rightChoices = [...Array(3)].map(x => {
@@ -71,6 +85,7 @@ export default class FindThePairs extends Component {
         color: this.getRandomId(colors),
         click: this.state.isClicked,
         correct: this.state.isCorrect,
+        border: this.state.borderDefault
       };
     });
 
@@ -90,7 +105,7 @@ export default class FindThePairs extends Component {
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
                   correct: this.state.isCorrect,
-                  border : this.state.borderDefault
+                  border: this.state.borderDefault
                 };
               });
             } else {
@@ -112,6 +127,7 @@ export default class FindThePairs extends Component {
         color: this.getRandomId(colors),
         click: this.state.isClicked,
         correct: this.state.isCorrect,
+        border: this.state.borderDefault
       };
     });
 
@@ -132,6 +148,7 @@ export default class FindThePairs extends Component {
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
                   correct: this.state.isCorrect,
+                  border: this.state.borderDefault
                 };
               });
             } else {
@@ -153,6 +170,7 @@ export default class FindThePairs extends Component {
                   color: this.getRandomId(colors),
                   click: this.state.isClicked,
                   correct: this.state.isCorrect,
+                  border: this.state.borderDefault
                 };
               });
             } else {
@@ -198,8 +216,17 @@ export default class FindThePairs extends Component {
               console.log("benar");
               choicesUpdate[pair[0]].correct = true;
               choicesUpdate[pair[1]].correct = true;
+              if (this.props.gameInfo != null) {
+                this.props.addScore();
+              }
+              this.setState({
+                rightChoicesCount: this.state.rightChoicesCount + 1
+              });
             } else {
               console.log("salah");
+              if (this.props.gameInfo != null) {
+                this.props.addWrongScore();
+              }
             }
           }
         }
@@ -219,21 +246,26 @@ export default class FindThePairs extends Component {
 
       this.setState({ pair }); //akhir
 
-      this.setState({ choices: choicesUpdate }, () =>
-        console.log(this.state.choices)
-      );
+      this.setState({ choices: choicesUpdate }, () => {
+        console.log(this.state.choices);
+        if (this.state.rightChoicesCount === 3) {
+          this.reload();
+        }
+      });
     } else if (this.state.choices[index].click === true) {
       choicesUpdate[index].click = false;
-      this.setState({ choices: choicesUpdate }, () =>
-        console.log(this.state.choices)
-      );
+      this.setState({ choices: choicesUpdate }, () => {
+        console.log(this.state.choices);
+        if (this.state.rightChoicesCount === 3) {
+          this.reload();
+        }
+      });
     }
   };
 
   render() {
     // const clickHandler =
     // console.log("gameinfo ftp:", this.props.gameInfo);
-    // console.log(this.state.choices);
 
     return (
       <div className="container-fluid p-0">
@@ -259,12 +291,12 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          !item.click
+                          item.correct
+                            ? styles.borderTrue
+                            : !item.click
                             ? styles.borderNotClick
                             : this.state.pair.length === 1
                             ? styles.borderDefault
-                            : item.correct
-                            ? styles.borderTrue
                             : styles.borderFalse
                         }
                         onClick={() => this.clicked(index)}
@@ -293,12 +325,12 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          !item.click
+                          item.correct
+                            ? styles.borderTrue
+                            : !item.click
                             ? styles.borderNotClick
                             : this.state.pair.length === 1
                             ? styles.borderDefault
-                            : item.correct
-                            ? styles.borderTrue
                             : styles.borderFalse
                         }
                         onClick={() => this.clicked(index)}
@@ -326,12 +358,12 @@ export default class FindThePairs extends Component {
                       <div
                         className="col-auto aks-btn"
                         style={
-                          !item.click
+                          item.correct
+                            ? styles.borderTrue
+                            : !item.click
                             ? styles.borderNotClick
                             : this.state.pair.length === 1
                             ? styles.borderDefault
-                            : item.correct
-                            ? styles.borderTrue
                             : styles.borderFalse
                         }
                         onClick={() => this.clicked(index)}
@@ -386,3 +418,7 @@ const styles = {
     margin: "0px 35px"
   }
 };
+
+FindThePairs.contextType = AppContext;
+
+export default FindThePairs;

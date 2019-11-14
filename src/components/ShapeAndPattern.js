@@ -33,12 +33,21 @@ export default class FindThePairs extends Component {
   }
 
   componentDidMount() {
-    this.getChoices();
+    this.reload();
   }
 
   componentDidUpdate() {
     console.log(this.state.choices);
   }
+
+  reload = () => {
+    this.getChoices();
+    this.setState({
+      isCorrect: false,
+      isClicked: false,
+      shelter: []
+    });
+  };
 
   getRandomId = arr => {
     const id = Math.floor(Math.random() * arr.length);
@@ -310,6 +319,19 @@ export default class FindThePairs extends Component {
 
     this.setState({ choices: choicesUpdate, shelter });
     console.log("cois: ", choicesUpdate[index]);
+
+    if (choicesUpdate[index].correct === true) {
+      if (this.props.gameInfo != null) {
+        this.props.addScore();
+      }
+      console.log("benar");
+      this.reload();
+    } else {
+      if (this.props.gameInfo != null) {
+        this.props.addWrongScore();
+      }
+      console.log("salah");
+    }
   };
 
   render() {

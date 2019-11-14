@@ -1,4 +1,5 @@
 import { Component } from "react";
+import AppContext from "../context/AppContext";
 
 /**
 |--------------------------------------------------
@@ -8,13 +9,17 @@ import { Component } from "react";
 |--------------------------------------------------
 */
 
-export default class Countdown extends Component {
+class Countdown extends Component {
   state = {
     time: null
   };
 
   componentDidMount() {
     this.setState({ time: this.props.time }, () => this.startTick());
+  }
+
+  componentWillUnmount() {
+    this.stopTick();
   }
 
   startTick = () => {
@@ -27,7 +32,9 @@ export default class Countdown extends Component {
   };
 
   tick = () => {
-    if (!this.props.paused) {
+    console.log(this.props.paused);
+
+    if (this.context.isTicked === true) {
       this.setState({ time: this.state.time - 1 });
     }
     if (this.state.time <= 0) {
@@ -40,3 +47,7 @@ export default class Countdown extends Component {
     return this.state.time;
   }
 }
+
+Countdown.contextType = AppContext;
+
+export default Countdown;

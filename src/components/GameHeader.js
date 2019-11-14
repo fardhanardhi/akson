@@ -6,6 +6,8 @@ import pauseIcon from "../assets/icons/pause.svg";
 import medalIcon from "../assets/icons/medal.svg";
 import stopwatchIcon from "../assets/icons/stopwatch.svg";
 
+import AppContext from "../context/AppContext";
+
 /**
 |--------------------------------------------------
 | gameInfo {obj}
@@ -15,7 +17,7 @@ import stopwatchIcon from "../assets/icons/stopwatch.svg";
 |--------------------------------------------------
 */
 
-export default class GameHeader extends Component {
+class GameHeader extends Component {
   constructor(props) {
     super(props);
 
@@ -26,12 +28,17 @@ export default class GameHeader extends Component {
   }
 
   stopTick = () => {
-    this.countdownRef.currentstopTick();
+    this.countdownRef.current.stopTick();
+  };
+
+  startTick = () => {
+    this.countdownRef.current.startTick();
   };
 
   // state = { time: 10 };
   render() {
     console.log("game: ", this.props.gameInfo);
+    console.log("paused?: ", this.props.paused);
 
     return (
       <div
@@ -44,7 +51,11 @@ export default class GameHeader extends Component {
               src={pauseIcon}
               alt="pause"
               className="mr-5 aks-btn"
-              onClick={this.props.onPause}
+              onClick={() => {
+                this.props.onPause();
+                this.context.setTicked(false);
+                // this.stopTick();
+              }}
               style={styles.pauseBtn}
             />
             <h2 style={styles.text}>{this.props.gameInfo.name}</h2>
@@ -62,11 +73,16 @@ export default class GameHeader extends Component {
                 time={this.props.gameInfo.totalTime}
                 onTimeOut={this.props.onTimeOut}
                 paused={this.props.paused}
+                ref={this.countdownRef}
               />
             </h2>
             <img src={stopwatchIcon} alt="stopwatch" className="mb-1" />
           </div>
         </div>
+        <button onClick={() => this.context.setTicked(!this.context.isTicked)}>
+          pause/play
+        </button>
+        <button onClick={this.props.onTimeOut}>next</button>
       </div>
     );
   }
@@ -86,3 +102,7 @@ const styles = {
     cursor: "pointer"
   }
 };
+
+GameHeader.contextType = AppContext;
+
+export default GameHeader;

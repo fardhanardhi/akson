@@ -11,20 +11,28 @@ export default class ColorCodes extends Component {
 
     this.state = {
       choices: [],
-      isCorrect: false
+      isCorrect: false,
+      rightChoicesCount: 0
     };
 
-    this.objects = [<Rectangel />];
-    
+    this.objects = [<Rectangel />];    
   }
 
   componentDidMount() {
-    this.getChoices();
+    this.reload();
   }
 
   componentDidUpdate() {
     console.log(this.state.choices);
   }
+
+  reload = () => {
+    this.getChoices();
+    this.setState({
+      isCorrect: false,
+      rightChoicesCount: 0
+    });
+  };
 
   getRandomId = arr => {
     const id = Math.floor(Math.random() * arr.length);
@@ -53,6 +61,28 @@ export default class ColorCodes extends Component {
       choices: choicesUpdate,
       ...this.state
     });
+
+    if (choicesUpdate[index].isCorrect === true) {
+      if (this.props.gameInfo != null) {
+        this.props.addScore();
+      }
+      console.log("benar");
+      this.setState(
+        {
+          rightChoicesCount: this.state.rightChoicesCount + 1
+        },
+        () => {
+          if (this.state.rightChoicesCount === 2) {
+            this.reload();
+          }
+        }
+      );
+    } else {
+      if (this.props.gameInfo != null) {
+        this.props.addWrongScore();
+      }
+      console.log("salah");
+    }
   };
 
   getChoices = () => {

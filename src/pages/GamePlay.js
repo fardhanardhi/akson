@@ -8,8 +8,9 @@ import PauseMenu from "../components/PauseMenu";
 import ExitGameCon from "../components/ExitGameConfirm";
 import RestartGameCon from "../components/RestartGameConfirm";
 import Score from "../components/Score";
+import AppContext from "../context/AppContext";
 
-export default class GamePlay extends Component {
+class GamePlay extends Component {
   constructor(props) {
     super(props);
 
@@ -29,28 +30,28 @@ export default class GamePlay extends Component {
           key: "findThePairs",
           name: "Find The Pairs",
           score: 0,
-          totalTime: 10
+          totalTime: 30
         },
         {
           id: 1,
           key: "CountTheObject",
           name: "Count The Object",
           score: 0,
-          totalTime: 3
+          totalTime: 30
         },
         {
           id: 2,
           key: "colorCodes",
           name: "Color Codes",
           score: 0,
-          totalTime: 3
+          totalTime: 30
         },
         {
           id: 3,
           key: "shapeAndPattern",
           name: "Shape And Pattern",
           score: 0,
-          totalTime: 3
+          totalTime: 30
         }
       ],
 
@@ -59,15 +60,18 @@ export default class GamePlay extends Component {
       gameComponent: null
     };
 
-    this.headerRef = React.createRef();
+    this.gameRef = React.createRef();
   }
 
   componentDidMount() {
     this.changeGame();
+    this.context.setTicked(true);
   }
 
   onPause = () => {
-    this.setState({ paused: true, pauseDialogVisible: true });
+    this.setState({ paused: true, pauseDialogVisible: true }, () =>
+      console.log("state:", this.state)
+    );
   };
 
   onExit = () => {
@@ -88,6 +92,7 @@ export default class GamePlay extends Component {
 
   onPlay = () => {
     this.setState({ paused: false, pauseDialogVisible: false });
+    this.context.setTicked(true);
   };
 
   onBack = () => {
@@ -125,6 +130,7 @@ export default class GamePlay extends Component {
         onPause={this.onPause}
         addScore={() => this.addScore(gameId)}
         addWrongScore={this.addWrongScore}
+        ref={this.gameRef}
       />,
       <CountTheObject
         gameInfo={game[gameId]}
@@ -133,6 +139,7 @@ export default class GamePlay extends Component {
         onPause={this.onPause}
         addScore={() => this.addScore(gameId)}
         addWrongScore={this.addWrongScore}
+        ref={this.gameRef}
       />,
       <ColorCodes
         gameInfo={game[gameId]}
@@ -141,6 +148,7 @@ export default class GamePlay extends Component {
         onPause={this.onPause}
         addScore={() => this.addScore(gameId)}
         addWrongScore={this.addWrongScore}
+        ref={this.gameRef}
       />,
       <ShapeAndPattern
         gameInfo={game[gameId]}
@@ -149,6 +157,7 @@ export default class GamePlay extends Component {
         onPause={this.onPause}
         addScore={() => this.addScore(gameId)}
         addWrongScore={this.addWrongScore}
+        ref={this.gameRef}
       />
     ];
     this.setState({ gameComponent: gameComponent[gameId] });
@@ -195,7 +204,13 @@ export default class GamePlay extends Component {
           onExit={this.onExit}
           onRestart={this.onRestart}
         />
-        <Score show={this.state.scoreDialogVisible} />
+        <Score
+          correctScore={this.state.game.reduce((prev, next) => {
+            return prev + next.score;
+          }, 0)}
+          wrongScore={this.state.wrongScore}
+          show={this.state.scoreDialogVisible}
+        />
         <ExitGameCon
           show={this.state.exitDialogVisible}
           onBack={this.onBack}
@@ -211,21 +226,6 @@ export default class GamePlay extends Component {
           }`}
           style={styles.wrapper}
         >
-          <div className="text-center">
-            <button
-              className="btn btn-success btn-lg m-1"
-              onClick={this.changeGame}
-            >
-              Find The Pairs
-            </button>
-            <button className="btn btn-success btn-lg m-1">
-              Shape And Pattern
-            </button>
-            <button className="btn btn-success btn-lg m-1">Color Codes</button>
-            <button className="btn btn-success btn-lg m-1">
-              Count The Object
-            </button>
-          </div>
           {this.state.gameComponent}
         </div>
       </div>
@@ -240,3 +240,7 @@ const styles = {
     transition: "filter 0.5s ease"
   }
 };
+
+GamePlay.contextType = AppContext;
+
+export default GamePlay;

@@ -5,7 +5,6 @@ import errorScore from "../assets/errorScore.svg";
 import Home from "../assets/Home.svg";
 import ThermoBlue from "../components/ThermoBlue";
 
-
 export default function Score(props) {
   return (
     <div
@@ -33,7 +32,7 @@ export default function Score(props) {
                     <img src={score} alt="score"></img>
                   </div>
                   <div className="col-md-2" style={style.fontDua}>
-                    10
+                    {props.correctScore}
                   </div>
                 </div>
               </div>
@@ -43,7 +42,7 @@ export default function Score(props) {
                     <img src={checkScore} alt="Check Score"></img>
                   </div>
                   <div className="col-md-2" style={style.fontDua}>
-                    18
+                    {props.correctScore}
                   </div>
                 </div>
               </div>
@@ -53,7 +52,7 @@ export default function Score(props) {
                     <img src={errorScore} alt="Error Score"></img>
                   </div>
                   <div className="col-md-2" style={style.fontDua}>
-                    0
+                    {props.wrongScore}
                   </div>
                 </div>
               </div>
