@@ -270,7 +270,7 @@ const styles = {
   },
   borderTrue: {
     padding: "15px",
-    border: "3px solid green",
+    border: "5px solid #00FF00",
     borderRadius: "8px",
     margin: "0px 35px",
     pointerEvents: "none"

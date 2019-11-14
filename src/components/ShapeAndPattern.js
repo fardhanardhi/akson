@@ -491,14 +491,14 @@ const styles = {
   },
   borderTrue: {
     padding: "15px",
-    border: "3px solid green",
+    border: "3px solid #00FF00",
     borderRadius: "8px",
     margin: "0px 35px",
     pointerEvents: "none"
   },
   borderFalse: {
     padding: "15px",
-    border: "3px solid red",
+    border: "5px solid #FF0000",
     borderRadius: "8px",
     margin: "0px 35px",
     pointerEvents: "none"
