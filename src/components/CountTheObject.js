@@ -264,8 +264,6 @@ const style = {
     textDecoration: "none",
     display: "inline-block",
     fontSize: "16px",
-    // radiusBorder: "5px",
-    // padding: "15px",
     border: "5px solid #00FF00",
     borderRadius: "8px",
     margin: "0px 35px",
@@ -279,8 +277,6 @@ const style = {
     textDecoration: "none",
     display: "inline-block",
     fontSize: "16px",
-    // radiusBorder: "5px",
-    // padding: "15px",
     border: "5px solid #FF0000",
     borderRadius: "8px",
     margin: "0px 35px"
@@ -293,8 +289,6 @@ const style = {
     textDecoration: "none",
     display: "inline-block",
     fontSize: "16px",
-    // radiusBorder: "5px",
-    // padding: "15px",
     border: "5px solid #4CAF50",
     borderRadius: "8px",
     margin: "0px 35px"
