@@ -1,34 +1,34 @@
 const colors = [
   {
-    name: "red",
+    name: "Merah",
     code: "#f44336"
   },
   {
-    name: "purple",
+    name: "Ungu",
     code: "#9c27b0"
   },
   {
-    name: "blue",
+    name: "Biru",
     code: "#2196f3"
   },
   {
-    name: "green",
+    name: "Hijau",
     code: "#4caf50"
   },
   {
-    name: "yellow",
+    name: "Kuning",
     code: "#ffeb3b"
   },
   {
-    name: "orange",
+    name: "Oren",
     code: "#ff9800"
   },
   {
-    name: "brown",
+    name: "Coklat",
     code: "#5c3000"
   },
   {
-    name: "grey",
+    name: "Abu-abu",
     code: "#9e9e9e"
   }
 ];

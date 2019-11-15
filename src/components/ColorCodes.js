@@ -15,7 +15,7 @@ export default class ColorCodes extends Component {
       rightChoicesCount: 0
     };
 
-    this.objects = [<Rectangel />];    
+    this.objects = [<Rectangel />];
   }
 
   componentDidMount() {
@@ -44,6 +44,9 @@ export default class ColorCodes extends Component {
       <Rectangel
         color={colors[colorIdCode].code}
         name={colors[colorIdName].name}
+        txtColor={
+          colorIdCode === 4 ? "rgba(0,0,0,0.45)" : "rgba(255,255,255,0.75)"
+        }
       />
     ];
     return obj[objectId];
