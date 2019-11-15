@@ -108,7 +108,7 @@ export default class FindThePairs extends Component {
           </div>
         ),
 
-        nama: "Stars",
+        nama: "Bintang",
         patternName: Pattern[patternId].name,
         patternColor: Pattern[patternId].color
       },
@@ -139,7 +139,7 @@ export default class FindThePairs extends Component {
           </div>
         ),
 
-        nama: "Circle",
+        nama: "Lingkaran",
         patternName: Pattern[patternId].name,
         patternColor: Pattern[patternId].color
       },
@@ -169,7 +169,7 @@ export default class FindThePairs extends Component {
           </div>
         ),
 
-        nama: "Rectangular",
+        nama: "Persegi",
         patternName: Pattern[patternId].name,
         patternColor: Pattern[patternId].color
       },
@@ -198,7 +198,7 @@ export default class FindThePairs extends Component {
           </div>
         ),
 
-        nama: "Parallelogram",
+        nama: "Jajargenjang",
         patternName: Pattern[patternId].name,
         patternColor: Pattern[patternId].color
       }
@@ -347,7 +347,7 @@ export default class FindThePairs extends Component {
           />
         )}
         <div className="container text-center m-0 p-0">
-          <h2 style={styles.text}>Shape and pattern</h2>
+          <h2 style={styles.text}>Temukan</h2>
 
           {this.state.isQuestion.map((item, index) => {
             let component = null;
@@ -356,12 +356,11 @@ export default class FindThePairs extends Component {
                 <div className="row">
                   <div className="col"></div>
                   <div className="col-auto">
-                    <h4 style={styles.textCase}>
-                      {" "}
+                    <h3 style={styles.textCase}>
                       {this.getObject(item.object, item.pattern).nama},{" "}
-                      {this.getObject(item.object, item.pattern).patternName},{" "}
-                      {this.getObject(item.object, item.pattern).patternColor}{" "}
-                    </h4>
+                      {this.getObject(item.object, item.pattern).patternColor},{" "}
+                      {this.getObject(item.object, item.pattern).patternName}{" "}
+                    </h3>
                   </div>
                   <div className="col"></div>
                 </div>
@@ -480,14 +479,12 @@ const styles = {
   text: {
     fontWeight: "normal",
     fontFamily: "Carter One",
-    color: "#1D1D1D",
-    marginBottom: "20px"
+    color: "#1D1D1D"
   },
   textCase: {
     fontWeight: "normal",
     fontFamily: "Carter One",
-    color: "#1D1D1D",
-    marginBottom: "75px"
+    color: "#1D1D1D"
   },
   borderTrue: {
     padding: "15px",
