@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import GameHeader from "./GameHeader";
 import Soal from "./soalCountTheObject";
@@ -156,93 +156,102 @@ export default class CountTheObject extends Component {
 
   render() {
     return (
-      <div className="container-fluid p-0">
-        {this.props.gameInfo == null ? null : (
-          <GameHeader
-            gameInfo={this.props.gameInfo}
-            onTimeOut={this.props.onTimeOut}
-            paused={this.props.paused}
-            onPause={this.props.onPause}
-            ref={this.headerRef}
-          />
-        )}
-        <div className="row">
-          <div className="col"></div>
-          <div className="col-md-8" style={style.pertanyaanStyle}>
-            <div className="row">
-              <h1>{this.state.soalTanya.text}</h1>
-              <div className="col-2"></div>
-              <div className="col-8">
-                <img
-                  src={this.state.soalGambar.image}
-                  alt="countImage"
-                  style={style.imageStyle}
-                />
+      <Fragment>
+        <div
+          className="container-fluid text-center m-0 p-0"
+          style={{ position: "absolute", top: 0 }}
+        >
+          {this.props.gameInfo == null ? null : (
+            <GameHeader
+              gameInfo={this.props.gameInfo}
+              onTimeOut={this.props.onTimeOut}
+              paused={this.props.paused}
+              onPause={this.props.onPause}
+              ref={this.headerRef}
+            />
+          )}
+        </div>
+        <div className="container text-center h-100">
+          <div className="row align-items-center h-100">
+            <div className="col" style={style.pertanyaanStyle}>
+              <div className="row mb-5">
+                <div className="col text-center">
+                  <h2>{this.state.soalTanya.text}</h2>
+                </div>
               </div>
-              <div className="col"></div>
-            </div>
-            <div className="row" style={style.buttonGroup}>
-              <div className="col-3">
-                <button
-                  style={
-                    !this.state.soalJawaban1.isClick
-                      ? style.buttonStyleNotClick
-                      : this.state.soalJawaban1.isBenar
-                      ? style.buttonStyleTrue
-                      : style.buttonStyleFalse
-                  }
-                  onClick={this.clickedJwb1}
-                >
-                  {this.state.soalJawaban1.text}
-                </button>
-              </div>
-              <div className="col-3">
-                <button
-                  style={
-                    !this.state.soalJawaban2.isClick
-                      ? style.buttonStyleNotClick
-                      : this.state.soalJawaban2.isBenar
-                      ? style.buttonStyleTrue
-                      : style.buttonStyleFalse
-                  }
-                  onClick={this.clickedJwb2}
-                >
-                  {this.state.soalJawaban2.text}
-                </button>
-              </div>
-              <div className="col-3">
-                <button
-                  style={
-                    !this.state.soalJawaban3.isClick
-                      ? style.buttonStyleNotClick
-                      : this.state.soalJawaban3.isBenar
-                      ? style.buttonStyleTrue
-                      : style.buttonStyleFalse
-                  }
-                  onClick={this.clickedJwb3}
-                >
-                  {this.state.soalJawaban3.text}
-                </button>
-              </div>
-              <div className="col-3">
-                <button
-                  style={
-                    !this.state.soalJawaban4.isClick
-                      ? style.buttonStyleNotClick
-                      : this.state.soalJawaban4.isBenar
-                      ? style.buttonStyleTrue
-                      : style.buttonStyleFalse
-                  }
-                  onClick={this.clickedJwb4}
-                >
-                  {this.state.soalJawaban4.text}
-                </button>
+              <div className="row align-items-center">
+                <div className="col"></div>
+                <div className="col-auto">
+                  <img
+                    src={this.state.soalGambar.image}
+                    alt="countImage"
+                    style={style.imageStyle}
+                  />
+                </div>
+                <div className="col-auto ml-5">
+                  <div className="row ">
+                    <button
+                      className="m-3"
+                      style={
+                        !this.state.soalJawaban1.isClick
+                          ? style.buttonStyleNotClick
+                          : this.state.soalJawaban1.isBenar
+                          ? style.buttonStyleTrue
+                          : style.buttonStyleFalse
+                      }
+                      onClick={this.clickedJwb1}
+                    >
+                      {this.state.soalJawaban1.text}
+                    </button>
+                    <button
+                      className="m-3"
+                      style={
+                        !this.state.soalJawaban2.isClick
+                          ? style.buttonStyleNotClick
+                          : this.state.soalJawaban2.isBenar
+                          ? style.buttonStyleTrue
+                          : style.buttonStyleFalse
+                      }
+                      onClick={this.clickedJwb2}
+                    >
+                      {this.state.soalJawaban2.text}
+                    </button>
+                  </div>
+                  <div className="row">
+                    <button
+                      className="m-3"
+                      style={
+                        !this.state.soalJawaban3.isClick
+                          ? style.buttonStyleNotClick
+                          : this.state.soalJawaban3.isBenar
+                          ? style.buttonStyleTrue
+                          : style.buttonStyleFalse
+                      }
+                      onClick={this.clickedJwb3}
+                    >
+                      {this.state.soalJawaban3.text}
+                    </button>
+                    <button
+                      className="m-3"
+                      style={
+                        !this.state.soalJawaban4.isClick
+                          ? style.buttonStyleNotClick
+                          : this.state.soalJawaban4.isBenar
+                          ? style.buttonStyleTrue
+                          : style.buttonStyleFalse
+                      }
+                      onClick={this.clickedJwb4}
+                    >
+                      {this.state.soalJawaban4.text}
+                    </button>
+                  </div>
+                </div>
+                <div className="col"></div>
               </div>
             </div>
           </div>
-          <div className="col"></div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
@@ -250,7 +259,9 @@ export default class CountTheObject extends Component {
 const style = {
   imageStyle: {
     maxHeight: "400px",
-    maxWidth: "500px"
+    maxWidth: "500px",
+    borderRadius: "30px",
+    border: "3px solid green"
   },
   pertanyaanStyle: {
     fontWeight: "normal",
@@ -266,7 +277,6 @@ const style = {
     fontSize: "16px",
     border: "5px solid #00FF00",
     borderRadius: "8px",
-    margin: "0px 35px",
     pointerEvents: "none"
   },
   buttonStyleFalse: {
@@ -278,8 +288,7 @@ const style = {
     display: "inline-block",
     fontSize: "16px",
     border: "5px solid #FF0000",
-    borderRadius: "8px",
-    margin: "0px 35px"
+    borderRadius: "8px"
   },
   buttonStyleNotClick: {
     backgroundColor: "#4CAF50",
@@ -290,10 +299,6 @@ const style = {
     display: "inline-block",
     fontSize: "16px",
     border: "5px solid #4CAF50",
-    borderRadius: "8px",
-    margin: "0px 35px"
-  },
-  buttonGroup: {
-    marginTop: "25px"
+    borderRadius: "8px"
   }
 };

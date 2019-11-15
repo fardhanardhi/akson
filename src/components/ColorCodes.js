@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import Rectangel from "../components/Rectangel";
 
@@ -194,72 +194,89 @@ export default class ColorCodes extends Component {
 
   render() {
     return (
-      <div className="container-fluid text-center m-0 p-0">
-        {this.props.gameInfo == null ? null : (
-          <GameHeader
-            gameInfo={this.props.gameInfo}
-            onTimeOut={this.props.onTimeOut}
-            paused={this.props.paused}
-            onPause={this.props.onPause}
-            ref={this.headerRef}
-          />
-        )}
-        <h2 style={styles.text}>Pilih warna yang sesuai dengan tulisannya</h2>
-        <div className="row">
-          {this.state.choices.map((item, index) => {
-            let component;
-            if (index < 4) {
-              component = (
-                <div className="col-md-3" key={index}>
-                  <div className="row">
-                    <div className="col"></div>
-                    <div
-                      className="col-auto aks-btn"
-                      style={
-                        this.state.choices[index].isCorrect
-                          ? styles.borderTrue
-                          : styles.borderFalse
-                      }
-                      onClick={() => this.checked(index, item.name, item.color)}
-                    >
-                      {this.getColor(item.object, item.color, item.name)}
-                    </div>
-                    <div className="col"></div>
-                  </div>
-                </div>
-              );
-            }
-            return component;
-          })}
+      <Fragment>
+        <div
+          className="container-fluid text-center m-0 p-0"
+          style={{ position: "absolute", top: 0 }}
+        >
+          {this.props.gameInfo == null ? null : (
+            <GameHeader
+              gameInfo={this.props.gameInfo}
+              onTimeOut={this.props.onTimeOut}
+              paused={this.props.paused}
+              onPause={this.props.onPause}
+              ref={this.headerRef}
+            />
+          )}
         </div>
-        <div className="row mt-5">
-          {this.state.choices.map((item, index) => {
-            let component;
-            if (index < 8 && index >= 4) {
-              component = (
-                <div className="col-md-3" key={index}>
-                  <div className="row">
-                    <div className="col"></div>
-                    <div
-                      className="col-auto aks-btn"
-                      style={
-                        this.state.choices[index].isCorrect
-                          ? styles.borderTrue
-                          : styles.borderFalse
-                      }
-                      onClick={() => this.checked(index, item.name, item.color)}
-                    >
-                      {this.getColor(item.object, item.color, item.name)}
-                    </div>
-                    <div className="col"></div>
-                  </div>
-                </div>
-              );
-            }
-            return component;
-          })}
+        <div className="container text-center h-100">
+          <div className="row align-items-center h-100">
+            <div className="col">
+              <h2 style={styles.text}>
+                Pilih warna yang sesuai dengan tulisannya
+              </h2>
+              <div className="row mt-5 ">
+                {this.state.choices.map((item, index) => {
+                  let component;
+                  if (index < 4) {
+                    component = (
+                      <div className="col-md-3" key={index}>
+                        <div className="row">
+                          <div className="col"></div>
+                          <div
+                            className="col-auto aks-btn"
+                            style={
+                              this.state.choices[index].isCorrect
+                                ? styles.borderTrue
+                                : styles.borderFalse
+                            }
+                            onClick={() =>
+                              this.checked(index, item.name, item.color)
+                            }
+                          >
+                            {this.getColor(item.object, item.color, item.name)}
+                          </div>
+                          <div className="col"></div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return component;
+                })}
+              </div>
+              <div className="row mt-5">
+                {this.state.choices.map((item, index) => {
+                  let component;
+                  if (index < 8 && index >= 4) {
+                    component = (
+                      <div className="col-md-3" key={index}>
+                        <div className="row">
+                          <div className="col"></div>
+                          <div
+                            className="col-auto aks-btn"
+                            style={
+                              this.state.choices[index].isCorrect
+                                ? styles.borderTrue
+                                : styles.borderFalse
+                            }
+                            onClick={() =>
+                              this.checked(index, item.name, item.color)
+                            }
+                          >
+                            {this.getColor(item.object, item.color, item.name)}
+                          </div>
+                          <div className="col"></div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return component;
+                })}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
@@ -268,8 +285,7 @@ const styles = {
   text: {
     fontWeight: "normal",
     fontFamily: "Carter One",
-    color: "#1D1D1D",
-    marginBottom: "100px"
+    color: "#1D1D1D"
   },
   borderTrue: {
     padding: "15px",
