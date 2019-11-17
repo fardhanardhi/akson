@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import PlayButton from "../assets/playButton.svg";
 import LogoComplete from "../assets/logoComplete.svg";
 import Background from "../assets/Background.svg";

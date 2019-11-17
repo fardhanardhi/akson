@@ -40,9 +40,9 @@ export default class LoginBox extends Component {
   addLocalStorage = () => {
     localStorage.setItem("username", this.state.username);
     // setTimeout(() => {
-      // }, 3000);
+    // }, 3000);
 
-        console.log(localStorage.getItem("username"));
+    console.log(localStorage.getItem("username"));
   };
 
   render() {
@@ -74,7 +74,15 @@ export default class LoginBox extends Component {
           </div>
           <div className="col"></div>
         </div>
-        <Link to={this.state.username === "" ? null : this.state.isValid ? "/menu" : null}>
+        <Link
+          to={
+            this.state.username === ""
+              ? null
+              : this.state.isValid
+              ? "/menu"
+              : null
+          }
+        >
           <img
             src={MasukBtn}
             alt="Masuk"
@@ -98,7 +106,7 @@ export default class LoginBox extends Component {
 }
 const style = {
   boxStyle: {
-    marginTop: "15%",
+    marginTop: "215px",
     textAlign: "center",
     borderRadius: "35px",
     background: "linear-gradient(to right, #9BDBA1 50%, #62C16B 50%)"
