@@ -113,14 +113,19 @@ const style = {
 
   rowStyle: {
     height: "100%",
-    position: "relative"
+    position: "relative",
+    width:"97%",
+    margin:"auto",
   },
 
   whiteContainerStyle: {
     boxShadow: "10px 10px 5px grey",
     // align: "center",
     margin: "auto",
-    padding: "auto",
+    paddingTop: "auto",
+    paddiongBottom:"auto",
+    paddingLeft:"20px",
+    paddingRight:"20px",
     top: "25%",
     // msTransform: "translateY(25%)",
     // transform: "translateY(25%)",
