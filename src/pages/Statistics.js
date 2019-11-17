@@ -54,14 +54,6 @@ export default class Statistics extends Component {
   render() {
     return (
       <div style={style.bgStyle}>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
-
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
@@ -74,13 +66,13 @@ export default class Statistics extends Component {
                       className="col-md text-center "
                       style={style.whiteContainerStyle}
                     >
-                      <a href="/Menu">
+                      <Link to="/Menu">
                         <img
                           alt="leftArrow"
                           src={LeftArrow}
                           style={style.lArrowStyle}
                         ></img>
-                      </a>
+                      </Link>
                       <h4 style={style.titleStyle}>Statistikmu</h4>
                       <div className={"my-pretty-chart-container "}>
                         <div className="row">

@@ -1,31 +1,22 @@
 import React, { Component } from "react";
-// var username = localStorage.getItem("username");
-// console.log(username[username.length-1]);
-
-
-
+import { Link } from "react-router-dom";
 
 export default class MenuGame extends Component {
-constructor(props) {
-  super(props)
+  constructor(props) {
+    super(props);
 
-  this.state = {
-     username: ""
+    this.state = {
+      username: ""
+    };
   }
-}
-
 
   componentDidMount() {
     const username = localStorage.getItem("username");
-    this.setState({username});
+    this.setState({ username });
   }
   render() {
-    setTimeout(() => {
-      
-    }, 3000);
-    
     return (
-      <div >
+      <div>
         <div style={style.kotakDepan}>
           <div className="container">
             <div className="col-md-12">
@@ -40,51 +31,51 @@ constructor(props) {
               </div>
             </div>
           </div>
-          <div className="aks-btn" style={style.kotakMain}>
-            <div className="container">
-              <div className="col-md-12">
-                <div className="row">
-                  <div className="col-md-3"></div>
-                  <div className="col-md-6 ml-3" style={style.fontLain}>
-                    <a href="/GamePlay" style={style.fontLain}>
-                    MAIN
-                    </a>
+          <Link style={{ textDecoration: "none" }} to="/gameplay">
+            <div className="aks-btn" style={style.kotakMain}>
+              <div className="container">
+                <div className="col-md-12">
+                  <div className="row">
+                    <div className="col"></div>
+                    <div className="col-auto " style={style.fontLain}>
+                      <div style={style.fontLain}>MAIN</div>
+                    </div>
+                    <div className="col"></div>
                   </div>
-                  <div className="col-md-3"></div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="aks-btn" style={style.kotakLain}>
-            <div className="container">
-              <div className="col-md-12">
-                <div className="row">
-                  <div className="col-md-3"></div>
-                  <div className="col-md-6" style={style.fontLain}>
-                    <a href="/statistics" style={style.fontLain}>
-                    STATISTIK
-                    </a>
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/statistics">
+            <div className="aks-btn" style={style.kotakLain}>
+              <div className="container">
+                <div className="col-md-12">
+                  <div className="row">
+                    <div className="col"></div>
+                    <div className="col-auto" style={style.fontLain}>
+                      <div style={style.fontLain}>STATISTIK</div>
+                    </div>
+                    <div className="col"></div>
                   </div>
-                  <div className="col-md-3"></div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="aks-btn" style={style.kotakLain}>
-            <div className="container">
-              <div className="col-md-12">
-                <div className="row">
-                  <div className="col-md-3"></div>
-                  <div className="col-md-6 ml-2" style={style.fontLain}>
-                    <a href="/Home" style={style.fontLain}>
-                    KELUAR
-                    </a>
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/">
+            <div className="aks-btn" style={style.kotakLain}>
+              <div className="container">
+                <div className="col-md-12">
+                  <div className="row">
+                    <div className="col"></div>
+                    <div className="col-auto" style={style.fontLain}>
+                      <div style={style.fontLain}>KELUAR</div>
+                    </div>
+                    <div className="col"></div>
                   </div>
-                  <div className="col-md-3"></div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     );
@@ -148,8 +139,7 @@ const style = {
     fontFamily: "Carter One",
     fontSize: "24px",
     color: "#FFFFFF",
-    marginTop: "10px",
-    textDecoration:"none",
-    
+    marginTop: "7px",
+    textDecoration: "none"
   }
 };

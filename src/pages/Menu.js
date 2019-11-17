@@ -7,16 +7,19 @@ export default class Menu extends Component {
   render() {
     return (
       <div style={style.bgStyle}>
+        <img src={LogoAkson} alt="logoAkson" style={style.logo}></img>
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
               <div className="row">
-                <img src={LogoAkson} alt="logoAkson" style={style.logo}></img>
                 <div className="col-md-12"></div>
                 <div className="col-md-12">
                   <div className="row">
                     <div className="col"></div>
-                    <div className="col-md-3 d-flex justify-content-center" style={style.menuTengah}>
+                    <div
+                      className="col-md-3 d-flex justify-content-center"
+                      style={style.menuTengah}
+                    >
                       <MenuGame />
                     </div>
                     <div className="col"></div>
@@ -38,7 +41,7 @@ export default class Menu extends Component {
 
 const style = {
   menuTengah: {
-    minHeight: "90vh",  
+    minHeight: "90vh",
     display: "flex",
     alignItems: "center"
   },
@@ -47,12 +50,14 @@ const style = {
     backgroundPosition: "center center",
     backgroundRepeat: "no-repeat",
     height: "100vh",
-    backgroundImage: `url(${Background})`
+    backgroundImage: `url(${Background})`,
+    backgroundSize: "100% auto"
   },
 
   logo: {
-    right: "0",
+    right: 30,
+    top: 10,
     position: "absolute",
-    marginTop:"30px"
+    marginTop: "30px"
   }
 };

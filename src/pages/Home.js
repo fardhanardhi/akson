@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PlayButton from "../assets/playButton.svg";
 import LogoComplete from "../assets/logoComplete.svg";
 import Background from "../assets/Background.svg";
@@ -19,9 +19,11 @@ export default class Home extends Component {
                 ></img>
               </div>
               <div className="row">
-                <a href="/login" className="aks-btn" style={style.playBtnStyle}>
-                  <img src={PlayButton} alt="playbtn" />
-                </a>
+                <div className="aks-btn" style={style.playBtnStyle}>
+                  <Link to="/login">
+                    <img src={PlayButton} alt="playbtn" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
