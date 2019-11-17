@@ -2,6 +2,7 @@ import React from "react";
 import icon from "../assets/icon.svg";
 import X from "../assets/x.svg";
 import Check from "../assets/check.svg";
+import { Link } from "react-router-dom";
 
 export default function ExitGameConfirm(props) {
   return (
@@ -42,13 +43,15 @@ export default function ExitGameConfirm(props) {
           <div className="col-md-12">
             <div className="row">
               <div className="col-md-5">
-                <img
-                  className="aks-btn"
-                  src={Check}
-                  alt="CheckButton"
-                  href={props.referensi}
-                  style={styles.imgButton}
-                ></img>
+                <Link to="/Menu">
+                  <img
+                    className="aks-btn"
+                    src={Check}
+                    alt="CheckButton"
+                    href={props.referensi}
+                    style={styles.imgButton}
+                  ></img>
+                </Link>
               </div>
               <div className="col-md-2"></div>
               <div className="col-md-5">
@@ -85,7 +88,7 @@ const styles = {
   tulisanSatu: {
     fontFamily: "Carter One",
     fontSize: "26px",
-    marginRight:"50px",
+    marginRight: "50px",
     color: "#000000",
     textAlign: "center"
   },

@@ -42,13 +42,14 @@ export default function RestartGameConfirm(props) {
           <div className="col-md-12">
             <div className="row">
               <div className="col-md-5">
-                <img
-                  className="aks-btn"
-                  src={Check}
-                  alt="CheckButton"
-                  href={props.referensi}
-                  style={styles.imgButton}
-                ></img>
+                <a href="/gameplay">
+                  <img
+                    className="aks-btn"
+                    src={Check}
+                    alt="CheckButton"
+                    style={styles.imgButton}
+                  ></img>
+                </a>
               </div>
               <div className="col-md-2"></div>
               <div className="col-md-5">
@@ -70,7 +71,6 @@ export default function RestartGameConfirm(props) {
   );
 }
 
-
 const styles = {
   shape: {
     width: "500px",
@@ -86,7 +86,7 @@ const styles = {
   tulisanSatu: {
     fontFamily: "Carter One",
     fontSize: "26px",
-    marginRight:"50px",
+    marginRight: "50px",
     color: "#000000",
     textAlign: "center"
   },
