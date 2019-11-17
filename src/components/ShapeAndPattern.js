@@ -60,8 +60,8 @@ export default class FindThePairs extends Component {
         objek: (
           <div>
             <svg
-              width="152"
-              height="135"
+              width="112"
+              height="95"
               viewBox="0 0 152 135"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -89,8 +89,8 @@ export default class FindThePairs extends Component {
         objek: (
           <div>
             <svg
-              width="141"
-              height="133"
+              width="101"
+              height="93"
               viewBox="0 0 141 133"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -117,8 +117,8 @@ export default class FindThePairs extends Component {
         objek: (
           <div>
             <svg
-              width="131"
-              height="131"
+              width="91"
+              height="91"
               viewBox="0 0 131 131"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -155,8 +155,8 @@ export default class FindThePairs extends Component {
               xmlns="http://www.w3.org/2000/svg"
             >
               <rect
-                width="129"
-                height="129"
+                width="89"
+                height="89"
                 style={{ fill: Pattern[patternId].patt.url() }}
               />
               <defs
@@ -178,8 +178,8 @@ export default class FindThePairs extends Component {
         objek: (
           <div>
             <svg
-              width="270"
-              height="80"
+              width="230"
+              height="50"
               viewBox="0 0 270 80"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -346,129 +346,146 @@ export default class FindThePairs extends Component {
             ref={this.headerRef}
           />
         )}
-        <div className="container text-center m-0 p-0">
-          <h2 style={styles.text}>Temukan</h2>
-
-          {this.state.isQuestion.map((item, index) => {
-            let component = null;
-            component = (
-              <div className="col-md-12" key={index}>
-                <div className="row">
-                  <div className="col"></div>
-                  <div className="col-auto">
-                    <h3 style={styles.textCase}>
-                      {this.getObject(item.object, item.pattern).nama},{" "}
-                      {this.getObject(item.object, item.pattern).patternColor},{" "}
-                      {this.getObject(item.object, item.pattern).patternName}{" "}
-                    </h3>
+        <div className="container text-center h-100">
+          <div className="row align-items-center h-100">
+            <div className="col-md-1"></div>
+            <div className="col-md-10">
+              <h2 style={styles.text}>Temukan</h2>
+              {this.state.isQuestion.map((item, index) => {
+                let component = null;
+                component = (
+                  <div className="col-md-12" key={index}>
+                    <div className="row">
+                      <div className="col"></div>
+                      <div className="col-auto">
+                        <h3 style={styles.textCase}>
+                          {this.getObject(item.object, item.pattern).nama},{" "}
+                          {
+                            this.getObject(item.object, item.pattern)
+                              .patternColor
+                          }
+                          ,{" "}
+                          {
+                            this.getObject(item.object, item.pattern)
+                              .patternName
+                          }{" "}
+                        </h3>
+                      </div>
+                      <div className="col"></div>
+                    </div>
                   </div>
-                  <div className="col"></div>
-                </div>
+                );
+                return component;
+              })}
+
+              <div className="row">
+                {this.state.choices.map((item, index) => {
+                  let component = null;
+                  if (index < 4) {
+                    component = (
+                      <div className="col-md-3" key={index}>
+                        <div className="row">
+                          <div
+                            className="col aks-btn"
+                            style={
+                              !item.click
+                                ? styles.borderNotClick
+                                : item.correct
+                                ? styles.borderTrue
+                                : styles.borderFalse
+                            }
+                            onClick={() =>
+                              this.selectChoice(
+                                index,
+                                item.object,
+                                item.pattern
+                              )
+                            }
+                          >
+                            {this.getObject(item.object, item.pattern).objek}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  } else {
+                    component = null;
+                  }
+                  return component;
+                })}
               </div>
-            );
-            return component;
-          })}
-
-          <div className="row">
-            {this.state.choices.map((item, index) => {
-              let component = null;
-              if (index < 4) {
-                component = (
-                  <div className="col-md-3" key={index}>
-                    <div className="row">
-                      <div className="col"></div>
-                      <div
-                        className="col-auto aks-btn"
-                        style={
-                          !item.click
-                            ? styles.borderNotClick
-                            : item.correct
-                            ? styles.borderTrue
-                            : styles.borderFalse
-                        }
-                        onClick={() =>
-                          this.selectChoice(index, item.object, item.pattern)
-                        }
-                      >
-                        {this.getObject(item.object, item.pattern).objek}
+              <div className="row mt-5">
+                {this.state.choices.map((item, index) => {
+                  let component = null;
+                  if (index < 8 && index >= 4) {
+                    component = (
+                      <div className="col-md-3" key={index}>
+                        <div className="row">
+                          <div
+                            className="col aks-btn"
+                            style={
+                              !item.click
+                                ? styles.borderNotClick
+                                : item.correct
+                                ? styles.borderTrue
+                                : styles.borderFalse
+                            }
+                            onClick={() =>
+                              this.selectChoice(
+                                index,
+                                item.object,
+                                item.pattern
+                              )
+                            }
+                          >
+                            {this.getObject(item.object, item.pattern).objek}
+                          </div>
+                        </div>
                       </div>
-                      <div className="col"></div>
-                    </div>
-                  </div>
-                );
-              } else {
-                component = null;
-              }
-              return component;
-            })}
-          </div>
-          <div className="row mt-5">
-            {this.state.choices.map((item, index) => {
-              let component = null;
-
-              if (index < 8 && index >= 4) {
-                component = (
-                  <div className="col-md-3" key={index}>
-                    <div className="row">
-                      <div className="col"></div>
-                      <div
-                        className="col-auto aks-btn"
-                        style={
-                          !item.click
-                            ? styles.borderNotClick
-                            : item.correct
-                            ? styles.borderTrue
-                            : styles.borderFalse
-                        }
-                        onClick={() =>
-                          this.selectChoice(index, item.object, item.pattern)
-                        }
-                      >
-                        {this.getObject(item.object, item.pattern).objek}
+                    );
+                  } else {
+                    component = null;
+                  }
+                  return component;
+                })}
+              </div>
+              <div className="row mt-5">
+                {this.state.choices.map((item, index) => {
+                  let component = null;
+                  if (index < 12 && index >= 8) {
+                    component = (
+                      <div className="col-md-3" key={index}>
+                        <div className="row">
+                          <div
+                            className="col aks-btn"
+                            style={
+                              !item.click
+                                ? styles.borderNotClick
+                                : item.correct
+                                ? styles.borderTrue
+                                : styles.borderFalse
+                            }
+                            onClick={() =>
+                              this.selectChoice(
+                                index,
+                                item.object,
+                                item.pattern
+                              )
+                            }
+                          >
+                            {this.getObject(item.object, item.pattern).objek}
+                          </div>
+                        </div>
                       </div>
-                      <div className="col"></div>
-                    </div>
-                  </div>
-                );
-              } else {
-                component = null;
-              }
-              return component;
-            })}
+                    );
+                  } else {
+                    component = null;
+                  }
+                  return component;
+                })}
+              </div>
+            </div>
           </div>
-          <div className="row mt-5">
-            {this.state.choices.map((item, index) => {
-              let component = null;
-              if (index < 12 && index >= 8) {
-                component = (
-                  <div className="col-md-3" key={index}>
-                    <div className="row">
-                      <div className="col"></div>
-                      <div
-                        className="col-auto aks-btn"
-                        style={
-                          !item.click
-                            ? styles.borderNotClick
-                            : item.correct
-                            ? styles.borderTrue
-                            : styles.borderFalse
-                        }
-                        onClick={() =>
-                          this.selectChoice(index, item.object, item.pattern)
-                        }
-                      >
-                        {this.getObject(item.object, item.pattern).objek}
-                      </div>
-                      <div className="col"></div>
-                    </div>
-                  </div>
-                );
-              } else {
-                component = null;
-              }
-              return component;
-            })}
-          </div>
+          <div className="col-md-1"></div>
         </div>
       </div>
     );
