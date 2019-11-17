@@ -93,7 +93,11 @@ export default class LoginBox extends Component {
                 ? "p-4 aks-btn"
                 : "p-4 aks-grayscale-filter"
             }
-            onClick={this.state.isValid ? this.addLocalStorage : null}
+            onClick={
+              this.state.isValid
+                ? this.addLocalStorage
+                : () => alert("Username salah, Hanya menerima huruf kecil a-z")
+            }
           />
         </Link>
 
