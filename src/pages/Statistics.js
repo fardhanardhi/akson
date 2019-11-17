@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Background from "../assets/Background.svg";
 import LeftArrow from "../assets/leftArrow.svg";
-import Logo from "../assets/logoAkson.svg";
+// import Logo from "../assets/logoAkson.svg";
 // import * as React from "react";
 // import { render } from "react-dom";
 import GlobalStat from "../components/GlobalStat";
@@ -54,13 +54,12 @@ export default class Statistics extends Component {
   render() {
     return (
       <div style={style.bgStyle}>
-        <div className="container-fluid">
-          <div className="row">
+        {/* <img src={Logo} alt="logoAkson" style={style.logoStyle}></img> */}
+        <div className="container-fluid h-100">
+          <div className="row align-items-center h-100">
             <div className="col-md-12">
               <div className="row">
                 <div className="col-md-12">
-                  <img src={Logo} alt="logoAkson" style={style.logoStyle}></img>
-
                   <div className="row" style={style.rowStyle}>
                     <div
                       className="col-md text-center "
@@ -106,7 +105,8 @@ const style = {
   },
 
   logoStyle: {
-    right: "0",
+    right: 30,
+    top: 30,
     position: "absolute",
     zIndex: "0"
   },
@@ -114,8 +114,8 @@ const style = {
   rowStyle: {
     height: "100%",
     position: "relative",
-    width:"95%",
-    margin:"auto",
+    width: "80%",
+    margin: "auto"
   },
 
   whiteContainerStyle: {
@@ -123,15 +123,14 @@ const style = {
     // align: "center",
     margin: "auto",
     paddingTop: "auto",
-    paddiongBottom:"auto",
-    paddingLeft:"20px",
-    paddingRight:"20px",
-    top: "25%",
+    paddiongBottom: "auto",
+    paddingLeft: "20px",
+    paddingRight: "20px",
     // msTransform: "translateY(25%)",
     // transform: "translateY(25%)",
     backgroundColor: "#FFFFFF",
     borderRadius: "35px",
-    height: "500px",
+    height: "500px"
     // position: "absolute"
   },
   lArrowStyle: {

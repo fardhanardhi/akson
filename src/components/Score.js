@@ -158,9 +158,9 @@ export default class Score extends Component {
             <div className="col-md-12 mt-3">
               <div className="row">
                 <div className="col-md-6">
-                  <div className="row ml-5">Score saya</div>
+                  <div className="row ml-5">Pencapaian saya</div>
                 </div>
-                <div className="col-md-6">Jumlah rata-rata</div>
+                <div className="col-md-6">Pencapaian rata-rata</div>
               </div>
             </div>
           </div>
