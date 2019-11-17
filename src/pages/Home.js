@@ -8,39 +8,8 @@ export default class Home extends Component {
   render() {
     return (
       <div style={style.bgStyle}>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/permainan">Permainan</Link>
-            </li>
-            <li>
-              <Link to="/gameplay">GamePlay</Link>
-            </li>
-            <li>
-              <Link to="/Menu">Menu</Link>
-            </li>
-            <li>
-              <Link to="/statistics">Statistic</Link>
-            </li>
-            <li>
-              <Link to="/find-the-pairs">Find the Pairs</Link>
-            </li>
-            <li>
-              <Link to="/Shape-and-Pattern">SHape and Pattern</Link>
-            </li>
-            <li>
-              <Link to="/Color-Codes">Color Codes</Link>
-            </li>
-            <li>
-              <Link to="/Count-the-Object">Count the Object</Link>
-            </li>
-          </ul>
-        </nav>
-        <div className="container-fluid ">
-          <div style={style.nganu} className="row">
+        <div className="container-fluid h-100">
+          <div className="row align-items-center h-100">
             <div className="col-md-12">
               <div className="row">
                 <img
@@ -67,7 +36,8 @@ const style = {
     backgroundPosition: "center center",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${Background})`,
-    height: "100vh"
+    height: "100vh",
+    backgroundSize: "100% auto"
   },
   logoComStyle: {
     marginLeft: "auto",
