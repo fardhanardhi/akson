@@ -79,10 +79,6 @@ class GameHeader extends Component {
             <img src={stopwatchIcon} alt="stopwatch" className="mb-1" />
           </div>
         </div>
-        <button onClick={() => this.context.setTicked(!this.context.isTicked)}>
-          pause/play
-        </button>
-        <button onClick={this.props.onTimeOut}>next</button>
       </div>
     );
   }
