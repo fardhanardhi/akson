@@ -28,7 +28,7 @@ export default class GlobalStat extends Component {
     return (
       <div>
         <Chart
-          width={"400px"}
+          width={"auto"}
           height={"400px"}
           chartType="ColumnChart"
           loader={<div>Loading Chart</div>}

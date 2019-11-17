@@ -61,7 +61,7 @@ export default class Statistics extends Component {
                 <div className="col-md-12">
                   <img src={Logo} alt="logoAkson" style={style.logoStyle}></img>
 
-                  <div className="row">
+                  <div className="row" style={style.rowStyle}>
                     <div
                       className="col-md text-center "
                       style={style.whiteContainerStyle}
@@ -76,7 +76,7 @@ export default class Statistics extends Component {
                       <h4 style={style.titleStyle}>Statistikmu</h4>
                       <div className={"my-pretty-chart-container "}>
                         <div className="row">
-                          <div className="col">
+                          <div className="col-4">
                             <GlobalStat />
                           </div>
                           <div className="col-8">
@@ -99,9 +99,10 @@ export default class Statistics extends Component {
 const style = {
   bgStyle: {
     backgroundPosition: "center center",
-    backgroundRepeat: "no-repeat",
+    backgroundRepeat: "repeat",
     backgroundImage: `url(${Background})`,
-    height: "100vh"
+    height: "100vh",
+    overflow: "hidden"
   },
 
   logoStyle: {
@@ -110,13 +111,23 @@ const style = {
     zIndex: "0"
   },
 
+  rowStyle: {
+    height: "100%",
+    position: "relative"
+  },
+
   whiteContainerStyle: {
     boxShadow: "10px 10px 5px grey",
     // align: "center",
     margin: "auto",
+    padding: "auto",
+    top: "25%",
+    // msTransform: "translateY(25%)",
+    // transform: "translateY(25%)",
     backgroundColor: "#FFFFFF",
     borderRadius: "35px",
-    height: "500px"
+    height: "500px",
+    // position: "absolute"
   },
   lArrowStyle: {
     position: "absolute",

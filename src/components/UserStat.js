@@ -24,7 +24,7 @@ constructor(props) {
     return (
       <div>
         <Chart
-          width={"900px"}
+          width={"auto"}
           height={"400px"}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
