@@ -6,12 +6,19 @@ import Home from "../assets/Home.svg";
 import ThermoBlue from "../components/ThermoBlue";
 
 import axios from "axios";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export default class Score extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { finalScore: 0 };
+    this.state = { finalScore: 0, onlineScore: 0 };
+  }
+
+  componentDidMount() {
+    axios.get(`https://api-akson.000webhostapp.com/scoreAvg`).then(res => {
+      this.setState({ onlineScore: Number(res.data.average) });
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -114,14 +121,32 @@ export default class Score extends Component {
                   <div className="row">
                     <div className="col-md-3"></div>
                     <div className="col-md-3">
-                      <ThermoBlue id="thermo1" progress={100} color="#F3B431" />
+                      <ThermoBlue
+                        id="thermo1"
+                        progress={
+                          this.state.finalScore < this.state.onlineScore
+                            ? (this.state.finalScore / this.state.onlineScore) *
+                              100
+                            : 100
+                        }
+                        color="#F3B431"
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="row">
                     <div className="col-md-3">
-                      <ThermoBlue id="thermo2" progress={70} color="#3498DB" />
+                      <ThermoBlue
+                        id="thermo2"
+                        progress={
+                          this.state.onlineScore < this.state.finalScore
+                            ? (this.state.onlineScore / this.state.finalScore) *
+                              100
+                            : 100
+                        }
+                        color="#3498DB"
+                      />
                     </div>
                     <div className="col-md-3"></div>
                   </div>
@@ -140,7 +165,9 @@ export default class Score extends Component {
             </div>
           </div>
           <div style={style.Home}>
-            <img src={Home} alt="home icon"></img>
+            <Link to="/Menu">
+              <img src={Home} alt="home icon"></img>
+            </Link>
           </div>
         </div>
       </div>
