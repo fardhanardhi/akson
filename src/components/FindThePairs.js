@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import Sphere from "../components/Sphere";
 import Cone from "../components/Cone";
@@ -268,120 +268,127 @@ class FindThePairs extends Component {
     // console.log("gameinfo ftp:", this.props.gameInfo);
 
     return (
-      <div className="container-fluid p-0">
-        {this.props.gameInfo == null ? null : (
-          <GameHeader
-            gameInfo={this.props.gameInfo}
-            onTimeOut={this.props.onTimeOut}
-            paused={this.props.paused}
-            onPause={this.props.onPause}
-            ref={this.headerRef}
-          />
-        )}
-        <div className="container text-center m-0 p-0">
-          <h2 style={styles.text}>Temukan objek yang berpasangan</h2>
-          <div className="row">
-            {this.state.choices.map((item, index) => {
-              let component = null;
-              if (index < 4) {
-                component = (
-                  <div className="col-md-3" key={index}>
-                    <div className="row">
-                      <div className="col"></div>
-                      <div
-                        className="col-auto aks-btn"
-                        style={
-                          item.correct
-                            ? styles.borderTrue
-                            : !item.click
-                            ? styles.borderNotClick
-                            : this.state.pair.length === 1
-                            ? styles.borderDefault
-                            : styles.borderFalse
-                        }
-                        onClick={() => this.clicked(index)}
-                      >
-                        {this.getObject(item.object, item.color)}
+      <Fragment>
+        <div
+          className="container-fluid text-center m-0 p-0"
+          style={{ position: "absolute", top: 0 }}
+        >
+          {this.props.gameInfo == null ? null : (
+            <GameHeader
+              gameInfo={this.props.gameInfo}
+              onTimeOut={this.props.onTimeOut}
+              paused={this.props.paused}
+              onPause={this.props.onPause}
+              ref={this.headerRef}
+            />
+          )}
+        </div>
+        <div className="container text-center h-100">
+          <div className="row align-items-center h-100">
+            <div className="col-md-1"></div>
+            <div className="col-md-10">
+              <h2 className="mb-5" style={styles.text}>
+                Temukan objek yang berpasangan
+              </h2>
+              <div className="row mb-4">
+                {this.state.choices.map((item, index) => {
+                  let component = null;
+                  if (index < 4) {
+                    component = (
+                      <div className="col-md-3" key={index}>
+                        <div className="row">
+                          <div
+                            className="col aks-btn"
+                            style={
+                              item.correct
+                                ? styles.borderTrue
+                                : !item.click
+                                ? styles.borderNotClick
+                                : this.state.pair.length === 1
+                                ? styles.borderDefault
+                                : styles.borderFalse
+                            }
+                            onClick={() => this.clicked(index)}
+                          >
+                            {this.getObject(item.object, item.color)}
+                          </div>
+                        </div>
                       </div>
-                      <div className="col"></div>
-                    </div>
-                  </div>
-                );
-              } else {
-                component = null;
-              }
-              return component;
-            })}
-          </div>
-          <div className="row mt-5">
-            {this.state.choices.map((item, index) => {
-              let component = null;
+                    );
+                  } else {
+                    component = null;
+                  }
+                  return component;
+                })}
+              </div>
+              <div className="row mb-4">
+                {this.state.choices.map((item, index) => {
+                  let component = null;
 
-              if (index < 8 && index >= 4) {
-                component = (
-                  <div className="col-md-3" key={index}>
-                    <div className="row">
-                      <div className="col"></div>
-                      <div
-                        className="col-auto aks-btn"
-                        style={
-                          item.correct
-                            ? styles.borderTrue
-                            : !item.click
-                            ? styles.borderNotClick
-                            : this.state.pair.length === 1
-                            ? styles.borderDefault
-                            : styles.borderFalse
-                        }
-                        onClick={() => this.clicked(index)}
-                      >
-                        {this.getObject(item.object, item.color)}
+                  if (index < 8 && index >= 4) {
+                    component = (
+                      <div className="col-md-3" key={index}>
+                        <div className="row">
+                          <div
+                            className="col aks-btn"
+                            style={
+                              item.correct
+                                ? styles.borderTrue
+                                : !item.click
+                                ? styles.borderNotClick
+                                : this.state.pair.length === 1
+                                ? styles.borderDefault
+                                : styles.borderFalse
+                            }
+                            onClick={() => this.clicked(index)}
+                          >
+                            {this.getObject(item.object, item.color)}
+                          </div>
+                        </div>
                       </div>
-                      <div className="col"></div>
-                    </div>
-                  </div>
-                );
-              } else {
-                component = null;
-              }
-              return component;
-            })}
-          </div>
-          <div className="row mt-5">
-            {this.state.choices.map((item, index) => {
-              let component = null;
-              if (index < 12 && index >= 8) {
-                component = (
-                  <div className="col-md-3" key={index}>
-                    <div className="row">
-                      <div className="col"></div>
-                      <div
-                        className="col-auto aks-btn"
-                        style={
-                          item.correct
-                            ? styles.borderTrue
-                            : !item.click
-                            ? styles.borderNotClick
-                            : this.state.pair.length === 1
-                            ? styles.borderDefault
-                            : styles.borderFalse
-                        }
-                        onClick={() => this.clicked(index)}
-                      >
-                        {this.getObject(item.object, item.color)}
+                    );
+                  } else {
+                    component = null;
+                  }
+                  return component;
+                })}
+              </div>
+              <div className="row mb-4">
+                {this.state.choices.map((item, index) => {
+                  let component = null;
+                  if (index < 12 && index >= 8) {
+                    component = (
+                      <div className="col-md-3" key={index}>
+                        <div className="row text-center">
+                          <div
+                            className="col aks-btn"
+                            style={
+                              item.correct
+                                ? styles.borderTrue
+                                : !item.click
+                                ? styles.borderNotClick
+                                : this.state.pair.length === 1
+                                ? styles.borderDefault
+                                : styles.borderFalse
+                            }
+                            onClick={() => this.clicked(index)}
+                          >
+                            {this.getObject(item.object, item.color)}
+                          </div>
+                        </div>
                       </div>
-                      <div className="col"></div>
-                    </div>
-                  </div>
-                );
-              } else {
-                component = null;
-              }
-              return component;
-            })}
+                    );
+                  } else {
+                    component = null;
+                  }
+                  return component;
+                })}
+              </div>
+            </div>
+            <div className="col-md-1"></div>
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
@@ -390,8 +397,7 @@ const styles = {
   text: {
     fontWeight: "normal",
     fontFamily: "Carter One",
-    color: "#1D1D1D",
-    marginBottom: "75px"
+    color: "#1D1D1D"
   },
   borderTrue: {
     padding: "15px",
