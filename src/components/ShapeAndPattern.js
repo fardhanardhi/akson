@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import Star from "../components/Stars";
 import Rectangel from "../components/Rectangel";
@@ -336,21 +336,28 @@ export default class FindThePairs extends Component {
 
   render() {
     return (
-      <div className="container-fluid p-0">
-        {this.props.gameInfo == null ? null : (
-          <GameHeader
-            gameInfo={this.props.gameInfo}
-            onTimeOut={this.props.onTimeOut}
-            paused={this.props.paused}
-            onPause={this.props.onPause}
-            ref={this.headerRef}
-          />
-        )}
+      <Fragment>
+        <div
+          className="container-fluid p-0 m-0"
+          style={{ position: "absolute", top: 0 }}
+        >
+          {this.props.gameInfo == null ? null : (
+            <GameHeader
+              gameInfo={this.props.gameInfo}
+              onTimeOut={this.props.onTimeOut}
+              paused={this.props.paused}
+              onPause={this.props.onPause}
+              ref={this.headerRef}
+            />
+          )}
+        </div>
         <div className="container text-center h-100">
           <div className="row align-items-center h-100">
             <div className="col-md-1"></div>
             <div className="col-md-10">
-              <h2 style={styles.text}>Temukan</h2>
+              <h2 className="mb-2" style={styles.text}>
+                Temukan
+              </h2>
               {this.state.isQuestion.map((item, index) => {
                 let component = null;
                 component = (
@@ -383,7 +390,7 @@ export default class FindThePairs extends Component {
                   let component = null;
                   if (index < 4) {
                     component = (
-                      <div className="col-md-3" key={index}>
+                      <div className="col-md-3 my-auto" key={index}>
                         <div className="row">
                           <div
                             className="col aks-btn"
@@ -418,7 +425,7 @@ export default class FindThePairs extends Component {
                   let component = null;
                   if (index < 8 && index >= 4) {
                     component = (
-                      <div className="col-md-3" key={index}>
+                      <div className="col-md-3 my-auto" key={index}>
                         <div className="row">
                           <div
                             className="col aks-btn"
@@ -453,7 +460,7 @@ export default class FindThePairs extends Component {
                   let component = null;
                   if (index < 12 && index >= 8) {
                     component = (
-                      <div className="col-md-3" key={index}>
+                      <div className="col-md-3 my-auto" key={index}>
                         <div className="row">
                           <div
                             className="col aks-btn"
@@ -487,7 +494,7 @@ export default class FindThePairs extends Component {
           </div>
           <div className="col-md-1"></div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
@@ -501,7 +508,8 @@ const styles = {
   textCase: {
     fontWeight: "normal",
     fontFamily: "Carter One",
-    color: "#1D1D1D"
+    color: "#1D1D1D",
+    marginBottom: "10px"
   },
   borderTrue: {
     padding: "15px",
