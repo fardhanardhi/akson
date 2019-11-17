@@ -114,7 +114,7 @@ const style = {
   rowStyle: {
     height: "100%",
     position: "relative",
-    width:"97%",
+    width:"95%",
     margin:"auto",
   },
 
