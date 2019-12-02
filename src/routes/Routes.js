@@ -10,13 +10,21 @@ import FindThePairs from "../components/FindThePairs";
 import CountObject from "../components/CountTheObject";
 import ColorCodes from "../components/ColorCodes";
 import ShapeAndPatteren from "../components/ShapeAndPattern";
-import UserStat from "../components/UserStat"
+import UserStat from "../components/UserStat";
+import Usia from "../components/Usia";
+import Coba from "../components/coba"
 
 export default function Routes() {
   return (
     <Router>
       <div>
         <Switch>
+        <Route path="/usia">
+            <Usia/>
+          </Route>
+          <Route path="/coba">
+            <Coba/>
+          </Route>
           <Route path="/Menu">
             <Menu />
           </Route>
