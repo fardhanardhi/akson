@@ -8,6 +8,9 @@ export default class Home extends Component {
   render() {
     return (
       <div style={style.bgStyle}>
+        <Link to="/usia">
+          Usia
+        </Link>
         <div className="container-fluid h-100">
           <div className="row align-items-center h-100">
             <div className="col-md-12">
