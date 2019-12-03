@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Background from "../assets/Background.svg";
 import LeftArrow from "../assets/leftArrow.svg";
+import LineChart from "../assets/lineChart.svg";
+import BarsChart from "../assets/barsChart.svg";
 // import Logo from "../assets/logoAkson.svg";
 // import * as React from "react";
 // import { render } from "react-dom";
@@ -14,11 +16,12 @@ export default class Statistics extends Component {
 
     this.state = {
       username: "",
-      score: []
+      score: [],
+      isChartLine: true
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     // var simpanan = [
     //   {username :  "rafif", score:"1870"},
     //   {username :  "adan", score:"2180"},
@@ -75,11 +78,26 @@ export default class Statistics extends Component {
                       <h4 style={style.titleStyle}>Statistikmu</h4>
                       <div className={"my-pretty-chart-container "}>
                         <div className="row">
-                          <div className="col-4">
-                            <GlobalStat />
+                          {this.state.isChartLine ? (
+                            <div className="col-12">
+                              <UserStat userScore={this.state.score} />
+                            </div>
+                          ) : (
+                            <div className="col-12">
+                              <GlobalStat />
+                            </div>
+                          )}
+                        </div>
+                        <div className="row">
+                          <div className="col-4"></div>
+                          <div className="col-1">
+                            <img src={LineChart} alt="lineChartIcon" onClick={() => this.setState({isChartLine:true})}/>
+                            {/* <div>Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
                           </div>
-                          <div className="col-8">
-                            <UserStat userScore={this.state.score} />
+                          <div className="col-2"></div>
+                          <div className="col-1">
+                            <img src={BarsChart} alt="barsChartIcon" onClick={() => this.setState({isChartLine:false})}/>
+                            {/* <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
                           </div>
                         </div>
                       </div>
@@ -130,7 +148,7 @@ const style = {
     // transform: "translateY(25%)",
     backgroundColor: "#FFFFFF",
     borderRadius: "35px",
-    height: "500px"
+    height: "600px"
     // position: "absolute"
   },
   lArrowStyle: {
