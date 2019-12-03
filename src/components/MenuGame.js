@@ -31,6 +31,7 @@ export default class MenuGame extends Component {
               </div>
             </div>
           </div>
+          
           <Link style={{ textDecoration: "none" }} to="/gameplay">
             <div className="aks-btn" style={style.kotakMain}>
               <div className="container">
@@ -46,6 +47,7 @@ export default class MenuGame extends Component {
               </div>
             </div>
           </Link>
+
           <Link style={{ textDecoration: "none" }} to="/statistics">
             <div className="aks-btn" style={style.kotakLain}>
               <div className="container">
@@ -61,14 +63,15 @@ export default class MenuGame extends Component {
               </div>
             </div>
           </Link>
-          <Link style={{ textDecoration: "none" }} to="/">
+          
+          <Link style={{ textDecoration: "none" }} to="/rubah-akun">
             <div className="aks-btn" style={style.kotakLain}>
               <div className="container">
                 <div className="col-md-12">
                   <div className="row">
                     <div className="col"></div>
                     <div className="col-auto" style={style.fontLain}>
-                      <div style={style.fontLain}>KELUAR</div>
+                      <div style={style.fontLain}>RUBAH AKUN</div>
                     </div>
                     <div className="col"></div>
                   </div>
@@ -76,6 +79,23 @@ export default class MenuGame extends Component {
               </div>
             </div>
           </Link>
+
+          <div className="container" style={{ marginTop: "60px" }}>
+            <div className="col-md-12">
+              <div className="row">
+                <div className="col"></div>
+                <Link style={{ textDecoration: "none" }} to="/">
+                  <div className="aks-btn">
+                    <div className="col-auto" style={style.fontKeluar}>
+                      <p>KELUAR</p>
+                    </div>
+                  </div>
+                </Link>
+                <div className="col"></div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     );
@@ -121,7 +141,7 @@ const style = {
     width: "300.79px",
     height: "64.02px",
     marginLeft: "64px",
-    marginTop: "80px",
+    marginTop: "60px",
     boxShadow: " 6px 6px 0px rgba(0, 0, 0, 0.15)"
   },
 
@@ -141,5 +161,15 @@ const style = {
     color: "#FFFFFF",
     marginTop: "7px",
     textDecoration: "none"
+  },
+
+  fontKeluar: {
+    fontFamily: "Roboto",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontSize: "14px",
+    color: "#e74c3c",
+    marginTop: "10px",
+    textDecoration: "underline"
   }
 };

@@ -12,7 +12,7 @@ import ColorCodes from "../components/ColorCodes";
 import ShapeAndPatteren from "../components/ShapeAndPattern";
 import UserStat from "../components/UserStat";
 import Usia from "../components/Usia";
-import Coba from "../components/coba"
+import EditAkun from "../components/EditAkun";
 
 export default function Routes() {
   return (
@@ -22,8 +22,8 @@ export default function Routes() {
         <Route path="/usia">
             <Usia/>
           </Route>
-          <Route path="/coba">
-            <Coba/>
+          <Route path="/rubah-akun">
+            <EditAkun />
           </Route>
           <Route path="/Menu">
             <Menu />
