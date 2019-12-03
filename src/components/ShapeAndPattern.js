@@ -135,7 +135,6 @@ export default class FindThePairs extends Component {
                 }}
               />
             </svg>
-            {/* <p style={styles.textHelp}>{`${Pattern[patternId].name}`}</p> */}
           </div>
         ),
 
@@ -390,7 +389,7 @@ export default class FindThePairs extends Component {
                   let component = null;
                   if (index < 4) {
                     component = (
-                      <div className="col-md-3 my-auto" key={index}>
+                      <div className="col-md-3" key={index}>
                         <div className="row">
                           <div
                             className="col aks-btn"
