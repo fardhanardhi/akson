@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import { Link } from "react-router-dom";
 import Slider, { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
 
@@ -33,14 +34,23 @@ export default class Usia extends Component {
                 </div>
                 <div className="col-md-6 mt-3" style={style.fontJudul}>
                   <h2>Hai, {this.state.username}</h2>
+                </div>
+                <div className="col-md-3"></div>
+              </div>
+            </div>
+          </div>
+          <div className="container mb-3 ml-5">
+            <div className="col-md-12">
+              <div className="row">
+                <div className="col-md-3"></div>
+                <div className="col-md-6">
                   <div style={style.fontIsi}>Berapa umur anda ?</div>
                 </div>
                 <div className="col-md-3"></div>
               </div>
             </div>
           </div>
-
-          <div class="mt-5 noselect" style={style.wrapperStyle}>
+          <div class="mt-4 noselect" style={style.wrapperStyle}>
             <Slider
               min={7}
               defaultValue={7}
@@ -90,15 +100,17 @@ export default class Usia extends Component {
             <div className="col-md-12">
               <div className="row">
                 <div className="col"></div>
-                <div className="col-auto ml-3 mt-5" style={style.kotakLain}>
+                <div className="col-auto ml-3 mt-5 aks-btn" style={style.kotakLain}>
                   <div className="container">
                     <div className="col-md-12">
                       <div className="row">
                         <div className="col"></div>
                         <div className="col-auto">
-                          <div style={style.fontUsia} className="mt-2">
-                            KIRIM
-                          </div>
+                          <Link to="/menu">
+                            <div style={style.fontUsia} className="mt-2">
+                              KIRIM
+                            </div>
+                          </Link>
                         </div>
                         <div className="col"></div>
                       </div>
@@ -165,5 +177,5 @@ const style = {
     boxShadow: " 6px 6px 0px rgba(0, 0, 0, 0.15)"
   },
 
-  wrapperStyle: { width: 600, marginLeft: 55 }
+  wrapperStyle: { width: 500, marginLeft: 110 }
 };

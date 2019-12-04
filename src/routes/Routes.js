@@ -13,12 +13,16 @@ import ShapeAndPatteren from "../components/ShapeAndPattern";
 import UserStat from "../components/UserStat";
 import Usia from "../components/Usia";
 import EditAkun from "../components/EditAkun";
+import InputUmur from "../pages/InputUmur";
 
 export default function Routes() {
   return (
     <Router>
       <div>
         <Switch>
+        <Route path="/input-umur">
+            <InputUmur/>
+          </Route> 
         <Route path="/usia">
             <Usia/>
           </Route>

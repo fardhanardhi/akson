@@ -79,7 +79,7 @@ export default class LoginBox extends Component {
             this.state.username === ""
               ? null
               : this.state.isValid
-              ? "/menu"
+              ? "/input-umur"
               : null
           }
         >
