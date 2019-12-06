@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-import Slider, { Range } from "rc-slider";
+import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
 export default class Usia extends Component {
@@ -100,23 +100,26 @@ export default class Usia extends Component {
             <div className="col-md-12">
               <div className="row">
                 <div className="col"></div>
-                <div className="col-auto ml-3 mt-5 aks-btn" style={style.kotakLain}>
-                  <div className="container">
-                    <div className="col-md-12">
-                      <div className="row">
-                        <div className="col"></div>
-                        <div className="col-auto">
-                          <Link to="/menu">
+                <Link to ="/menu">
+                  <div
+                    className="col-auto ml-3 mt-5 aks-btn"
+                    style={style.kotakLain}
+                  >
+                    <div className="container">
+                      <div className="col-md-12">
+                        <div className="row">
+                          <div className="col"></div>
+                          <div className="col-auto">
                             <div style={style.fontUsia} className="mt-2">
                               KIRIM
                             </div>
-                          </Link>
+                          </div>
+                          <div className="col"></div>
                         </div>
-                        <div className="col"></div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
                 <div className="col"></div>
               </div>
             </div>
