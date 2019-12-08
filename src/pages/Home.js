@@ -13,6 +13,7 @@ export default class Home extends Component {
             <div className="col-md-12">
               <div className="row">
                 <img
+                  className="vert-move"
                   src={LogoComplete}
                   alt="logoComplete"
                   style={style.logoComStyle}

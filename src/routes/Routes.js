@@ -10,13 +10,25 @@ import FindThePairs from "../components/FindThePairs";
 import CountObject from "../components/CountTheObject";
 import ColorCodes from "../components/ColorCodes";
 import ShapeAndPatteren from "../components/ShapeAndPattern";
-import UserStat from "../components/UserStat"
+import UserStat from "../components/UserStat";
+import Usia from "../components/Usia";
+import EditAkun from "../components/EditAkun";
+import InputUmur from "../pages/InputUmur";
 
 export default function Routes() {
   return (
     <Router>
       <div>
         <Switch>
+        <Route path="/input-umur">
+            <InputUmur/>
+          </Route> 
+        <Route path="/usia">
+            <Usia/>
+          </Route>
+          <Route path="/rubah-akun">
+            <EditAkun />
+          </Route>
           <Route path="/Menu">
             <Menu />
           </Route>
