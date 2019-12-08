@@ -34,8 +34,20 @@ export default class GlobalStat extends Component {
           loader={<div>Loading Chart</div>}
           data={[
             ["Kriteria", "Poin", { role: "style" }, { role: "annotation" }],
-            ["Rata-rata", this.state.average, "#37883d", this.state.average],
-            ["Baru Saja", this.state.lastScore, "#F3B431", this.state.lastScore]
+            ["Rata-rata seluruh pengguna", 
+            700,
+            // this.state.average,
+             "#37883d",
+             700
+              // this.state.average
+            ],
+            ["Rata-rata Skor Anda",
+            715,
+            //  this.state.lastScore, 
+             "#F3B431",
+             715
+              // this.state.lastScore
+            ]
           ]}
           options={{
             // Material design options
