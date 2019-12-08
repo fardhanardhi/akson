@@ -62,7 +62,18 @@ export default class UserStat extends Component {
           height={"400px"}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
-          data={this.state.dataScore}
+          data={[
+            ['x', 'score'],
+            [0, 0],
+            [1, 550],
+            [2, 850],
+            [3, 1105],
+            [4, 1115],
+          ]}
+          // {
+          //   // this.state.dataScore
+            
+          // }
           options={{
             hAxis: {
               title: "Jumlah Permainan"
