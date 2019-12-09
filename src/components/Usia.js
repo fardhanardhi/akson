@@ -55,11 +55,11 @@ export default class Usia extends Component {
               min={7}
               defaultValue={7}
               marks={{
-                20: { style: style.fontIsi, label: 7 },
-                40: { style: style.fontIsi, label: 8 },
-                60: { style: style.fontIsi, label: 9 },
-                80: { style: style.fontIsi, label: 10 },
-                100: { style: style.fontIsi, label: 11 }
+                20: { style: style.fontIsi2, label: 7 },
+                40: { style: style.fontIsi2, label: 8 },
+                60: { style: style.fontIsi2, label: 9 },
+                80: { style: style.fontIsi2, label: 10 },
+                100: { style: style.fontIsi2, label: 11 }
               }}
               step={null}
               handleStyle={{
@@ -145,7 +145,8 @@ const style = {
     fontFamily: "Carter One",
     color: "#FAFAFA",
     marginLeft: "80px",
-    marginTop: "70px"
+    marginTop: "70px",
+    fontSize: "30px"
   },
 
   cahaya: {
@@ -161,7 +162,15 @@ const style = {
     fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "24px"
+    fontSize: "30px"
+  },
+
+  fontIsi2: {
+    color: "#FAFAFA",
+    fontFamily: "Carter One",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "30px"
   },
 
   fontUsia: {

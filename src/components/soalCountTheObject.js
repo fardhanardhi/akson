@@ -20,6 +20,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah anak yang bermain?",
+        umur: 9,
         pilihanJawaban: [
           {
             text: "5",
@@ -47,6 +48,7 @@ const soal = [
       },
       {
         text: "berapa jumlah pohon yang ada?",
+        umur: 7,
         pilihanJawaban: [
           {
             text: "3",
@@ -79,6 +81,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah apel yang ada?",
+        umur: 9,
         pilihanJawaban: [
           {
             text: "7",
@@ -106,6 +109,7 @@ const soal = [
       },
       {
         text: "berapa jumlah bunga yang ada?",
+        umur: 11,
         pilihanJawaban: [
           {
             text: "7",
@@ -138,6 +142,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah bangku yang ada di taman?",
+        umur: 9,
         pilihanJawaban: [
           {
             text: "5",
@@ -165,6 +170,7 @@ const soal = [
       },
       {
         text: "berapa jumlah perahu yang ada di danau?",
+        umur: 8,
         pilihanJawaban: [
           {
             text: "2",
@@ -197,6 +203,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah bebek yang mengapung?",
+        umur: 10,
         pilihanJawaban: [
           {
             text: "5",
@@ -221,6 +228,7 @@ const soal = [
       },
       {
         text: "berapa jumlah bebek yang ada?",
+        umur: 9,
         pilihanJawaban: [
           {
             text: "2",
@@ -250,6 +258,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah binatang yang ada pada gambar?",
+        umur : 9,
         pilihanJawaban: [
           {
             text: "5",
@@ -274,6 +283,7 @@ const soal = [
       },
       {
         text: "berapa jumlah bunga yang ada pada gambar?",
+        umur : 11,
         pilihanJawaban: [
           {
             text: "10",
@@ -303,6 +313,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah bunga yang ada pada gambar?",
+        umur : 9,
         pilihanJawaban: [
           {
             text: "5",
@@ -328,10 +339,11 @@ const soal = [
     ]
   },
   {
-    image: Bunga2,
+    image: Bunga2, 
     pertanyaan: [
       {
         text: "berapa jumlah bunga yang ada pada gambar?",
+        umur: 8,
         pilihanJawaban: [
           {
             text: "4",
@@ -355,7 +367,8 @@ const soal = [
         ]
       },
       {
-        text: "berapa jumlah pohon yang ada?",
+        text: "berapa jumlah pohon cemara yang ada?",
+        umur: 10,
         pilihanJawaban: [
           {
             text: "7",
@@ -380,6 +393,7 @@ const soal = [
       },
       {
         text: "berapa jumlah kupu-kupu yang berterbangan?",
+        umur: 11,
         pilihanJawaban: [
           {
             text: "1",
@@ -409,6 +423,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah bunga matahari yang ada pada gambar?",
+        umur: 10,
         pilihanJawaban: [
           {
             text: "6",
@@ -438,6 +453,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah burung yang ada pada gambar?",
+        umur: 8,
         pilihanJawaban: [
           {
             text: "6",
@@ -467,6 +483,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah burung yang terbang?",
+        umur: 9,
         pilihanJawaban: [
           {
             text: "6",
@@ -496,6 +513,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah burung pelikan yang terbang?",
+        umur: 7,
         pilihanJawaban: [
           {
             text: "1",
@@ -525,6 +543,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah ikan yang berenang?",
+        umur: 8,
         pilihanJawaban: [
           {
             text: "5",
@@ -549,6 +568,7 @@ const soal = [
       },
       {
         text: "berapa jumlah ikan badut yang berenang?",
+        umur: 10,
         pilihanJawaban: [
           {
             text: "5",
@@ -578,6 +598,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa jumlah ikan yang berenang?",
+        umur: 10,
         pilihanJawaban: [
           {
             text: "5",
@@ -602,6 +623,7 @@ const soal = [
       },
       {
         text: "berapa ubur-ubur yang berenang?",
+        umur: 9,
         pilihanJawaban: [
           {
             text: "1",
@@ -631,6 +653,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa orang yang ada di taman?",
+        umur: 10,
         pilihanJawaban: [
           {
             text: "5",
@@ -655,6 +678,7 @@ const soal = [
       },
       {
         text: "berapa jumlah awan yang ada?",
+        umur: 11,
         pilihanJawaban: [
           {
             text: "9",
@@ -684,6 +708,7 @@ const soal = [
     pertanyaan: [
       {
         text: "berapa orang yang ada di taman?",
+        umur: 10,
         pilihanJawaban: [
           {
             text: "7",
@@ -708,6 +733,7 @@ const soal = [
       },
       {
         text: "berapa jumlah pohon yang ada?",
+        umur: 9,
         pilihanJawaban: [
           {
             text: "7",
