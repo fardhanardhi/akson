@@ -55,11 +55,11 @@ export default class Usia extends Component {
               min={7}
               defaultValue={7}
               marks={{
-                20: { style: style.fontIsi, label: 7 },
-                40: { style: style.fontIsi, label: 8 },
-                60: { style: style.fontIsi, label: 9 },
-                80: { style: style.fontIsi, label: 10 },
-                100: { style: style.fontIsi, label: 11 }
+                20: { style: style.fontIsi2, label: 7 },
+                40: { style: style.fontIsi2, label: 8 },
+                60: { style: style.fontIsi2, label: 9 },
+                80: { style: style.fontIsi2, label: 10 },
+                100: { style: style.fontIsi2, label: 11 }
               }}
               step={null}
               handleStyle={{
@@ -96,25 +96,26 @@ export default class Usia extends Component {
               }}
             />
           </div>
-          <div className="container">
+          <div className="container mt-3">
             <div className="col-md-12">
               <div className="row">
                 <div className="col"></div>
-                <Link to ="/menu">
+                <Link to="/menu">
                   <div
                     className="col-auto ml-3 mt-5 aks-btn"
-                    style={style.kotakLain}
                   >
-                    <div className="container">
-                      <div className="col-md-12">
-                        <div className="row">
-                          <div className="col"></div>
-                          <div className="col-auto">
-                            <div style={style.fontUsia} className="mt-2">
-                              KIRIM
+                    <div className= "ml-2" style={style.kotakLain}>
+                      <div className="container">
+                        <div className="col-md-12">
+                          <div className="row">
+                            <div className="col"></div>
+                            <div className="col-auto">
+                              <div style={style.fontUsia} className="mt-2">
+                                KIRIM
+                              </div>
                             </div>
+                            <div className="col"></div>
                           </div>
-                          <div className="col"></div>
                         </div>
                       </div>
                     </div>
@@ -145,7 +146,8 @@ const style = {
     fontFamily: "Carter One",
     color: "#FAFAFA",
     marginLeft: "80px",
-    marginTop: "70px"
+    marginTop: "70px",
+    fontSize: "30px"
   },
 
   cahaya: {
@@ -161,7 +163,15 @@ const style = {
     fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "24px"
+    fontSize: "30px"
+  },
+
+  fontIsi2: {
+    color: "#FAFAFA",
+    fontFamily: "Carter One",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "30px"
   },
 
   fontUsia: {
@@ -176,7 +186,6 @@ const style = {
     width: "300.79px",
     height: "64.02px",
     marginLeft: "64px",
-    marginTop: "30px",
     boxShadow: " 6px 6px 0px rgba(0, 0, 0, 0.15)"
   },
 
