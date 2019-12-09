@@ -15,6 +15,8 @@ import Usia from "../components/Usia";
 import EditAkun from "../components/EditAkun";
 import InputUmur from "../pages/InputUmur";
 
+import FindThePairs2 from "../components/FindThePairs2";
+
 export default function Routes() {
   return (
     <Router>
@@ -58,6 +60,9 @@ export default function Routes() {
           </Route>
           <Route path="/UserStat" >
             <UserStat/>
+          </Route>
+          <Route path="/findThepairs2" >
+            <FindThePairs2/>
           </Route>
           <Route path="/">
             <Home />
