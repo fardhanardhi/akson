@@ -20,59 +20,60 @@ export default class UserStat extends Component {
     });
 
     console.log(this.props.userScore);
-    this.setState({ dataScore: [...this.state.dataScore, ...hasilData] }, ()=>{
-      console.log(this.state.dataScore);
-      this.hitungSelisih();
-    });
-
-    
+    this.setState(
+      { dataScore: [...this.state.dataScore, ...hasilData] },
+      () => {
+        console.log(this.state.dataScore);
+        this.hitungSelisih();
+      }
+    );
   }
 
   hitungSelisih = () => {
-    let previousScore = this.state.dataScore[this.state.dataScore.length - 2][1];
-    let recentScore = this.state.dataScore[this.state.dataScore.length-1][1];
+    let previousScore = this.state.dataScore[
+      this.state.dataScore.length - 2
+    ][1];
+    let recentScore = this.state.dataScore[this.state.dataScore.length - 1][1];
     if (previousScore < recentScore) {
       console.log(previousScore);
-      let tempDelta =recentScore - previousScore;
-      this.setState({ deltaScore:"+"+tempDelta });
-      
+      let tempDelta = recentScore - previousScore;
+      this.setState({ deltaScore: "+" + tempDelta });
+
       // return tempDelta;
-    }else if (previousScore > recentScore) {
+    } else if (previousScore > recentScore) {
       console.log(previousScore);
       let tempDelta = previousScore - recentScore;
-      this.setState({ deltaScore: "-"+tempDelta });
+      this.setState({ deltaScore: "-" + tempDelta });
       // return tempDelta;
     }
     console.log(previousScore, "|", recentScore);
-    
   };
 
   render() {
-    
     console.log(this.state.deltaScore);
     console.log(this.state.dataScore);
     // console.log(this.hitungSelisih());
     return (
       <div>
-        <div style={{ marginLeft: "100px" }}>
+        {/* <div style={{ marginLeft: "100px" }}>
           <h6 className="text-left">{this.state.deltaScore}</h6>
-        </div>
+        </div> */}
         <Chart
           width={"auto"}
           height={"400px"}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
           data={[
-            ['x', 'score'],
+            ["x", "score"],
             [0, 0],
             [1, 550],
             [2, 850],
             [3, 1105],
-            [4, 1115],
+            [4, 1115]
           ]}
           // {
           //   // this.state.dataScore
-            
+
           // }
           options={{
             hAxis: {

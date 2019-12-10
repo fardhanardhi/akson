@@ -31,9 +31,9 @@ export default class MenuGame extends Component {
               </div>
             </div>
           </div>
-          
+
           <Link style={{ textDecoration: "none" }} to="/gameplay">
-            <div className="aks-btn" style={style.kotakMain}>
+            <div className="aks-btn " style={style.kotakMain}>
               <div className="container">
                 <div className="col-md-12">
                   <div className="row">
@@ -49,7 +49,7 @@ export default class MenuGame extends Component {
           </Link>
 
           <Link style={{ textDecoration: "none" }} to="/statistics">
-            <div className="aks-btn" style={style.kotakLain}>
+            <div className="aks-btn mt-3" style={style.kotakMain}>
               <div className="container">
                 <div className="col-md-12">
                   <div className="row">
@@ -63,15 +63,15 @@ export default class MenuGame extends Component {
               </div>
             </div>
           </Link>
-          
-          <Link style={{ textDecoration: "none" }} to="/rubah-akun">
-            <div className="aks-btn" style={style.kotakLain}>
+
+          <Link style={{ textDecoration: "none" }} to="/">
+            <div className="aks-btn mt-5" style={style.kotakLain}>
               <div className="container">
                 <div className="col-md-12">
                   <div className="row">
                     <div className="col"></div>
                     <div className="col-auto" style={style.fontLain}>
-                      <div style={style.fontLain}>RUBAH AKUN</div>
+                      <div style={style.fontLain}>KELUAR</div>
                     </div>
                     <div className="col"></div>
                   </div>
@@ -79,23 +79,6 @@ export default class MenuGame extends Component {
               </div>
             </div>
           </Link>
-
-          <div className="container" style={{ marginTop: "60px" }}>
-            <div className="col-md-12">
-              <div className="row">
-                <div className="col"></div>
-                <Link style={{ textDecoration: "none" }} to="/">
-                  <div className="aks-btn">
-                    <div className="col-auto" style={style.fontKeluar}>
-                      <p>KELUAR</p>
-                    </div>
-                  </div>
-                </Link>
-                <div className="col"></div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     );
@@ -132,7 +115,16 @@ const style = {
     fontFamily: "Carter One",
     color: "#FAFAFA",
     marginLeft: "20px",
-    marginTop: "70px"
+    marginTop: "70px",
+    webkitTextStroke: "5px rgba(255, 255, 255, 0.20)"
+  },
+
+  fontExit: {
+    fontFamily: "Carter One",
+    color: "#117226"
+    // fontSize: "17px"
+    // marginLeft: "20px"
+    // marginTop: "70px"
   },
 
   kotakMain: {
@@ -141,17 +133,16 @@ const style = {
     width: "300.79px",
     height: "64.02px",
     marginLeft: "64px",
-    marginTop: "60px",
+    marginTop: "65px",
     boxShadow: " 6px 6px 0px rgba(0, 0, 0, 0.15)"
   },
 
   kotakLain: {
-    background: "#117226",
+    background: "#062b0e",
     borderRadius: "15px",
     width: "300.79px",
     height: "64.02px",
     marginLeft: "64px",
-    marginTop: "30px",
     boxShadow: " 6px 6px 0px rgba(0, 0, 0, 0.15)"
   },
 

@@ -91,12 +91,36 @@ export default class Statistics extends Component {
                         <div className="row">
                           <div className="col-4"></div>
                           <div className="col-1">
-                            <img src={LineChart} alt="lineChartIcon" onClick={() => this.setState({isChartLine:true})}/>
+                            <img
+                              className="aks-btn"
+                              src={LineChart}
+                              alt="lineChartIcon"
+                              onClick={() =>
+                                this.setState({ isChartLine: true })
+                              }
+                              style={
+                                this.state.isChartLine
+                                  ? style.btnStatsSelected
+                                  : null
+                              }
+                            />
                             {/* <div>Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
                           </div>
                           <div className="col-2"></div>
                           <div className="col-1">
-                            <img src={BarsChart} alt="barsChartIcon" onClick={() => this.setState({isChartLine:false})}/>
+                            <img
+                              className="aks-btn"
+                              src={BarsChart}
+                              alt="barsChartIcon"
+                              onClick={() =>
+                                this.setState({ isChartLine: false })
+                              }
+                              style={
+                                !this.state.isChartLine
+                                  ? style.btnStatsSelected
+                                  : null
+                              }
+                            />
                             {/* <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
                           </div>
                         </div>
@@ -161,5 +185,8 @@ const style = {
     fontFamily: "Carter One",
     marginTop: "25px",
     zIndex: "3"
+  },
+  btnStatsSelected: {
+    transform: "scale(1.25)"
   }
 };
