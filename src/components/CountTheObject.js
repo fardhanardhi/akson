@@ -290,6 +290,17 @@ const style = {
     border: "5px solid #FF0000",
     borderRadius: "8px"
   },
+  buttonStyleClicked: {
+    backgroundColor: "#000000",
+    color: "white",
+    padding: "15px 32px",
+    textAlign: "center",
+    textDecoration: "none",
+    display: "inline-block",
+    fontSize: "18px",
+    border: "7.5px solid #4CAF50",
+    borderRadius: "10px"
+  },
   buttonStyleNotClick: {
     backgroundColor: "#4CAF50",
     color: "white",
