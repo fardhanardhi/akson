@@ -300,3 +300,23 @@ const styles = {
     margin: "0px 35px"
   }
 };
+
+const boxStyles = {
+  text: {
+    fontWeight: "bold",
+    fontFamily: "Carter One",
+    color: "#FFFFFF"
+  },
+  borderTrue: {
+    padding: "18px",
+    border: "5px solid #000000",
+    borderRadius: "10px",
+    margin: "0px 35px",
+    pointerEvents: "none"
+  },
+  borderFalse: {
+    padding: "18px",
+    border: "none",
+    margin: "0px 35px"
+  }
+};
