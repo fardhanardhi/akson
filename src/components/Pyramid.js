@@ -12,7 +12,6 @@ export default function Pyramid(props) {
         <path d="M41 88.602V1L81.4035 65.8292L41 88.602Z" fill="black" fillOpacity="0.15" />
         <path d="M41.4033 88.4184V1L0.999863 65.6933L41.4033 88.4184Z" fill={props.color} stroke="black" strokeWidth="0.5" />
       </svg>
-
     </div>
   )
 }

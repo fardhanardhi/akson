@@ -9,6 +9,7 @@ import Prism from "../components/Prism";
 import Cuboid from "../components/Cuboid";
 import Cube from "../components/Cube";
 import HexagonalPrism from "../components/HexagonalPrism";
+import Layang from "../components/Layang";
 
 import GameHeader from "../components/GameHeader";
 
@@ -37,7 +38,8 @@ class FindThePairs extends Component {
       <Prism />,
       <Cube />,
       <Cuboid />,
-      <HexagonalPrism />
+      <HexagonalPrism />,
+      <Layang />
     ];
   }
 
@@ -61,7 +63,8 @@ class FindThePairs extends Component {
       <Prism color={colors[colorId].code} />,
       <Cube color={colors[colorId].code} />,
       <Cuboid color={colors[colorId].code} />,
-      <HexagonalPrism color={colors[colorId].code} />
+      <HexagonalPrism color={colors[colorId].code} />,
+      <Layang color={colors[colorId].code} />
     ];
     return obj[objectId];
   };
